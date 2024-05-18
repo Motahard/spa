@@ -6,16 +6,17 @@ import {
   HiddenCheckbox,
   StyledCheckbox,
   Icon,
+  TextArea,
 } from './styles';
 
 type Props = {
   type?: string;
   placeholder?: string;
   fontFamily?: string;
-  isTextarea?: boolean;
   name?: string;
   labelDescription?: string;
   checked?: boolean;
+  size?: number;
   onClick?: (id?: string) => void;
 };
 
@@ -23,14 +24,12 @@ export function InputComponent({
   placeholder,
   fontFamily,
   type = 'text',
-  isTextarea = false,
   name,
   labelDescription,
   checked,
+  size = 24,
   onClick,
 }: Props) {
-  if (isTextarea) return null;
-
   if (type === 'checkbox') {
     return (
       <InputContainer>
@@ -51,6 +50,19 @@ export function InputComponent({
     );
   }
 
+  if (type === 'textarea') {
+    return (
+      <InputContainer>
+        <TextArea
+          placeholder={placeholder}
+          className={fontFamily}
+          name={name}
+          size={size}
+        />
+      </InputContainer>
+    );
+  }
+
   return (
     <InputContainer>
       <Input
@@ -58,6 +70,7 @@ export function InputComponent({
         placeholder={placeholder}
         className={fontFamily}
         name={name}
+        size={size}
       />
     </InputContainer>
   );

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import bookImage from '@/assets/content/book.jpg';
-import { colors } from '@/constants';
 
 export const Container = styled.div``;
 
@@ -24,15 +23,14 @@ export const BookContainer = styled.div`
   margin: auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 96px;
-`;
-
-export const MapContainer = styled.div`
-  margin-top: 156px;
-  border: 5px solid ${colors.inHouse};
+  gap: 0 96px;
 `;
 
 export const FormContainer = styled.div`
   grid-template-columns: repeat(1fr);
   gap: 108px;
+`;
+
+export const CommentContainer = styled.div`
+  margin-top: 48px;
 `;

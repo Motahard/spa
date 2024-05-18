@@ -10,13 +10,13 @@ export const DateWrapper = styled.div`
   flex: 1;
 `;
 export const TimeWrapper = styled.div`
+  margin-top: 16px;
   flex: 1;
 `;
 
-export const DateContainer = styled.div`;
+export const TimeContainer = styled.div`
+  margin-top: 24px;
 `;
-
-export const TimeContainer = styled.div``;
 export const DateTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;

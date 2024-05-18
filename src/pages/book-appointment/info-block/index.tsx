@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
-import { cormorant } from '@/constants';
+import { cormorant, cormorantLight } from '@/constants';
 import {
   InfoContainer,
   Container,
@@ -17,22 +17,22 @@ export function InfoBlock() {
         <InputComponent
           type="text"
           placeholder="First Name"
-          fontFamily={cormorant.className}
+          fontFamily={cormorantLight.className}
         />
         <InputComponent
           type="text"
           placeholder="Last Name"
-          fontFamily={cormorant.className}
+          fontFamily={cormorantLight.className}
         />
         <InputComponent
           type="email"
           placeholder="Email"
-          fontFamily={cormorant.className}
+          fontFamily={cormorantLight.className}
         />
         <InputComponent
           type="tel"
           placeholder="Phone number"
-          fontFamily={cormorant.className}
+          fontFamily={cormorantLight.className}
         />
       </InfoContainer>
     </Container>

@@ -3,7 +3,6 @@ import { cormorant } from '@/constants';
 import React, { useState } from 'react';
 import {
   Container,
-  DateContainer,
   DateWrapper,
   TimeContainer,
   TimeWrapper,
@@ -11,9 +10,12 @@ import {
 } from '@/pages/book-appointment/date-block/styles';
 import { InputComponent } from '@/components/input';
 import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
+import { Calendar } from '@/components/calendar';
+import { CalendarProps } from 'react-calendar';
 
 export function DateBlock() {
   const [checked, setChecked] = useState<string>('');
+  const [date, setDate] = useState<CalendarProps['value']>(new Date());
 
   const handleClick = (id?: string) => {
     setChecked(id ?? '');
@@ -34,6 +36,7 @@ export function DateBlock() {
           {checkboxConfig.map((item) => (
             <InputComponent
               {...item}
+              key={item.name}
               onClick={handleClick}
               checked={item.name === checked}
             />
@@ -42,12 +45,8 @@ export function DateBlock() {
       </TimeWrapper>
       <DateWrapper>
         <DateTitleContainer>
-          <Title fontFamily={cormorant.className} size={24}>
-            Select Dates
-          </Title>
-          <p className={cormorant.className}>!@312312opkadsop</p>
+          <Calendar defaultView="month" value={date} setValue={setDate} />
         </DateTitleContainer>
-        <DateContainer></DateContainer>
       </DateWrapper>
     </Container>
   );

@@ -1,10 +1,28 @@
-import { colors } from '@/constants';
+import { colors, cormorant } from '@/constants';
 import styled from 'styled-components';
 
-export const Input = styled.input`
+type InputProps = {
+  size: number;
+};
+
+export const Input = styled.input<InputProps>`
   width: 100%;
   padding: 24px;
-  font-size: 24px;
+  font-size: ${(props) => props.size}px;
+  color: ${colors.charCoal};
+  border: 1px solid ${colors.border};
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+    border: 1px solid ${colors.charCoal};
+  }
+`;
+
+export const TextArea = styled.textarea<InputProps>`
+  width: 100%;
+  ${cormorant.style};
+  padding: 24px;
+  font-size: ${(props) => props.size}px;
   color: ${colors.charCoal};
   border: 1px solid ${colors.border};
   border-radius: 5px;

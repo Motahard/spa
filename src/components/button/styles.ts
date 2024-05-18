@@ -8,4 +8,5 @@ export const ButtonComponent = styled.button`
   font-size: 20px;
   color: #fff;
   background-color: ${colors.pinkKisses};
+  cursor: pointer;
 `;

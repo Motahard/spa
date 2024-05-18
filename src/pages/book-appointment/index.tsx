@@ -1,16 +1,22 @@
-import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
+import React from 'react';
+
 import Title from '@/components/title';
-import { cormorant } from '@/constants';
+import { InputComponent } from '@/components/input';
+
 import {
   BookContainer,
   BookTitleImageWrapper,
   BookTitleWrapper,
   Container,
   FormContainer,
-  MapContainer,
+  CommentContainer,
 } from '@/pages/book-appointment/styles';
-import { InfoBlock } from './info-block';
-import { DateBlock } from './date-block';
+import { InfoBlock } from '@/pages/book-appointment/info-block';
+import { DateBlock } from '@/pages/book-appointment/date-block';
+import { MapBlock } from '@/pages/book-appointment/map-block';
+import { PaymentBlock } from '@/pages/book-appointment/payment-block';
+
+import { cormorant, cormorantLight } from '@/constants';
 
 function BookAppoinment() {
   return (
@@ -26,18 +32,16 @@ function BookAppoinment() {
         <FormContainer>
           <InfoBlock />
           <DateBlock />
+          <CommentContainer>
+            <InputComponent
+              type="textarea"
+              placeholder="Any special requests for your pet(s)..."
+              fontFamily={cormorantLight.className}
+            />
+          </CommentContainer>
+          <PaymentBlock />
         </FormContainer>
-        <MapContainer>
-          <YMaps>
-            <Map
-              defaultState={{ center: [55.75, 37.57], zoom: 15 }}
-              height={500}
-              width={500}
-            >
-              <Placemark defaultGeometry={[55.75, 37.57]} />
-            </Map>
-          </YMaps>
-        </MapContainer>
+        <MapBlock />
       </BookContainer>
     </Container>
   );
