@@ -1,7 +1,7 @@
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { colors, cormorant, cormorantLight } from '@/constants';
-import { Breaker } from '@/pages/spa-services/styles';
+import { Breaker } from '@/components/breaker';
 
 export const spaServicesInfo = [
   {

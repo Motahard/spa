@@ -8,10 +8,3 @@ export const SpaContainer = styled.div`
   max-width: 900px;
   margin: auto;
 `;
-
-export const Breaker = styled.hr`
-  width: 600px;
-  height: 2px;
-  margin-top: 64px;
-  margin-bottom: 96px;
-`;

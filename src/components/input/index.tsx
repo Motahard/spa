@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import {
   Input,
   Label,
@@ -7,6 +8,7 @@ import {
   StyledCheckbox,
   Icon,
   TextArea,
+  RightAddons,
 } from './styles';
 
 type Props = {
@@ -17,6 +19,7 @@ type Props = {
   labelDescription?: string;
   checked?: boolean;
   size?: number;
+  rightAddons?: StaticImageData;
   onClick?: (id?: string) => void;
 };
 
@@ -29,6 +32,7 @@ export function InputComponent({
   checked,
   size = 24,
   onClick,
+  rightAddons,
 }: Props) {
   if (type === 'checkbox') {
     return (
@@ -69,9 +73,11 @@ export function InputComponent({
         type={type}
         placeholder={placeholder}
         className={fontFamily}
+        rightAddons={rightAddons}
         name={name}
         size={size}
       />
+      {rightAddons && <RightAddons src={rightAddons} alt={'sad'} />}
     </InputContainer>
   );
 }

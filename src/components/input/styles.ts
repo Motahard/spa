@@ -1,8 +1,10 @@
 import { colors, cormorant } from '@/constants';
+import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
 
 type InputProps = {
   size: number;
+  rightAddons?: StaticImageData;
 };
 
 export const Input = styled.input<InputProps>`
@@ -11,7 +13,9 @@ export const Input = styled.input<InputProps>`
   font-size: ${(props) => props.size}px;
   color: ${colors.charCoal};
   border: 1px solid ${colors.border};
+  ${(props) => props.rightAddons && 'padding-right: 45px;'}
   border-radius: 5px;
+  flex: 1 0 auto;
   &:focus {
     outline: none;
     border: 1px solid ${colors.charCoal};
@@ -38,7 +42,18 @@ export const Label = styled.label`
 `;
 
 export const InputContainer = styled.div`
+  position: relative;
   margin-bottom: 16px;
+  display: flex;
+  align-content: stretch;
+`;
+
+export const RightAddons = styled(Image)`
+  position: absolute;
+  width: 30px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
