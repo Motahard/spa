@@ -5,14 +5,20 @@ import {
   SearchContainer,
   CustomText,
   InputContainer,
+  DogInfoContainer,
+  DogCard,
+  DogImage,
+  DogDescription,
 } from '@/pages/info/styles';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import Paragraph from '@/components/paragraph';
 import { InputComponent } from '@/components/input';
 import search from '@/assets/Search.svg';
+import Image from 'next/image';
+import imageExample from '@/assets/content/about2.jpg';
 
-function AboutPage() {
+function InfoPage() {
   return (
     <Container>
       <Title top={48} fontFamily={cormorant.className} size={70} bottom={48}>
@@ -32,8 +38,22 @@ function AboutPage() {
           />
         </InputContainer>
       </SearchContainer>
+      <DogInfoContainer>
+        <DogCard>
+          <DogImage>
+            <Image src={imageExample} alt='alt'/>
+          </DogImage>
+          <Title top={30} fontFamily={cormorant.className} size={48} bottom={30}>Siberian Husky</Title>
+        </DogCard>
+        <DogDescription>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>Energy: 5</Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>Min life expectancy: 5</Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>Good with strangers: 5</Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>Good with other dogs: 5</Paragraph>
+        </DogDescription>
+      </DogInfoContainer>
     </Container>
   );
 }
 
-export default AboutPage;
+export default InfoPage;

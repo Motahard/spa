@@ -77,7 +77,7 @@ export function InputComponent({
         name={name}
         size={size}
       />
-      {rightAddons && <RightAddons src={rightAddons} alt={'sad'} />}
+      {rightAddons && <RightAddons src={rightAddons} alt={''} />}
     </InputContainer>
   );
 }
