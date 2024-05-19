@@ -27,29 +27,29 @@ export const InputContainer = styled.div`
 `;
 
 export const DogInfoContainer = styled.div`
-    margin-top: 96px;
-    width: 100%;
+  margin-top: 96px;
+  width: 100%;
 `;
 
 export const DogCard = styled.div`
-    background-color: ${colors.inHouse};
-    padding-top: 48px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: ${colors.inHouse};
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const DogImage = styled.div`
-    & > img {
-        height: 100%;
-        min-width: 100%;
-    }
+  & > img {
+    height: 100%;
+    min-width: 100%;
+  }
 `;
 
 export const DogDescription = styled.div`
-    margin-top: 64px;
-    & > p {
-        margin-bottom: 18px;
-    }
+  margin-top: 64px;
+  & > p {
+    margin-bottom: 18px;
+  }
 `;

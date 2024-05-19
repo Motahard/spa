@@ -41,15 +41,30 @@ function InfoPage() {
       <DogInfoContainer>
         <DogCard>
           <DogImage>
-            <Image src={imageExample} alt='alt'/>
+            <Image src={imageExample} alt="alt" />
           </DogImage>
-          <Title top={30} fontFamily={cormorant.className} size={48} bottom={30}>Siberian Husky</Title>
+          <Title
+            top={30}
+            fontFamily={cormorant.className}
+            size={48}
+            bottom={30}
+          >
+            Siberian Husky
+          </Title>
         </DogCard>
         <DogDescription>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>Energy: 5</Paragraph>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>Min life expectancy: 5</Paragraph>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>Good with strangers: 5</Paragraph>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>Good with other dogs: 5</Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>
+            Energy: 5
+          </Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>
+            Min life expectancy: 5
+          </Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>
+            Good with strangers: 5
+          </Paragraph>
+          <Paragraph fontFamily={cormorantLight.className} size={24}>
+            Good with other dogs: 5
+          </Paragraph>
         </DogDescription>
       </DogInfoContainer>
     </Container>

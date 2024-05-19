@@ -1,7 +1,7 @@
 export const linksWithDescription = [
   {
     name: 'Home',
-    uri: '/',
+    uri: '/home',
   },
   {
     name: 'Info',
