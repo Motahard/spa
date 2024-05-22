@@ -27,19 +27,23 @@ type Props = {
 export const ShopBar = ({ title, cards, buttonText }: Props) => {
   return (
     <Container>
-        <TitleContainer>
+      <TitleContainer>
         <Title size={64} fontFamily={cormorant.className}>
-        {title}
-      </Title> 
-        </TitleContainer>
+          {title}
+        </Title>
+      </TitleContainer>
       <CardsContainer>
         {cards.map((item) => (
           <Card key={item.id}>
             <ImageContainer>
               <Image src={item.image} alt={item.description} />
             </ImageContainer>
-            <Paragraph fontFamily={cormorantLight.className} size={24}>{item.description}</Paragraph>
-            <Paragraph fontFamily={cormorant.className} size={24}>CA: {item.price}</Paragraph>
+            <Paragraph fontFamily={cormorantLight.className} size={24}>
+              {item.description}
+            </Paragraph>
+            <Paragraph fontFamily={cormorant.className} size={24}>
+              CA: {item.price}
+            </Paragraph>
           </Card>
         ))}
       </CardsContainer>

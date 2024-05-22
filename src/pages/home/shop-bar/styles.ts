@@ -15,8 +15,7 @@ export const CardsContainer = styled.div`
   gap: 48px;
 `;
 
-export const Card = styled.div`
-`;
+export const Card = styled.div``;
 
 export const ImageContainer = styled.div`
   display: flex;
@@ -34,8 +33,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-    display: flex;
-    margin-bottom: 48px;
-    justify-content: center;
+  display: flex;
+  margin-bottom: 48px;
+  justify-content: center;
 `;
-

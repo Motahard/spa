@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   Container,
@@ -22,8 +22,19 @@ import {
   animalCarryOns,
 } from '@/pages/home/config';
 import { ShopBar } from '@/pages/home/shop-bar';
+import { Modal } from '@/components/modal';
 
 function HomePage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    setModalOpen(true);
+  }, []);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
   return (
     <Container>
       <HomeCard>
@@ -46,6 +57,11 @@ function HomePage() {
       />
       <ShopBar {...dogCollars} />
       <ShopBar {...animalCarryOns} />
+      {modalOpen && (
+        <Modal onClose={handleModalClose}>
+          <div>hi</div>
+        </Modal>
+      )}
     </Container>
   );
 }

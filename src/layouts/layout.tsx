@@ -8,15 +8,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head />
-      <body>
-        <StyledComponentsRegistry>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </StyledComponentsRegistry>
-      </body>
-    </html>
+    <>
+      <StyledComponentsRegistry>
+        <Navbar />
+        <main>{children}</main>
+        <div id="modal-root"></div>
+        <Footer />
+      </StyledComponentsRegistry>
+    </>
   );
 }
