@@ -2,8 +2,7 @@ import { colors } from '@/constants';
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
-  width: 900px;
-  height: 600px;
+  max-width: 1000px;
 `;
 
 export const ModalWrapper = styled.div`

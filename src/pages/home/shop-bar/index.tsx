@@ -12,6 +12,7 @@ import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import Paragraph from '@/components/paragraph';
 import Button from '@/components/button';
+import Link from 'next/link';
 
 type Props = {
   title: string;
@@ -48,7 +49,9 @@ export const ShopBar = ({ title, cards, buttonText }: Props) => {
         ))}
       </CardsContainer>
       <ButtonContainer>
-        <Button text={buttonText} />
+        <Link href="spa-services">
+          <Button text={buttonText} />
+        </Link>
       </ButtonContainer>
     </Container>
   );

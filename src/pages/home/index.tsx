@@ -23,12 +23,25 @@ import {
 } from '@/pages/home/config';
 import { ShopBar } from '@/pages/home/shop-bar';
 import { Modal } from '@/components/modal';
+import { ModalContent } from './modal-content';
 
 function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    setModalOpen(true);
+    const previousDate = JSON.stringify(localStorage.getItem('date'));
+
+    if (previousDate) {
+      const dateFormat = +new Date(previousDate);
+      const differenceDate = Date.now() - dateFormat;
+
+      if (differenceDate < 600000) {
+        setModalOpen(false);
+      } else {
+        setModalOpen(true);
+        localStorage.setItem('date', new Date().toString());
+      }
+    }
   }, []);
 
   const handleModalClose = () => {
@@ -59,7 +72,7 @@ function HomePage() {
       <ShopBar {...animalCarryOns} />
       {modalOpen && (
         <Modal onClose={handleModalClose}>
-          <div>hi</div>
+          <ModalContent />
         </Modal>
       )}
     </Container>
