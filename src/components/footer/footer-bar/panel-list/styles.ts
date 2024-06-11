@@ -23,5 +23,14 @@ export const PanelListComponent = styled.ul`
 
 export const PanelListItem = styled.li`
   margin-bottom: 8px;
-  font-size: 26px;
+  font-size: 24px;
+
+  & > a {
+    text-decoration: none;
+    color: ${colors.charCoal};
+  }
+
+  & > a:hover {
+    color: ${colors.pinkKisses};
+  }
 `;

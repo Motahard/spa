@@ -3,6 +3,15 @@ import { colors } from '@/constants';
 
 export const ListItem = styled.p`
   color: ${colors.charCoal};
+  cursor: pointer;
+  & > a {
+    text-decoration: none;
+    color: ${colors.charCoal};
+  }
+
+  & > a:hover {
+    color: ${colors.bronzedRose};
+  }
 `;
 
 export const Container = styled.div`

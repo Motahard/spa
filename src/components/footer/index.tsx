@@ -1,6 +1,7 @@
 import FooterBar from '@/components/footer/footer-bar';
 import { Container, FooterWrapper, ListItem } from '@/components/footer/styles';
 import { bottomFooterBarInfo, cormorantLight } from '@/constants';
+import Link from 'next/link';
 
 function Footer() {
   return (
@@ -9,7 +10,7 @@ function Footer() {
       <Container>
         {bottomFooterBarInfo.map((item) => (
           <ListItem className={cormorantLight.className} key={item.id}>
-            {item.text}
+            <Link href={item.href}>{item.text}</Link>
           </ListItem>
         ))}
       </Container>

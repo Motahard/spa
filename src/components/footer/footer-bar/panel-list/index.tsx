@@ -5,6 +5,7 @@ import {
   PanelListTitle,
   PanelListWrapper,
 } from './styles';
+import Link from 'next/link';
 
 type Props = {
   title: string;
@@ -19,7 +20,7 @@ function PanelList({ title, items, alignItems = 'flex-start' }: Props) {
       <PanelListComponent>
         {items.map((item) => (
           <PanelListItem key={item.id} className={cormorantLight.className}>
-            {item.text}
+            <Link href={item.href}>{item.text}</Link>
           </PanelListItem>
         ))}
       </PanelListComponent>

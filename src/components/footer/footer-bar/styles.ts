@@ -3,7 +3,7 @@ import { colors } from '@/constants';
 
 export const FooterBarWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: flex-start;
   padding: 32px 64px;
   justify-content: space-between;
