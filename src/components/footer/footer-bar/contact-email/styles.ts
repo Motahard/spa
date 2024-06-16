@@ -16,6 +16,8 @@ export const SubscribeInputWrapper = styled.div`
   width: 600px;
 `;
 
+export const SubscribeForm = styled.form``;
+
 export const SubscribeInput = styled.div`
   flex: 5;
   height: 100%;

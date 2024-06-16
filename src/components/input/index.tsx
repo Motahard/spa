@@ -11,6 +11,8 @@ import {
   RightAddons,
 } from './styles';
 import { ChangeEventHandler } from 'react';
+import Paragraph from '../paragraph';
+import { colors, cormorantLight } from '@/constants';
 
 type Props = {
   type?: string;
@@ -24,6 +26,7 @@ type Props = {
   onClick?: (id?: string) => void;
   value?: string;
   onChange?: (value: string) => void;
+  error?: string;
 };
 
 export function InputComponent({
@@ -38,10 +41,11 @@ export function InputComponent({
   rightAddons,
   value,
   onChange,
+  error,
 }: Props) {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange?.(e.target.value);
-  }
+  };
 
   if (type === 'checkbox') {
     return (
@@ -87,8 +91,18 @@ export function InputComponent({
         size={size}
         value={value}
         onChange={handleChange}
+        isError={Boolean(error)}
       />
       {rightAddons && <RightAddons src={rightAddons} alt={''} />}
+      {error && (
+        <Paragraph
+          size={16}
+          fontFamily={cormorantLight.className}
+          color={colors.error}
+        >
+          {error}
+        </Paragraph>
+      )}
     </InputContainer>
   );
 }

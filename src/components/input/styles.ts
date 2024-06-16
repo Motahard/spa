@@ -5,6 +5,7 @@ import styled from 'styled-components';
 type InputProps = {
   size: number;
   rightAddons?: StaticImageData;
+  isError?: boolean;
 };
 
 export const Input = styled.input<InputProps>`
@@ -12,7 +13,7 @@ export const Input = styled.input<InputProps>`
   padding: 24px;
   font-size: ${(props) => props.size}px;
   color: ${colors.charCoal};
-  border: 1px solid ${colors.border};
+  border: 1px solid ${(props) => (props.isError ? colors.error : colors.border)};
   ${(props) => props.rightAddons && 'padding-right: 45px;'}
   border-radius: 5px;
   flex: 1 0 auto;
@@ -46,6 +47,13 @@ export const InputContainer = styled.div`
   margin-bottom: 16px;
   display: flex;
   align-content: stretch;
+  flex-direction: column;
+  & > p {
+    position: absolute;
+    top: 100%;
+    margin-left: 16px;
+    margin-top: 8px;
+  }
 `;
 
 export const RightAddons = styled(Image)`

@@ -1,40 +1,57 @@
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { useCallback, useEffect, useState } from 'react';
 
-type Props = Record<string, string>;
+type Props = Record<string, string> & { recipient: string };
 
 export const useSendEmail = () => {
-    const [data, setData] = useState<EmailJSResponseStatus>()
-    const [error, setError] = useState<PromiseRejectedResult>();
-    const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<EmailJSResponseStatus>();
+  const [error, setError] = useState<string>();
+  const [loading, setLoading] = useState<boolean>(false);
 
-    useEffect(() => {
-        emailjs.init({ publicKey: process.env.EMAIL_PUBLIC || '' });
-    }, []);
+  const clearError = () => setError('');
 
-    const apiMethod = useCallback(async (props: Props) => {
-        setLoading(true);
+  useEffect(() => {
+    emailjs.init({ publicKey: process.env.EMAIL_PUBLIC || '' });
+  }, []);
 
-        if (!process.env.EMAIL_SERVICE_ID || !process.env.EMAIL_TEMPLATE_ID) return;
+  const apiMethod = useCallback(async (props: Props) => {
+    setLoading(true);
 
-        try {
-            const response = await emailjs.send(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_TEMPLATE_ID, props);
-
-            if (response) {
-                setData(response)
-            }
-        } catch (err) {
-            const e = err as PromiseRejectedResult;
-            setError(e);
-        }
-
-        setLoading(false);
-    }, []);
-
-    return {
-        sendEmail: apiMethod,
-        error,
-        data, 
-        loading
+    if (!process.env.EMAIL_SERVICE_ID || !process.env.EMAIL_TEMPLATE_ID) {
+      setError('Keys is not provided');
+      setLoading(false);
+      return;
     }
+
+    if (!props.recipient) {
+      setError('Recipient is not entered');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await emailjs.send(
+        process.env.EMAIL_SERVICE_ID,
+        process.env.EMAIL_TEMPLATE_ID,
+        props
+      );
+
+      if (response) {
+        setData(response);
+      }
+    } catch (err) {
+      const e = err as PromiseRejectedResult;
+      setError(e.reason);
+    }
+
+    setLoading(false);
+  }, []);
+
+  return {
+    sendEmail: apiMethod,
+    clearError,
+    error,
+    data,
+    loading,
+  };
 };

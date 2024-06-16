@@ -8,4 +8,5 @@ export const colors = {
   border: '#E0E0E0',
   white: '#ffffff',
   prevMonthDate: '#B0B0B0',
+  error: '#F73333',
 };

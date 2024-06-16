@@ -17,38 +17,32 @@ import Button from '@/components/button';
 import { cinzel_decorative, cormorantLight } from '@/constants';
 import emailjs from '@emailjs/browser';
 import { useSendEmail } from '@/hooks/use-send-email';
+import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
 
 export const ModalContent = () => {
   const [emailInput, setEmail] = useState('');
-  const { loading, sendEmail, error } = useSendEmail();
-
-  useEffect(() => {
-    if (error) {
-      console.log('Bad api request: ', error);
-    }
-  }, [error])
+  const { loading, sendEmail, error, clearError } = useSendEmail();
 
   useEffect(() => {
     emailjs.init({ publicKey: process.env.EMAIL_PUBLIC || '' });
-  }, [])
+  }, []);
+
+  const handleChange = (value: string) => {
+    clearError();
+    setEmail(value);
+  };
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    if (!emailInput) {
-      console.error('Email is not provided')
-      return;
-    }
-
     const params = {
-      from_name: 'Modsen Doggy Spa',
+      from_name: FROM_NAME,
       recipient: emailInput,
-      message: 'You are subscribed successfully',
+      message: DEFAULT_MESSAGE,
     };
 
     await sendEmail(params);
   };
-
 
   return (
     <Container>
@@ -66,10 +60,11 @@ export const ModalContent = () => {
             fontFamily={cormorantLight.className}
             size={18}
             value={emailInput}
-            onChange={setEmail}
+            onChange={handleChange}
+            error={error}
           />
           <ButtonWrapper>
-            <Button text="Sign Up" type="submit" loading={loading}/>
+            <Button text="Sign Up" type="submit" loading={loading} />
           </ButtonWrapper>
         </FormWrapper>
         <Paragraph

@@ -14,18 +14,12 @@ import {
 function FooterBar() {
   return (
     <FooterBarWrapper>
-      <PanelList
-        title="Customer Service"
-        items={leftFooterBarInfo}
-      />
+      <PanelList title="Customer Service" items={leftFooterBarInfo} />
       <ContactWrapper>
         <ContactEmail />
         <SocialMedia socialLinks={socialLinks} />
       </ContactWrapper>
-      <PanelList
-        title="Navigation"
-        items={rightFooterBarInfo}
-      />
+      <PanelList title="Navigation" items={rightFooterBarInfo} />
     </FooterBarWrapper>
   );
 }
