@@ -17,7 +17,6 @@ function FooterBar() {
       <PanelList
         title="Customer Service"
         items={leftFooterBarInfo}
-        alignItems="flex-start"
       />
       <ContactWrapper>
         <ContactEmail />
@@ -26,7 +25,6 @@ function FooterBar() {
       <PanelList
         title="Navigation"
         items={rightFooterBarInfo}
-        alignItems="flex-end"
       />
     </FooterBarWrapper>
   );

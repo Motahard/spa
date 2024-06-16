@@ -10,6 +10,7 @@ import {
   TextArea,
   RightAddons,
 } from './styles';
+import { ChangeEventHandler } from 'react';
 
 type Props = {
   type?: string;
@@ -21,6 +22,8 @@ type Props = {
   size?: number;
   rightAddons?: StaticImageData;
   onClick?: (id?: string) => void;
+  value?: string;
+  onChange?: (value: string) => void;
 };
 
 export function InputComponent({
@@ -33,7 +36,13 @@ export function InputComponent({
   size = 24,
   onClick,
   rightAddons,
+  value,
+  onChange,
 }: Props) {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    onChange?.(e.target.value);
+  }
+
   if (type === 'checkbox') {
     return (
       <InputContainer>
@@ -76,6 +85,8 @@ export function InputComponent({
         rightAddons={rightAddons}
         name={name}
         size={size}
+        value={value}
+        onChange={handleChange}
       />
       {rightAddons && <RightAddons src={rightAddons} alt={''} />}
     </InputContainer>

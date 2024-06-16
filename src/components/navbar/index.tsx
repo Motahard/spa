@@ -57,7 +57,7 @@ function Navbar() {
         <Paragraph
           fontFamily={cormorant.className}
           size={26}
-          textAlign="center"
+          style={{ textAlign: 'center' }}
           color={colors.charCoal}
         >
           {discountText}

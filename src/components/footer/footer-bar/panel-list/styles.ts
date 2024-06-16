@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '@/constants';
 
-type PanelListWrapperProps = {
-  alignItems: string;
-};
-
-export const PanelListWrapper = styled.div<PanelListWrapperProps>`
+export const PanelListWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;

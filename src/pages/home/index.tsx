@@ -35,7 +35,7 @@ function HomePage() {
       const dateFormat = +new Date(previousDate);
       const differenceDate = Date.now() - dateFormat;
 
-      if (differenceDate < 600000) {
+      if (differenceDate < 6) {
         setModalOpen(false);
       } else {
         setModalOpen(true);

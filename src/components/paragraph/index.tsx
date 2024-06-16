@@ -15,7 +15,6 @@ function Paragraph({
   size,
   weight,
   children,
-  textAlign,
   color,
   style,
 }: Props) {
@@ -25,7 +24,6 @@ function Paragraph({
       weight={weight}
       style={style}
       className={fontFamily}
-      textAlign={textAlign}
       color={color}
     >
       {children}

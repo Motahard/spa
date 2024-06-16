@@ -10,12 +10,11 @@ import Link from 'next/link';
 type Props = {
   title: string;
   items: FooterItem[];
-  alignItems?: string;
 };
 
-function PanelList({ title, items, alignItems = 'flex-start' }: Props) {
+function PanelList({ title, items }: Props) {
   return (
-    <PanelListWrapper alignItems={alignItems}>
+    <PanelListWrapper>
       <PanelListTitle className={cormorant.className}>{title}</PanelListTitle>
       <PanelListComponent>
         {items.map((item) => (

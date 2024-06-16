@@ -48,7 +48,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      textAlign: 'center',
+      style: { textAlign: 'center' },
     },
   },
   {
@@ -82,7 +82,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      textAlign: 'center',
+      style: { textAlign: 'center' },
     },
   },
   {
@@ -116,7 +116,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      textAlign: 'center',
+      style: { textAlign: 'center' },
     },
   },
   {
@@ -150,7 +150,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      textAlign: 'center',
+      style: { textAlign: 'center' },
     },
   },
   {
@@ -184,7 +184,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      textAlign: 'center',
+      style: { textAlign: 'center' },
     },
   },
   {
