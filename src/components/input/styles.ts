@@ -19,7 +19,8 @@ export const Input = styled.input<InputProps>`
   flex: 1 0 auto;
   &:focus {
     outline: none;
-    border: 1px solid ${colors.charCoal};
+    border: 1px solid
+      ${(props) => (props.isError ? colors.error : colors.charCoal)};
   }
 `;
 
@@ -50,9 +51,9 @@ export const InputContainer = styled.div`
   flex-direction: column;
   & > p {
     position: absolute;
-    top: 100%;
     margin-left: 16px;
-    margin-top: 8px;
+    top: 10%;
+    right: 5%;
   }
 `;
 

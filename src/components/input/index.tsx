@@ -13,8 +13,9 @@ import {
 import { ChangeEventHandler } from 'react';
 import Paragraph from '../paragraph';
 import { colors, cormorantLight } from '@/constants';
+import { Schema } from 'yup';
 
-type Props = {
+export type InputProps = {
   type?: string;
   placeholder?: string;
   fontFamily?: string;
@@ -27,6 +28,8 @@ type Props = {
   value?: string;
   onChange?: (value: string) => void;
   error?: string;
+  validation?: Schema;
+  schemaName?: string;
 };
 
 export function InputComponent({
@@ -42,7 +45,7 @@ export function InputComponent({
   value,
   onChange,
   error,
-}: Props) {
+}: InputProps) {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange?.(e.target.value);
   };

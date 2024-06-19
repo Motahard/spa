@@ -11,8 +11,27 @@ import { Breaker } from '@/components/breaker';
 import Paragraph from '@/components/paragraph';
 import { InputComponent } from '@/components/input';
 import Button from '@/components/button';
+import { useInput } from '@/hooks/use-input';
+import {
+  firstNameConfig,
+  lastNameConfig,
+  emailConfig,
+  phoneNumberConfig,
+  additionalInfoConfig,
+} from './utils';
 
 function AboutPage() {
+  const [firstName, FirstNameComponent] = useInput(firstNameConfig);
+  const [lastName, LastNameComponent] = useInput(lastNameConfig);
+  const [email, EmailComponent] = useInput(emailConfig);
+  const [phoneNumber, PhoneNumberComponent] = useInput(phoneNumberConfig);
+  const [additionalInfo, AdditionalInfoComponent] =
+    useInput(additionalInfoConfig);
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <Container>
       <Title top={48} fontFamily={cormorant.className} size={70}>
@@ -30,39 +49,16 @@ function AboutPage() {
         your protection, please do not include your credit card or banking
         information details in your email.
       </Paragraph>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit}>
         <InputContainer>
-          <InputComponent
-            placeholder="First Name"
-            size={18}
-            fontFamily={cormorant.className}
-          />
-          <InputComponent
-            placeholder="Last Name"
-            size={18}
-            fontFamily={cormorant.className}
-          />
+          {FirstNameComponent}
+          {LastNameComponent}
         </InputContainer>
         <InputContainer>
-          <InputComponent
-            placeholder="Email"
-            size={18}
-            fontFamily={cormorant.className}
-          />
-          <InputComponent
-            placeholder="Phone number"
-            size={18}
-            fontFamily={cormorant.className}
-          />
+          {EmailComponent}
+          {PhoneNumberComponent}
         </InputContainer>
-        <InputContainer>
-          <InputComponent
-            type="textarea"
-            placeholder="Your message goes here ..."
-            size={18}
-            fontFamily={cormorant.className}
-          />
-        </InputContainer>
+        <InputContainer>{AdditionalInfoComponent}</InputContainer>
         <Button type="submit" text="Submit" />
       </FormContainer>
     </Container>
