@@ -105,6 +105,6 @@ export const StyledCheckbox = styled.div<{ checked?: boolean }>`
 `;
 
 export const CheckboxContainer = styled.div`
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 `;

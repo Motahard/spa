@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import {
   Container,
   EmailText,
@@ -11,7 +11,6 @@ import { Breaker } from '@/components/breaker';
 import Paragraph from '@/components/paragraph';
 import { InputComponent } from '@/components/input';
 import Button from '@/components/button';
-import { useInput } from '@/hooks/use-input';
 import {
   firstNameConfig,
   lastNameConfig,
@@ -19,17 +18,87 @@ import {
   phoneNumberConfig,
   additionalInfoConfig,
 } from './utils';
+import {
+  State,
+  formReducer,
+  initialState,
+} from '@/pages/contact/reducers/form-reducer';
+import { schema } from '@/constants/validation';
+import { ValidationError } from 'yup';
+import { CONTACT_MESSAGE, FROM_NAME } from '@/constants/email';
+import { useSendEmail } from '@/hooks/use-send-email';
 
 function AboutPage() {
-  const [firstName, FirstNameComponent] = useInput(firstNameConfig);
-  const [lastName, LastNameComponent] = useInput(lastNameConfig);
-  const [email, EmailComponent] = useInput(emailConfig);
-  const [phoneNumber, PhoneNumberComponent] = useInput(phoneNumberConfig);
-  const [additionalInfo, AdditionalInfoComponent] =
-    useInput(additionalInfoConfig);
+  const [state, dispatch] = useReducer(formReducer, initialState);
+  const { sendEmail, loading } = useSendEmail();
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+
+    try {
+      await schema.validate(
+        {
+          firstName: state.firstName.value,
+          lastName: state.lastName.value,
+          phone: state.phone.value,
+          email: state.email.value,
+        },
+        { abortEarly: false }
+      );
+
+      const params = {
+        from_name: FROM_NAME,
+        recipient: state.email.value,
+        message: CONTACT_MESSAGE,
+        name: `${state.firstName.value} ${state.lastName.value}`,
+      };
+
+      await sendEmail(params);
+
+      dispatch({
+        type: 'RESET_FORM',
+        field: '',
+        payload: {
+          value: '',
+        },
+      });
+    } catch (err) {
+      const errValidate = err as ValidationError;
+
+      for (const { path, message } of errValidate.inner) {
+        if (path && message) {
+          dispatch({
+            type: 'SET_ERROR',
+            field: path,
+            payload: {
+              value: state[path as keyof State].value,
+              error: message,
+            },
+          });
+        }
+      }
+    }
+  };
+
+  const handleChange = async (value: string, name: string) => {
+    dispatch({
+      type: 'CHANGE',
+      field: name,
+      payload: {
+        value: value,
+      },
+    });
+  };
+
+  const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
+    console.log('focus: ', e.target.name);
+    dispatch({
+      type: 'CLEAR_ERROR',
+      field: e.target.name,
+      payload: {
+        value: state[e.target.name as keyof State].value,
+      },
+    });
   };
 
   return (
@@ -51,15 +120,45 @@ function AboutPage() {
       </Paragraph>
       <FormContainer onSubmit={handleSubmit}>
         <InputContainer>
-          {FirstNameComponent}
-          {LastNameComponent}
+          <InputComponent
+            {...firstNameConfig}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            value={state.firstName.value}
+            error={state.firstName.error}
+          />
+          <InputComponent
+            {...lastNameConfig}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            value={state.lastName.value}
+            error={state.lastName.error}
+          />
         </InputContainer>
         <InputContainer>
-          {EmailComponent}
-          {PhoneNumberComponent}
+          <InputComponent
+            {...emailConfig}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            value={state.email.value}
+            error={state.email.error}
+          />
+          <InputComponent
+            {...phoneNumberConfig}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            value={state.phone.value}
+            error={state.phone.error}
+          />
         </InputContainer>
-        <InputContainer>{AdditionalInfoComponent}</InputContainer>
-        <Button type="submit" text="Submit" />
+        <InputContainer>
+          <InputComponent
+            {...additionalInfoConfig}
+            onChange={handleChange}
+            value={state.additionalInfo.value}
+          />
+        </InputContainer>
+        <Button type="submit" text="Submit" loading={loading} />
       </FormContainer>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@/components/button';
 import {
   SubscribeButton,
@@ -14,13 +14,13 @@ import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
 
 function ContactEmail() {
   const [value, setValue] = useState('');
-  const { loading, sendEmail, error, clearError } = useSendEmail();
+  const { sendEmail, error, clearError } = useSendEmail();
 
   useEffect(() => {
     if (error) {
       setTimeout(clearError, 3000);
     }
-  }, [error]);
+  }, [error, clearError]);
 
   const handleChange = (value: string) => {
     clearError();

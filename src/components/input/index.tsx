@@ -26,8 +26,9 @@ export type InputProps = {
   rightAddons?: StaticImageData;
   onClick?: (id?: string) => void;
   value?: string;
-  onChange?: (value: string) => void;
-  error?: string;
+  onChange?: (value: string, name: string) => void;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  error?: string | null;
   validation?: Schema;
   schemaName?: string;
 };
@@ -44,10 +45,13 @@ export function InputComponent({
   rightAddons,
   value,
   onChange,
+  onFocus,
   error,
 }: InputProps) {
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange?.(e.target.value);
+  const handleChange: ChangeEventHandler<
+    HTMLInputElement | HTMLTextAreaElement
+  > = (e) => {
+    onChange?.(e.target.value, e.target.name);
   };
 
   if (type === 'checkbox') {
@@ -60,12 +64,12 @@ export function InputComponent({
               <polyline points="20 6 9 17 4 12" />
             </Icon>
           </StyledCheckbox>
+          {labelDescription && (
+            <Label className={fontFamily} htmlFor={name}>
+              {labelDescription}
+            </Label>
+          )}
         </CheckboxContainer>
-        {labelDescription && (
-          <Label className={fontFamily} htmlFor={name}>
-            {labelDescription}
-          </Label>
-        )}
       </InputContainer>
     );
   }
@@ -78,6 +82,8 @@ export function InputComponent({
           className={fontFamily}
           name={name}
           size={size}
+          onChange={handleChange}
+          value={value}
         />
       </InputContainer>
     );
@@ -94,6 +100,7 @@ export function InputComponent({
         size={size}
         value={value}
         onChange={handleChange}
+        onFocus={onFocus}
         isError={Boolean(error)}
       />
       {rightAddons && <RightAddons src={rightAddons} alt={''} />}

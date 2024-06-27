@@ -6,19 +6,28 @@ const phoneRegExp =
 export const emailSchema = yup
   .string()
   .email('Email is not correct')
+  .required('Enter your email');
 
-export const nameSchema = yup
+export const firstName = yup
   .string()
   .min(2, 'Min length 2 characters')
-  .max(25, 'Max length 25 characters');
+  .max(25, 'Max length 25 characters')
+  .required('Enter your firstname');
+
+export const lastName = yup
+  .string()
+  .min(2, 'Min length 2 characters')
+  .max(25, 'Max length 25 characters')
+  .required('Enter your lastname');
 
 export const phoneSchema = yup
   .string()
-  .matches(phoneRegExp, 'Phone number is not valid');
+  .matches(phoneRegExp, 'Phone number is not correct')
+  .required('Enter your phone');
 
 export const schema = yup.object().shape({
-    email: emailSchema,
-    firstName: nameSchema,
-    lastName: nameSchema,
-    phone: phoneSchema
-})
+  email: emailSchema,
+  firstName: firstName,
+  lastName: lastName,
+  phone: phoneSchema,
+});

@@ -49,6 +49,7 @@ export const CalendarContainer = styled.div`
     text-align: center;
     background: ${colors.white};
     color: ${colors.charCoal};
+    cursor: pointer;
   }
 
   .react-calendar__tile--range {

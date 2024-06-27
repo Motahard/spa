@@ -9,4 +9,10 @@ export const ButtonComponent = styled.button`
   color: #fff;
   background-color: ${colors.pinkKisses};
   cursor: pointer;
+
+  & > img {
+    width: 40px;
+    height: 25px;
+    color: ${colors.white};
+  }
 `;
