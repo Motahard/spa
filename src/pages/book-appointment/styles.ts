@@ -26,11 +26,19 @@ export const BookContainer = styled.div`
   gap: 0 96px;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   grid-template-columns: repeat(1fr);
   gap: 108px;
 `;
 
 export const CommentContainer = styled.div`
   margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  & > button {
+    max-width: 300px;
+    margin: 0 auto;
+  }
 `;

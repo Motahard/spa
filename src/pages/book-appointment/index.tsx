@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useReducer, useRef, useState } from 'react';
+import { CalendarProps } from 'react-calendar';
 
 import Title from '@/components/title';
 import { InputComponent } from '@/components/input';
@@ -11,14 +12,70 @@ import {
   FormContainer,
   CommentContainer,
 } from '@/pages/book-appointment/styles';
-import { InfoBlock } from '@/pages/book-appointment/info-block';
+import InfoBlock from '@/pages/book-appointment/info-block';
 import { DateBlock } from '@/pages/book-appointment/date-block';
 import { MapBlock } from '@/pages/book-appointment/map-block';
 import { PaymentBlock } from '@/pages/book-appointment/payment-block';
 
 import { cormorant, cormorantLight } from '@/constants';
+import {
+  infoReducer,
+  initialInfoState,
+} from '@/pages/book-appointment/reducers/info-reducer';
+import { schema } from '@/constants/validation';
+import { ValidationError } from 'yup';
+import { InfoState } from './reducers/info-reducer';
+import { Modal } from '@/components/modal';
+import Button from '@/components/button';
 
 function BookAppoinment() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [time, setTime] = useState<string>('1');
+  const [date, setDate] = useState<CalendarProps['value']>(new Date());
+  const infoBlockRef = useRef<HTMLDivElement>(null);
+  const [additionalInfo, setAdditionalInfo] = useState<string>('');
+  const [state, dispatch] = useReducer(infoReducer, initialInfoState);
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+
+    try {
+      await schema.validate(
+        {
+          firstName: state.firstName.value,
+          lastName: state.lastName.value,
+          phone: state.phone.value,
+          email: state.email.value,
+        },
+        { abortEarly: false }
+      );
+      setModalOpen(true);
+    } catch (err) {
+      const errValidate = err as ValidationError;
+
+      if (infoBlockRef.current) {
+        infoBlockRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      for (const { path, message } of errValidate.inner) {
+        if (path && message) {
+          dispatch({
+            type: 'SET_ERROR',
+            field: path,
+            payload: {
+              value: state[path as keyof InfoState].value,
+              error: message,
+            },
+          });
+        }
+      }
+    }
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
   return (
     <Container>
       <BookTitleImageWrapper>
@@ -29,17 +86,29 @@ function BookAppoinment() {
         </BookTitleWrapper>
       </BookTitleImageWrapper>
       <BookContainer>
-        <FormContainer>
-          <InfoBlock />
-          <DateBlock />
+        <FormContainer onSubmit={handleSubmit}>
+          <InfoBlock state={state} dispatch={dispatch} ref={infoBlockRef} />
+          <DateBlock
+            time={time}
+            date={date}
+            setTime={setTime}
+            setDate={setDate}
+          />
           <CommentContainer>
             <InputComponent
               type="textarea"
               placeholder="Any special requests for your pet(s)..."
               fontFamily={cormorantLight.className}
+              value={additionalInfo}
+              onChange={setAdditionalInfo}
             />
+            <Button text="Book Appointment" type='submit'/>
           </CommentContainer>
-          <PaymentBlock />
+          {modalOpen && (
+            <Modal onClose={handleModalClose}>
+              <PaymentBlock />
+            </Modal>
+          )}
         </FormContainer>
         <MapBlock />
       </BookContainer>

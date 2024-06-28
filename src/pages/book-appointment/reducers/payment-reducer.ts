@@ -3,32 +3,27 @@ type FieldValue = {
   error?: string | null;
 };
 
-export type State = {
-  firstName: FieldValue;
-  lastName: FieldValue;
-  phone: FieldValue;
-  email: FieldValue;
-  additionalInfo: FieldValue;
+export type InfoState = {
+  card: FieldValue;
+  expiry: FieldValue;
+  cvv: FieldValue;
+  recepient: FieldValue;
 };
 
-export const initialState = {
-  firstName: {
+export const initialPaymentState = {
+  card: {
     value: '',
     error: null,
   },
-  lastName: {
+  expiry: {
     value: '',
     error: null,
   },
-  phone: {
+  cvv: {
     value: '',
     error: null,
   },
-  email: {
-    value: '',
-    error: null,
-  },
-  additionalInfo: {
+  recepient: {
     value: '',
     error: null,
   },
@@ -43,7 +38,7 @@ type Action = {
   field: string;
 };
 
-export const contactReducer = (state: State, action: Action) => {
+export const formReducer = (state: InfoState, action: Action) => {
   switch (action.type) {
     case 'CHANGE': {
       return {
@@ -64,14 +59,14 @@ export const contactReducer = (state: State, action: Action) => {
       return {
         ...state,
         [action.field]: {
-          value: state[action.field as keyof State].value,
+          value: state[action.field as keyof InfoState].value,
           error: null,
         },
       };
     }
     case 'RESET_FORM': {
       return {
-        ...initialState,
+        ...initialPaymentState,
       };
     }
     default: {

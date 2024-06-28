@@ -1,6 +1,7 @@
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
-import React, { useState } from 'react';
+import React from 'react';
+import { CalendarProps } from 'react-calendar';
 import {
   Container,
   DateWrapper,
@@ -11,14 +12,19 @@ import {
 import { InputComponent } from '@/components/input';
 import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
 import { Calendar } from '@/components/calendar';
-import { CalendarProps } from 'react-calendar';
 
-export function DateBlock() {
-  const [checked, setChecked] = useState<string>('');
-  const [date, setDate] = useState<CalendarProps['value']>(new Date());
+type Props = {
+  date: CalendarProps['value'];
+  time: string;
+  setDate: React.Dispatch<
+    React.SetStateAction<CalendarProps['value'] | undefined>
+  >;
+  setTime: React.Dispatch<React.SetStateAction<string>>;
+};
 
+export function DateBlock({ date, time, setDate, setTime }: Props) {
   const handleClick = (id?: string) => {
-    setChecked(id ?? '');
+    setTime(id ?? '');
   };
 
   const getCurrentDate = () => {
@@ -38,7 +44,7 @@ export function DateBlock() {
               {...item}
               key={item.name}
               onClick={handleClick}
-              checked={item.name === checked}
+              checked={item.name === time}
             />
           ))}
         </TimeContainer>

@@ -3,15 +3,14 @@ type FieldValue = {
   error?: string | null;
 };
 
-export type State = {
+export type InfoState = {
   firstName: FieldValue;
   lastName: FieldValue;
   phone: FieldValue;
   email: FieldValue;
-  additionalInfo: FieldValue;
 };
 
-export const initialState = {
+export const initialInfoState = {
   firstName: {
     value: '',
     error: null,
@@ -28,13 +27,9 @@ export const initialState = {
     value: '',
     error: null,
   },
-  additionalInfo: {
-    value: '',
-    error: null,
-  },
 };
 
-type Action = {
+export type Action = {
   type: string;
   payload: {
     value: string;
@@ -43,7 +38,7 @@ type Action = {
   field: string;
 };
 
-export const contactReducer = (state: State, action: Action) => {
+export const infoReducer = (state: InfoState, action: Action) => {
   switch (action.type) {
     case 'CHANGE': {
       return {
@@ -64,14 +59,14 @@ export const contactReducer = (state: State, action: Action) => {
       return {
         ...state,
         [action.field]: {
-          value: state[action.field as keyof State].value,
+          value: state[action.field as keyof InfoState].value,
           error: null,
         },
       };
     }
     case 'RESET_FORM': {
       return {
-        ...initialState,
+        ...initialInfoState,
       };
     }
     default: {

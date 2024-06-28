@@ -20,7 +20,7 @@ import {
 } from './utils';
 import {
   State,
-  formReducer,
+  contactReducer,
   initialState,
 } from '@/pages/contact/reducers/form-reducer';
 import { schema } from '@/constants/validation';
@@ -29,7 +29,7 @@ import { CONTACT_MESSAGE, FROM_NAME } from '@/constants/email';
 import { useSendEmail } from '@/hooks/use-send-email';
 
 function AboutPage() {
-  const [state, dispatch] = useReducer(formReducer, initialState);
+  const [state, dispatch] = useReducer(contactReducer, initialState);
   const { sendEmail, loading } = useSendEmail();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {

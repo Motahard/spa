@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
   max-width: 1000px;
+  z-index: 1000;
 `;
 
 export const ModalWrapper = styled.div`
@@ -11,6 +12,7 @@ export const ModalWrapper = styled.div`
   background: white;
   border: 10px solid ${colors.roseyCheck};
   padding: 32px 48px;
+  z-index: 1000;
 `;
 
 export const ModalOverlay = styled.div`
@@ -23,4 +25,5 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 `;
