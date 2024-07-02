@@ -3,11 +3,11 @@ type FieldValue = {
   error?: string | null;
 };
 
-export type InfoState = {
+export type PaymentState = {
   card: FieldValue;
   expiry: FieldValue;
   cvv: FieldValue;
-  recepient: FieldValue;
+  name: FieldValue;
 };
 
 export const initialPaymentState = {
@@ -23,7 +23,7 @@ export const initialPaymentState = {
     value: '',
     error: null,
   },
-  recepient: {
+  name: {
     value: '',
     error: null,
   },
@@ -38,7 +38,7 @@ type Action = {
   field: string;
 };
 
-export const formReducer = (state: InfoState, action: Action) => {
+export const paymentReducer = (state: PaymentState, action: Action) => {
   switch (action.type) {
     case 'CHANGE': {
       return {
@@ -59,7 +59,7 @@ export const formReducer = (state: InfoState, action: Action) => {
       return {
         ...state,
         [action.field]: {
-          value: state[action.field as keyof InfoState].value,
+          value: state[action.field as keyof PaymentState].value,
           error: null,
         },
       };

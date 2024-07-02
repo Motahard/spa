@@ -102,7 +102,7 @@ function BookAppoinment() {
               value={additionalInfo}
               onChange={setAdditionalInfo}
             />
-            <Button text="Book Appointment" type='submit'/>
+            <Button text="Book Appointment" type="submit" />
           </CommentContainer>
           {modalOpen && (
             <Modal onClose={handleModalClose}>

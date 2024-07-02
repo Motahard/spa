@@ -31,6 +31,8 @@ export type InputProps = {
   error?: string | null;
   validation?: Schema;
   schemaName?: string;
+  maxLength?: number;
+  mask?: string;
 };
 
 export function InputComponent({
@@ -47,6 +49,8 @@ export function InputComponent({
   onChange,
   onFocus,
   error,
+  maxLength,
+  mask,
 }: InputProps) {
   const handleChange: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
@@ -92,6 +96,7 @@ export function InputComponent({
   return (
     <InputContainer>
       <Input
+        mask={mask ? mask : ''}
         type={type}
         placeholder={placeholder}
         className={fontFamily}
@@ -102,6 +107,7 @@ export function InputComponent({
         onChange={handleChange}
         onFocus={onFocus}
         isError={Boolean(error)}
+        maxLength={maxLength}
       />
       {rightAddons && <RightAddons src={rightAddons} alt={''} />}
       {error && (

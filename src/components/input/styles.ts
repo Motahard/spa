@@ -1,5 +1,6 @@
 import { colors, cormorant } from '@/constants';
 import Image, { StaticImageData } from 'next/image';
+import InputMask from 'react-input-mask';
 import styled from 'styled-components';
 
 type InputProps = {
@@ -8,7 +9,7 @@ type InputProps = {
   isError?: boolean;
 };
 
-export const Input = styled.input<InputProps>`
+export const Input = styled(InputMask)<InputProps>`
   width: 100%;
   padding: 24px;
   font-size: ${(props) => props.size}px;

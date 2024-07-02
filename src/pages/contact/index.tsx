@@ -91,7 +91,6 @@ function AboutPage() {
   };
 
   const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
-    console.log('focus: ', e.target.name);
     dispatch({
       type: 'CLEAR_ERROR',
       field: e.target.name,
