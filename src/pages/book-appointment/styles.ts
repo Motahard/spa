@@ -42,3 +42,7 @@ export const CommentContainer = styled.div`
     margin: 0 auto;
   }
 `;
+
+export const PaypalContainer = styled.div`
+  width: 100%;
+`;

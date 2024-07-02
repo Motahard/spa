@@ -13,6 +13,11 @@ export const ModalWrapper = styled.div`
   border: 10px solid ${colors.roseyCheck};
   padding: 32px 48px;
   z-index: 1000;
+  min-height: 400px;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ModalOverlay = styled.div`

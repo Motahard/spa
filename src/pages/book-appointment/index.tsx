@@ -11,6 +11,7 @@ import {
   Container,
   FormContainer,
   CommentContainer,
+  PaypalContainer,
 } from '@/pages/book-appointment/styles';
 import InfoBlock from '@/pages/book-appointment/info-block';
 import { DateBlock } from '@/pages/book-appointment/date-block';
@@ -22,11 +23,12 @@ import {
   infoReducer,
   initialInfoState,
 } from '@/pages/book-appointment/reducers/info-reducer';
-import { schema } from '@/constants/validation';
+import { schema, schemaPay } from '@/constants/validation';
 import { ValidationError } from 'yup';
 import { InfoState } from './reducers/info-reducer';
 import { Modal } from '@/components/modal';
 import Button from '@/components/button';
+import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 function BookAppoinment() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -39,13 +41,21 @@ function BookAppoinment() {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
+    const trimmedCard = state.card.value.replace(/ /g, '');
+
+    const validationSchema = schema.concat(schemaPay);
+
     try {
-      await schema.validate(
+      await validationSchema.validate(
         {
           firstName: state.firstName.value,
           lastName: state.lastName.value,
           phone: state.phone.value,
           email: state.email.value,
+          card: trimmedCard,
+          expiry: state.expiry.value,
+          cvv: state.cvv.value,
+          name: state.name.value,
         },
         { abortEarly: false }
       );
@@ -102,11 +112,23 @@ function BookAppoinment() {
               value={additionalInfo}
               onChange={setAdditionalInfo}
             />
+            <PaymentBlock state={state} dispatch={dispatch} />
             <Button text="Book Appointment" type="submit" />
           </CommentContainer>
           {modalOpen && (
-            <Modal onClose={handleModalClose}>
-              <PaymentBlock />
+            <Modal onClose={handleModalClose} style={{ minWidth: '600px' }}>
+              <PaypalContainer>
+                <PayPalScriptProvider
+                  options={{ clientId: process.env.PAYPAL_CLIENT_ID as string }}
+                >
+                  <PayPalButtons
+                    style={{ height: 55, layout: 'vertical', color: 'silver' }}
+                    // onCancel={() => {}}
+                    // createOrder={() => {}}
+                    // onApprove={() => {}}
+                  />
+                </PayPalScriptProvider>
+              </PaypalContainer>
             </Modal>
           )}
         </FormContainer>

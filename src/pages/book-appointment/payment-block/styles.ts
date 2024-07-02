@@ -10,7 +10,7 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.div`
   margin-top: 24px;
 `;
 

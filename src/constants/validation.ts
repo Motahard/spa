@@ -44,8 +44,8 @@ const cardSchema = yup
 
 const expirySchema = yup
   .string()
-  .min(4, 'Min length 4 characters')
-  .max(4, 'Max length 4 characters')
+  .min(5, 'Min length 5 characters')
+  .max(5, 'Max length 5 characters')
   .required('Enter your expiry date of card');
 
 const cvvShema = yup

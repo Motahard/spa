@@ -8,6 +8,10 @@ export type InfoState = {
   lastName: FieldValue;
   phone: FieldValue;
   email: FieldValue;
+  card: FieldValue;
+  expiry: FieldValue;
+  cvv: FieldValue;
+  name: FieldValue;
 };
 
 export const initialInfoState = {
@@ -24,6 +28,22 @@ export const initialInfoState = {
     error: null,
   },
   email: {
+    value: '',
+    error: null,
+  },
+  card: {
+    value: '',
+    error: null,
+  },
+  expiry: {
+    value: '',
+    error: null,
+  },
+  cvv: {
+    value: '',
+    error: null,
+  },
+  name: {
     value: '',
     error: null,
   },

@@ -10,9 +10,10 @@ import {
 type Props = {
   children: ReactElement;
   onClose: VoidFunction;
+  style?: React.CSSProperties;
 };
 
-export const Modal = ({ children, onClose }: Props) => {
+export const Modal = ({ children, onClose, style }: Props) => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
 
   const backDropHandler = useCallback(
@@ -50,7 +51,7 @@ export const Modal = ({ children, onClose }: Props) => {
   const ModalComponent = (
     <ModalOverlay>
       <ModalContainer ref={modalWrapperRef}>
-        <ModalWrapper>{children}</ModalWrapper>
+        <ModalWrapper style={style}>{children}</ModalWrapper>
       </ModalContainer>
     </ModalOverlay>
   );
