@@ -28,7 +28,11 @@ import { ValidationError } from 'yup';
 import { InfoState } from './reducers/info-reducer';
 import { Modal } from '@/components/modal';
 import Button from '@/components/button';
-import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
+import {
+  PayPalButtons,
+  PayPalButtonsComponentProps,
+  PayPalScriptProvider,
+} from '@paypal/react-paypal-js';
 
 function BookAppoinment() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -86,6 +90,32 @@ function BookAppoinment() {
     setModalOpen(false);
   };
 
+  const handlePayment: PayPalButtonsComponentProps['createOrder'] = async (
+    _data,
+    _actions
+  ) => {
+    const res = await fetch('/api/paypal/', {
+      method: 'POST',
+    });
+
+    const order = await res.json();
+    return order.id;
+  };
+
+  const handleSuccess: PayPalButtonsComponentProps['onApprove'] = async (
+    _data,
+    _actions
+  ) => {
+    handleModalClose();
+  };
+
+  const handleCancel: PayPalButtonsComponentProps['onCancel'] = async (
+    _data,
+    _actions
+  ) => {
+    handleModalClose();
+  };
+
   return (
     <Container>
       <BookTitleImageWrapper>
@@ -123,9 +153,9 @@ function BookAppoinment() {
                 >
                   <PayPalButtons
                     style={{ height: 55, layout: 'vertical', color: 'silver' }}
-                    // onCancel={() => {}}
-                    // createOrder={() => {}}
-                    // onApprove={() => {}}
+                    createOrder={handlePayment}
+                    onApprove={handleSuccess}
+                    onCancel={handleCancel}
                   />
                 </PayPalScriptProvider>
               </PaypalContainer>
