@@ -22,7 +22,7 @@ export const CustomText = styled.span`
   color: ${colors.pinkKisses};
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.form`
   width: 300px;
 `;
 
@@ -42,8 +42,8 @@ export const DogCard = styled.div`
 
 export const DogImage = styled.div`
   & > img {
-    height: 100%;
-    min-width: 100%;
+    max-width: 600px;
+    max-height: 600px;
   }
 `;
 

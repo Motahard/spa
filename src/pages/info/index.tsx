@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   Container,
@@ -17,56 +17,101 @@ import { InputComponent } from '@/components/input';
 import search from '@/assets/Search.svg';
 import Image from 'next/image';
 import imageExample from '@/assets/content/about2.jpg';
+import { useLazyQuery } from '@apollo/client';
+import { getSearchDog } from '@/gql/searchDog';
+
+type ApiData = {
+  energy: number;
+  good_with_other_dogs: number;
+  good_with_strangers: number;
+  image_link: string;
+  min_life_expectancy: number;
+  name: string;
+};
 
 function InfoPage() {
+  const [value, setValue] = useState('');
+  const [data, setData] = useState<ApiData[]>([]);
+
+  const [getSearchedDog] = useLazyQuery(getSearchDog, {
+    fetchPolicy: 'network-only',
+    onCompleted(data) {
+      console.log(data);
+      setData(data.searchDog);
+    },
+  });
+
+  const handleChange = (value: string) => {
+    setValue(value);
+  };
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+
+    getSearchedDog({
+      variables: {
+        name: value,
+      },
+    });
+  };
+
   return (
     <Container>
       <Title top={48} fontFamily={cormorant.className} size={70} bottom={48}>
-        INFO DOG
+        INFO
       </Title>
       <SearchContainer>
         <Paragraph fontFamily={cormorantLight.className} size={24}>
           Current Selection: <CustomText>Beds & Cushions</CustomText>
         </Paragraph>
-        <InputContainer>
+        <InputContainer onSubmit={handleSubmit}>
           <InputComponent
             placeholder="Search"
             type="text"
             fontFamily={cormorant.className}
             size={18}
             rightAddons={search}
+            value={value}
+            onChange={handleChange}
           />
         </InputContainer>
       </SearchContainer>
-      <DogInfoContainer>
-        <DogCard>
-          <DogImage>
-            <Image src={imageExample} alt="alt" />
-          </DogImage>
-          <Title
-            top={30}
-            fontFamily={cormorant.className}
-            size={48}
-            bottom={30}
-          >
-            Siberian Husky
-          </Title>
-        </DogCard>
-        <DogDescription>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>
-            Energy: 5
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>
-            Min life expectancy: 5
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>
-            Good with strangers: 5
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className} size={24}>
-            Good with other dogs: 5
-          </Paragraph>
-        </DogDescription>
-      </DogInfoContainer>
+      {data.length > 0 && (
+        <DogInfoContainer>
+          <DogCard>
+            <DogImage>
+              <Image
+                src={data[0].image_link}
+                alt="alt"
+                width={600}
+                height={600}
+              />
+            </DogImage>
+            <Title
+              top={30}
+              fontFamily={cormorant.className}
+              size={48}
+              bottom={30}
+            >
+              {data[0].name}
+            </Title>
+          </DogCard>
+          <DogDescription>
+            <Paragraph fontFamily={cormorantLight.className} size={24}>
+              Energy: {data[0].energy}
+            </Paragraph>
+            <Paragraph fontFamily={cormorantLight.className} size={24}>
+              Min life expectancy: {data[0].min_life_expectancy}
+            </Paragraph>
+            <Paragraph fontFamily={cormorantLight.className} size={24}>
+              Good with strangers: {data[0].good_with_strangers}
+            </Paragraph>
+            <Paragraph fontFamily={cormorantLight.className} size={24}>
+              Good with other dogs: {data[0].good_with_other_dogs}
+            </Paragraph>
+          </DogDescription>
+        </DogInfoContainer>
+      )}
     </Container>
   );
 }
