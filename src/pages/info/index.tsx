@@ -16,7 +16,6 @@ import Paragraph from '@/components/paragraph';
 import { InputComponent } from '@/components/input';
 import search from '@/assets/Search.svg';
 import Image from 'next/image';
-import imageExample from '@/assets/content/about2.jpg';
 import { useLazyQuery } from '@apollo/client';
 import { getSearchDog } from '@/gql/searchDog';
 
@@ -80,12 +79,7 @@ function InfoPage() {
         <DogInfoContainer>
           <DogCard>
             <DogImage>
-              <Image
-                src={data[0].image_link}
-                alt="alt"
-                width={600}
-                height={600}
-              />
+              <Image src={data[0].image_link} alt="alt" fill={true} />
             </DogImage>
             <Title
               top={30}

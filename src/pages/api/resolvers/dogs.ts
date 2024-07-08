@@ -4,7 +4,7 @@ export const dogsResolver = async (name: string) => {
       `https://api.api-ninjas.com/v1/dogs?name=${name}`,
       {
         headers: {
-          'X-Api-Key': 'DdOiEDBgIr9QMrW82bjyWQ==mTkQcHRvr6KZirMC',
+          'X-Api-Key': process.env.DOGS_API || '',
         },
       }
     );

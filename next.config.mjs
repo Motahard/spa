@@ -28,6 +28,7 @@ const nextConfig = {
     PAYPAL_CLIENT_SECRET:
       'EJb2CJdB7VvB-SoWASuf_Nq-6qxeSSKa3qWyREaHzhdK0fUx4dTsBsQsWX_DdPuudXiO4Sc1e9UsHweJ',
     SERVER_GRAPHQL: 'http://localhost:3000/api/graphql',
+    DOGS_API: 'DdOiEDBgIr9QMrW82bjyWQ==mTkQcHRvr6KZirMC',
   },
 };
 

@@ -12,6 +12,9 @@ import {
   NavItem,
   NavList,
   NavigationWrapper,
+  Hamburger,
+  BurgerNavList,
+  Bar,
 } from '@/components/navbar/styles';
 import { discountText } from '@/components/navbar/utils';
 import Paragraph from '@/components/paragraph';
@@ -24,11 +27,21 @@ import {
 
 function Navbar() {
   const [active, setActive] = useState('Home');
+  const [isBurger, setIsBurger] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setActive(pathname);
   }, [pathname]);
+
+  const handleNavigate = (link: { name: string; uri: string }) => {
+    setActive(link.uri);
+    setIsBurger(false);
+  };
+
+  const handleBurgerClick = () => {
+    setIsBurger(!isBurger);
+  };
 
   return (
     <Container>
@@ -45,14 +58,34 @@ function Navbar() {
               <Link
                 className={cormorant.className}
                 href={link.uri}
-                onClick={() => setActive(link.uri)}
+                onClick={() => handleNavigate(link)}
               >
                 {link.name}
               </Link>
             </NavItem>
           ))}
         </NavList>
+        <Hamburger onClick={handleBurgerClick} active={isBurger}>
+          <Bar />
+          <Bar />
+          <Bar />
+        </Hamburger>
       </NavigationWrapper>
+      {isBurger && (
+        <BurgerNavList>
+          {linksWithDescription.map((link) => (
+            <NavItem key={link.name} active={active === link.uri}>
+              <Link
+                className={cormorant.className}
+                href={link.uri}
+                onClick={() => handleNavigate(link)}
+              >
+                {link.name}
+              </Link>
+            </NavItem>
+          ))}
+        </BurgerNavList>
+      )}
       <DiscountWrapper>
         <Paragraph
           fontFamily={cormorant.className}

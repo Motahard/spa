@@ -41,9 +41,15 @@ export const DogCard = styled.div`
 `;
 
 export const DogImage = styled.div`
+  position: relative;
+  width: 600px;
+  height: 600px;
   & > img {
-    max-width: 600px;
-    max-height: 600px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 `;
 

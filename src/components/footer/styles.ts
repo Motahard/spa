@@ -19,6 +19,13 @@ export const Container = styled.div`
   justify-content: space-evenly;
   background-color: ${colors.roseyCheck};
   padding: 8px 0;
+
+  @media (max-width: 1439px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
 `;
 
 export const FooterWrapper = styled.footer`

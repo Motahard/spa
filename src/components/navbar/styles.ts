@@ -21,6 +21,11 @@ export const NavigationWrapper = styled.nav`
   justify-content: center;
   position: relative;
   height: 90px;
+
+  @media (max-width: 1438px) {
+    justify-content: flex-end;
+    padding: 0 32px;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -48,6 +53,55 @@ export const NavList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 50px;
+
+  @media (max-width: 1439px) {
+    display: none;
+  }
+`;
+
+export const Hamburger = styled.div<{ active: boolean }>`
+  display: none;
+
+  @media (max-width: 1438px) {
+    display: block;
+    cursor: pointer;
+    ${(props) =>
+      props.active &&
+      `
+      & > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      & > span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      & > span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    `}
+  }
+`;
+
+export const Bar = styled.span`
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+`;
+
+export const BurgerNavList = styled.ul`
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  margin-top: 16px;
 `;
 
 export const NavItem = styled.li<NavItemProps>`
