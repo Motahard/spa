@@ -50,19 +50,19 @@ function BookAppoinment() {
     const validationSchema = schema.concat(schemaPay);
 
     try {
-      await validationSchema.validate(
-        {
-          firstName: state.firstName.value,
-          lastName: state.lastName.value,
-          phone: state.phone.value,
-          email: state.email.value,
-          card: trimmedCard,
-          expiry: state.expiry.value,
-          cvv: state.cvv.value,
-          name: state.name.value,
-        },
-        { abortEarly: false }
-      );
+      // await validationSchema.validate(
+      //   {
+      //     firstName: state.firstName.value,
+      //     lastName: state.lastName.value,
+      //     phone: state.phone.value,
+      //     email: state.email.value,
+      //     card: trimmedCard,
+      //     expiry: state.expiry.value,
+      //     cvv: state.cvv.value,
+      //     name: state.name.value,
+      //   },
+      //   { abortEarly: false }
+      // );
       setModalOpen(true);
     } catch (err) {
       const errValidate = err as ValidationError;
@@ -146,7 +146,7 @@ function BookAppoinment() {
             <Button text="Book Appointment" type="submit" />
           </CommentContainer>
           {modalOpen && (
-            <Modal onClose={handleModalClose} style={{ minWidth: '600px' }}>
+            <Modal onClose={handleModalClose}>
               <PaypalContainer>
                 <PayPalScriptProvider
                   options={{ clientId: process.env.PAYPAL_CLIENT_ID as string }}

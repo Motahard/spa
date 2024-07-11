@@ -4,6 +4,10 @@ import styled from 'styled-components';
 export const ModalContainer = styled.div`
   max-width: 1000px;
   z-index: 1000;
+
+  @media (max-width: 1439px) {
+    max-width: 400px;
+  }
 `;
 
 export const ModalWrapper = styled.div`
