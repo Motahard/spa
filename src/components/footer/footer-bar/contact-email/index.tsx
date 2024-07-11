@@ -14,7 +14,7 @@ import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
 
 function ContactEmail() {
   const [value, setValue] = useState('');
-  const { sendEmail, error, clearError } = useSendEmail();
+  const { sendEmail, loading, error, clearError } = useSendEmail();
 
   useEffect(() => {
     if (error) {
@@ -37,6 +37,7 @@ function ContactEmail() {
     };
 
     await sendEmail(params);
+    setValue('');
   };
 
   return (
@@ -57,7 +58,7 @@ function ContactEmail() {
           />
         </SubscribeInput>
         <SubscribeButton>
-          <Button type="submit" text="Submit" />
+          <Button type="submit" text="Submit" loading={loading} />
         </SubscribeButton>
       </SubscribeInputWrapper>
     </SubscribeForm>

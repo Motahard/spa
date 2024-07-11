@@ -21,7 +21,6 @@ export const SearchContainer = styled.div`
     flex-direction: column;
     gap: 24px;
   }
-
 `;
 
 export const CustomText = styled.span`

@@ -42,6 +42,7 @@ export const ModalContent = () => {
     };
 
     await sendEmail(params);
+    setEmail('');
   };
 
   return (

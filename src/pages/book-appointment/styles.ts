@@ -69,7 +69,7 @@ export const CommentContainer = styled.div`
     }
 
     & > button {
-        margin-bottom: 48px;
+      margin-bottom: 48px;
     }
   }
 `;

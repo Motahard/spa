@@ -22,7 +22,7 @@ export const FormContainer = styled.form`
   margin-bottom: 96px;
   margin-top: 96px;
   padding: 0 100px;
-    
+
   @media (max-width: 1439px) {
     margin-top: 24px;
     margin-bottom: 24px;

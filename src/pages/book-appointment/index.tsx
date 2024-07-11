@@ -50,19 +50,19 @@ function BookAppoinment() {
     const validationSchema = schema.concat(schemaPay);
 
     try {
-      // await validationSchema.validate(
-      //   {
-      //     firstName: state.firstName.value,
-      //     lastName: state.lastName.value,
-      //     phone: state.phone.value,
-      //     email: state.email.value,
-      //     card: trimmedCard,
-      //     expiry: state.expiry.value,
-      //     cvv: state.cvv.value,
-      //     name: state.name.value,
-      //   },
-      //   { abortEarly: false }
-      // );
+      await validationSchema.validate(
+        {
+          firstName: state.firstName.value,
+          lastName: state.lastName.value,
+          phone: state.phone.value,
+          email: state.email.value,
+          card: trimmedCard,
+          expiry: state.expiry.value,
+          cvv: state.cvv.value,
+          name: state.name.value,
+        },
+        { abortEarly: false }
+      );
       setModalOpen(true);
     } catch (err) {
       const errValidate = err as ValidationError;
@@ -106,6 +106,14 @@ function BookAppoinment() {
     _data,
     _actions
   ) => {
+    dispatch({
+      type: 'RESET_FORM',
+      field: '',
+      payload: {
+        value: '',
+      },
+    });
+
     handleModalClose();
   };
 
