@@ -13,6 +13,11 @@ export const Container = styled.div`
 export const CardsContainer = styled.div`
   display: flex;
   gap: 48px;
+
+  @media (max-width: 1439px) {
+    flex-direction: column;
+    padding: 8px;
+  }
 `;
 
 export const Card = styled.div``;

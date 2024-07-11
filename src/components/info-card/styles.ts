@@ -12,6 +12,12 @@ export const ContentItem = styled.div<ContentItemProps>`
   align-items: center;
   margin-bottom: 96px;
   flex-direction: ${(props) => props.flexDirection};
+
+  @media (max-width: 1439px) {
+    padding: 8px;
+    gap: 48px;
+    flex-direction: column;
+  }
 `;
 
 export const ImageWrapper = styled.div`

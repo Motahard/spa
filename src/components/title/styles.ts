@@ -17,4 +17,8 @@ export const TitleComponent = styled.h2<TitleComponentProps>`
   margin: ${(props) =>
     `${props.top}px ${props.right}px ${props.bottom}px ${props.left}px`};
   color: ${(props) => props.color ?? colors.charCoal};
+
+  @media (max-width: 1439px) {
+    text-align: center;
+  }
 `;

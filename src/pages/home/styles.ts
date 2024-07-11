@@ -14,6 +14,7 @@ export const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   & > img {
+    object-fit: cover;
     width: 100%;
   }
 `;

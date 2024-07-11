@@ -22,6 +22,16 @@ export const FormContainer = styled.form`
   margin-bottom: 96px;
   margin-top: 96px;
   padding: 0 100px;
+    
+  @media (max-width: 1439px) {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 24px;
+
+    & > button {
+      margin-top: 24px;
+    }
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -34,5 +44,9 @@ export const InputContainer = styled.div`
     & > input {
       width: 100%;
     }
+  }
+  @media (max-width: 1439px) {
+    flex-direction: column;
+    gap: 0;
   }
 `;

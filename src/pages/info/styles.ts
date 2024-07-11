@@ -16,6 +16,12 @@ export const SearchContainer = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 1439px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+
 `;
 
 export const CustomText = styled.span`
@@ -42,8 +48,14 @@ export const DogCard = styled.div`
 
 export const DogImage = styled.div`
   position: relative;
-  width: 600px;
-  height: 600px;
+  min-width: 600px;
+  min-height: 600px;
+
+  @media (max-width: 1439px) {
+    min-width: 300px;
+    min-height: 300px;
+  }
+
   & > img {
     position: absolute;
     top: 0;
@@ -55,6 +67,7 @@ export const DogImage = styled.div`
 
 export const DogDescription = styled.div`
   margin-top: 64px;
+  padding: 8px;
   & > p {
     margin-bottom: 18px;
   }

@@ -19,6 +19,11 @@ export const ContentItem = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 96px;
+
+  @media (max-width: 1439px) {
+    gap: 0;
+    margin-bottom: 48px;
+  }
 `;
 
 export const ImageWrapper = styled.div`

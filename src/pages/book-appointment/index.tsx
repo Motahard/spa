@@ -120,7 +120,7 @@ function BookAppoinment() {
     <Container>
       <BookTitleImageWrapper>
         <BookTitleWrapper>
-          <Title fontFamily={cormorant.className} size={70} color="#fff">
+          <Title fontFamily={cormorant.className} size={64} color="#fff">
             Book An Appointment With Our Groom Specialist Today!
           </Title>
         </BookTitleWrapper>

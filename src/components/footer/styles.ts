@@ -19,6 +19,7 @@ export const Container = styled.div`
   justify-content: space-evenly;
   background-color: ${colors.roseyCheck};
   padding: 8px 0;
+  text-align: center;
 
   @media (max-width: 1439px) {
     flex-direction: column;
