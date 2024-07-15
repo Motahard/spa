@@ -5,7 +5,7 @@ import { cormorant, cormorantLight } from '@/constants';
 import {
   InfoContainer,
   Container,
-} from '@/pages/book-appointment/info-block/styles';
+} from '@/app/book-appointment/info-block/styles';
 import { InfoState, Action } from '../reducers/info-reducer';
 
 type Props = {

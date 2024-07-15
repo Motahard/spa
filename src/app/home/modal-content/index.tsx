@@ -7,7 +7,7 @@ import {
   ImageWrapper,
   FormWrapper,
   ButtonWrapper,
-} from '@/pages/home/modal-content/styles';
+} from '@/app/home/modal-content/styles';
 
 import modalImage from '@/assets/content/modal-image.jpg';
 import Title from '@/components/title';

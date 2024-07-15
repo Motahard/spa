@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useReducer, useRef, useState } from 'react';
 import { CalendarProps } from 'react-calendar';
 
@@ -12,17 +14,17 @@ import {
   FormContainer,
   CommentContainer,
   PaypalContainer,
-} from '@/pages/book-appointment/styles';
-import InfoBlock from '@/pages/book-appointment/info-block';
-import { DateBlock } from '@/pages/book-appointment/date-block';
-import { MapBlock } from '@/pages/book-appointment/map-block';
-import { PaymentBlock } from '@/pages/book-appointment/payment-block';
+} from '@/app/book-appointment/styles';
+import InfoBlock from '@/app/book-appointment/info-block';
+import { DateBlock } from '@/app/book-appointment/date-block';
+import { MapBlock } from '@/app/book-appointment/map-block';
+import { PaymentBlock } from '@/app/book-appointment/payment-block';
 
 import { cormorant, cormorantLight } from '@/constants';
 import {
   infoReducer,
   initialInfoState,
-} from '@/pages/book-appointment/reducers/info-reducer';
+} from '@/app/book-appointment/reducers/info-reducer';
 import { schema, schemaPay } from '@/constants/validation';
 import { ValidationError } from 'yup';
 import { InfoState } from './reducers/info-reducer';
@@ -90,22 +92,17 @@ function BookAppoinment() {
     setModalOpen(false);
   };
 
-  const handlePayment: PayPalButtonsComponentProps['createOrder'] = async (
-    _data,
-    _actions
-  ) => {
-    const res = await fetch('/api/paypal/', {
-      method: 'POST',
-    });
+  const handlePayment: PayPalButtonsComponentProps['createOrder'] =
+    async () => {
+      const res = await fetch('/api/paypal/', {
+        method: 'POST',
+      });
 
-    const order = await res.json();
-    return order.id;
-  };
+      const order = await res.json();
+      return order.id;
+    };
 
-  const handleSuccess: PayPalButtonsComponentProps['onApprove'] = async (
-    _data,
-    _actions
-  ) => {
+  const handleSuccess: PayPalButtonsComponentProps['onApprove'] = async () => {
     dispatch({
       type: 'RESET_FORM',
       field: '',
@@ -117,10 +114,7 @@ function BookAppoinment() {
     handleModalClose();
   };
 
-  const handleCancel: PayPalButtonsComponentProps['onCancel'] = async (
-    _data,
-    _actions
-  ) => {
+  const handleCancel: PayPalButtonsComponentProps['onCancel'] = async () => {
     handleModalClose();
   };
 

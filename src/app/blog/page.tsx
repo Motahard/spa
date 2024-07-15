@@ -1,8 +1,11 @@
+'use client';
+
+import React from 'react';
 import content1 from '@/assets/content/content1.jpg';
 import content2 from '@/assets/content/content2.jpg';
 import BlogLayout from '@/components/blog-about-layout/layout';
-import { Container } from '@/pages/blog/styles';
-import { contentInfo } from '@/pages/blog/utils';
+import { Container } from '@/app/blog/styles';
+import { contentInfo } from '@/app/blog/utils';
 
 function BlogPage() {
   return (

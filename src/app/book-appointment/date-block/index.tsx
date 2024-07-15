@@ -1,5 +1,3 @@
-import Title from '@/components/title';
-import { cormorant } from '@/constants';
 import React from 'react';
 import { CalendarProps } from 'react-calendar';
 import {
@@ -8,10 +6,12 @@ import {
   TimeContainer,
   TimeWrapper,
   DateTitleContainer,
-} from '@/pages/book-appointment/date-block/styles';
+} from '@/app/book-appointment/date-block/styles';
+import { checkboxConfig } from '@/app/book-appointment/date-block/config';
 import { InputComponent } from '@/components/input';
-import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
 import { Calendar } from '@/components/calendar';
+import Title from '@/components/title';
+import { cormorant } from '@/constants';
 
 type Props = {
   date: CalendarProps['value'];

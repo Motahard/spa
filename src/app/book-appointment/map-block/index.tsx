@@ -6,7 +6,7 @@ import {
   MapContainer,
   MapDescription,
   MapDesciptionItem,
-} from '@/pages/book-appointment/map-block/styles';
+} from '@/app/book-appointment/map-block/styles';
 import Title from '@/components/title';
 import Paragraph from '@/components/paragraph';
 import { cormorantLight } from '@/constants';

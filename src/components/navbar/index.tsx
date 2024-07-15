@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -31,7 +34,9 @@ function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    setActive(pathname);
+    if (pathname) {
+      setActive(pathname);
+    }
   }, [pathname]);
 
   const handleNavigate = (link: { name: string; uri: string }) => {

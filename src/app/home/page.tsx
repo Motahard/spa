@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from 'react';
 
 import {
@@ -5,7 +7,7 @@ import {
   HomeCard,
   ImageContainer,
   ContentContainer,
-} from '@/pages/home/styles';
+} from '@/app/home/styles';
 import Image from 'next/image';
 
 import homeImage from '@/assets/content/home1.png';
@@ -20,8 +22,8 @@ import {
   homeCardConfig,
   dogCollars,
   animalCarryOns,
-} from '@/pages/home/config';
-import { ShopBar } from '@/pages/home/shop-bar';
+} from '@/app/home/config';
+import { ShopBar } from '@/app/home/shop-bar';
 import { Modal } from '@/components/modal';
 import { ModalContent } from './modal-content';
 

@@ -1,7 +1,10 @@
+'use client';
+
+import React from 'react';
 import about1 from '@/assets/content/about1.jpg';
 import about2 from '@/assets/content/about2.jpg';
 import BlogLayout from '@/components/blog-about-layout/layout';
-import { Container } from '@/pages/blog/styles';
+import { Container } from '@/app/about/styles';
 import { aboutInfo } from './utils';
 
 function AboutPage() {

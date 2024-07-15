@@ -35,7 +35,7 @@ export const BookTitleWrapper = styled.div`
 `;
 
 export const BookContainer = styled.div`
-  padding: 48px 0;
+  padding: 48px 16px;
   max-width: 1500px;
   margin: auto;
   display: grid;

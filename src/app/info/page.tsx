@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 
 import {
@@ -9,7 +11,7 @@ import {
   DogCard,
   DogImage,
   DogDescription,
-} from '@/pages/info/styles';
+} from '@/app/info/styles';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import Paragraph from '@/components/paragraph';

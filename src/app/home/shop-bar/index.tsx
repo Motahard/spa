@@ -7,7 +7,7 @@ import {
   ImageContainer,
   ButtonContainer,
   TitleContainer,
-} from '@/pages/home/shop-bar/styles';
+} from '@/app/home/shop-bar/styles';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import Paragraph from '@/components/paragraph';

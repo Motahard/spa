@@ -1,4 +1,6 @@
-import { SpaContainer } from '@/pages/spa-services/styles';
+'use client';
+
+import { SpaContainer } from '@/app/spa-services/styles';
 import { spaServicesInfo } from './utils';
 
 function SpaServices() {

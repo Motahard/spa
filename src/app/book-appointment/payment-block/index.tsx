@@ -8,7 +8,7 @@ import {
   PaymentSystemItem,
   PaymentInfo,
   SubmitContainer,
-} from '@/pages/book-appointment/payment-block/styles';
+} from '@/app/book-appointment/payment-block/styles';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import { InputComponent } from '@/components/input';
@@ -18,7 +18,7 @@ import Paragraph from '@/components/paragraph';
 import {
   InfoState,
   Action,
-} from '@/pages/book-appointment/reducers/info-reducer';
+} from '@/app/book-appointment/reducers/info-reducer';
 
 type Props = {
   state: InfoState;

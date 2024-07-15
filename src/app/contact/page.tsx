@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useReducer } from 'react';
 import {
   Container,
   EmailText,
   FormContainer,
   InputContainer,
-} from '@/pages/contact/styles';
+} from '@/app/contact/styles';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
 import { Breaker } from '@/components/breaker';
@@ -22,7 +24,7 @@ import {
   State,
   contactReducer,
   initialState,
-} from '@/pages/contact/reducers/form-reducer';
+} from '@/app/contact/reducers/form-reducer';
 import { schema } from '@/constants/validation';
 import { ValidationError } from 'yup';
 import { CONTACT_MESSAGE, FROM_NAME } from '@/constants/email';

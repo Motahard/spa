@@ -2,6 +2,7 @@ import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { colors, cormorant, cormorantLight } from '@/constants';
 import { Breaker } from '@/components/breaker';
+import { CSSProperties } from 'react';
 
 export const spaServicesInfo = [
   {
@@ -48,7 +49,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      style: { textAlign: 'center' },
+      style: { textAlign: 'center' } as CSSProperties,
     },
   },
   {
@@ -82,7 +83,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      style: { textAlign: 'center' },
+      style: { textAlign: 'center' } as CSSProperties,
     },
   },
   {
@@ -116,7 +117,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      style: { textAlign: 'center' },
+      style: { textAlign: 'center' } as CSSProperties,
     },
   },
   {
@@ -150,7 +151,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      style: { textAlign: 'center' },
+      style: { textAlign: 'center' } as CSSProperties,
     },
   },
   {
@@ -184,7 +185,7 @@ export const spaServicesInfo = [
       weight: 400,
       fontFamily: cormorantLight.className,
       color: colors.charCoal,
-      style: { textAlign: 'center' },
+      style: { textAlign: 'center' } as CSSProperties,
     },
   },
   {
