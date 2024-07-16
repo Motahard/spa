@@ -1,8 +1,10 @@
+import { NextRequest } from 'next/server';
+
 import { ApolloServer } from '@apollo/server';
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
-import typeDefs from '@/pages/api/schemas';
+
 import { dogsResolver } from '@/pages/api/resolvers/dogs';
-import { NextRequest } from 'next/server';
+import typeDefs from '@/pages/api/schemas';
 
 const resolvers = {
   Query: {

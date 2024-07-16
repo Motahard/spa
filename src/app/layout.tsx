@@ -1,12 +1,15 @@
-"use client"
+'use client';
+import React from 'react';
+
+import { ApolloProvider } from '@apollo/client';
+
+import '@/styles/global.css';
 
 import ErrorBoundary from '@/components/error';
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 import StyledComponentsRegistry from '@/lib/registry';
-import '@/styles/global.css';
 import { createApolloClient } from '@/utils/apollo-client';
-import { ApolloProvider } from '@apollo/client';
 
 export default function RootLayout({
   children,
@@ -15,14 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head title="Dog Spa"></head>
+      <head title='Dog Spa'></head>
       <body>
         <ErrorBoundary>
           <ApolloProvider client={createApolloClient()}>
             <StyledComponentsRegistry>
               <Navbar />
               <main>{children}</main>
-              <div id="modal-root"></div>
+              <div id='modal-root'></div>
               <Footer />
             </StyledComponentsRegistry>
           </ApolloProvider>

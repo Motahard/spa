@@ -1,5 +1,6 @@
-import checkoutNodeJssdk from '@paypal/checkout-server-sdk';
 import { NextApiRequest, NextApiResponse } from 'next';
+
+import checkoutNodeJssdk from '@paypal/checkout-server-sdk';
 
 const configureEnvironment = () => {
   const clientId = process.env.PAYPAL_CLIENT_ID || '';

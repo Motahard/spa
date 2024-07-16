@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar as CalendarCore, CalendarProps } from 'react-calendar';
+
 import { CalendarContainer } from '@/components/calendar/styles';
 
 type Props = {
@@ -27,7 +28,7 @@ export const Calendar = ({ defaultView = 'month', value, setValue }: Props) => {
         onChange={onChange}
         selectRange={false}
         defaultView={defaultView}
-        locale="en-US"
+        locale='en-US'
         formatShortWeekday={(locale, date) =>
           date
             .toLocaleDateString('en-us', {

@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+
 import facebook from '@/assets/social/facebook.png';
 import instagram from '@/assets/social/instagram.png';
 import pinterest from '@/assets/social/pinterest.png';

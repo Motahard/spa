@@ -1,24 +1,25 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+
+import { useLazyQuery } from '@apollo/client';
 
 import {
   Container,
-  SearchContainer,
   CustomText,
-  InputContainer,
-  DogInfoContainer,
   DogCard,
-  DogImage,
   DogDescription,
+  DogImage,
+  DogInfoContainer,
+  InputContainer,
+  SearchContainer,
 } from '@/app/info/styles';
+import search from '@/assets/Search.svg';
+import { InputComponent } from '@/components/input';
+import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import Paragraph from '@/components/paragraph';
-import { InputComponent } from '@/components/input';
-import search from '@/assets/Search.svg';
-import Image from 'next/image';
-import { useLazyQuery } from '@apollo/client';
 import { getSearchDog } from '@/gql/searchDog';
 
 type ApiData = {
@@ -67,8 +68,8 @@ function InfoPage() {
         </Paragraph>
         <InputContainer onSubmit={handleSubmit}>
           <InputComponent
-            placeholder="Search"
-            type="text"
+            placeholder='Search'
+            type='text'
             fontFamily={cormorant.className}
             size={18}
             rightAddons={search}
@@ -81,7 +82,7 @@ function InfoPage() {
         <DogInfoContainer>
           <DogCard>
             <DogImage>
-              <Image src={data[0].image_link} alt="alt" fill={true} />
+              <Image src={data[0].image_link} alt='alt' fill={true} />
             </DogImage>
             <Title
               top={30}

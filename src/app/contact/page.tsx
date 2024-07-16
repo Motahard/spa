@@ -1,33 +1,35 @@
 'use client';
 
 import React, { useReducer } from 'react';
+import { ValidationError } from 'yup';
+
+import {
+  additionalInfoConfig,
+  emailConfig,
+  firstNameConfig,
+  lastNameConfig,
+  phoneNumberConfig,
+} from './utils';
+
+import {
+  contactReducer,
+  initialState,
+  State,
+} from '@/app/contact/reducers/form-reducer';
 import {
   Container,
   EmailText,
   FormContainer,
   InputContainer,
 } from '@/app/contact/styles';
+import { Breaker } from '@/components/breaker';
+import Button from '@/components/button';
+import { InputComponent } from '@/components/input';
+import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
-import { Breaker } from '@/components/breaker';
-import Paragraph from '@/components/paragraph';
-import { InputComponent } from '@/components/input';
-import Button from '@/components/button';
-import {
-  firstNameConfig,
-  lastNameConfig,
-  emailConfig,
-  phoneNumberConfig,
-  additionalInfoConfig,
-} from './utils';
-import {
-  State,
-  contactReducer,
-  initialState,
-} from '@/app/contact/reducers/form-reducer';
-import { schema } from '@/constants/validation';
-import { ValidationError } from 'yup';
 import { CONTACT_MESSAGE, FROM_NAME } from '@/constants/email';
+import { schema } from '@/constants/validation';
 import { useSendEmail } from '@/hooks/use-send-email';
 
 function AboutPage() {
@@ -159,7 +161,7 @@ function AboutPage() {
             value={state.additionalInfo.value}
           />
         </InputContainer>
-        <Button type="submit" text="Submit" loading={loading} />
+        <Button type='submit' text='Submit' loading={loading} />
       </FormContainer>
     </Container>
   );

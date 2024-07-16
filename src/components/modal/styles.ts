@@ -1,5 +1,6 @@
-import { colors } from '@/constants';
 import styled from 'styled-components';
+
+import { colors } from '@/constants';
 
 export const ModalContainer = styled.div`
   max-width: 1000px;

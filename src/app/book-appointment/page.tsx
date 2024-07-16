@@ -2,39 +2,39 @@
 
 import React, { useReducer, useRef, useState } from 'react';
 import { CalendarProps } from 'react-calendar';
-
-import Title from '@/components/title';
-import { InputComponent } from '@/components/input';
-
-import {
-  BookContainer,
-  BookTitleImageWrapper,
-  BookTitleWrapper,
-  Container,
-  FormContainer,
-  CommentContainer,
-  PaypalContainer,
-} from '@/app/book-appointment/styles';
-import InfoBlock from '@/app/book-appointment/info-block';
-import { DateBlock } from '@/app/book-appointment/date-block';
-import { MapBlock } from '@/app/book-appointment/map-block';
-import { PaymentBlock } from '@/app/book-appointment/payment-block';
-
-import { cormorant, cormorantLight } from '@/constants';
-import {
-  infoReducer,
-  initialInfoState,
-} from '@/app/book-appointment/reducers/info-reducer';
-import { schema, schemaPay } from '@/constants/validation';
 import { ValidationError } from 'yup';
-import { InfoState } from './reducers/info-reducer';
-import { Modal } from '@/components/modal';
-import Button from '@/components/button';
+
 import {
   PayPalButtons,
   PayPalButtonsComponentProps,
   PayPalScriptProvider,
 } from '@paypal/react-paypal-js';
+
+import { InfoState } from './reducers/info-reducer';
+
+import { DateBlock } from '@/app/book-appointment/date-block';
+import InfoBlock from '@/app/book-appointment/info-block';
+import { MapBlock } from '@/app/book-appointment/map-block';
+import { PaymentBlock } from '@/app/book-appointment/payment-block';
+import {
+  infoReducer,
+  initialInfoState,
+} from '@/app/book-appointment/reducers/info-reducer';
+import {
+  BookContainer,
+  BookTitleImageWrapper,
+  BookTitleWrapper,
+  CommentContainer,
+  Container,
+  FormContainer,
+  PaypalContainer,
+} from '@/app/book-appointment/styles';
+import Button from '@/components/button';
+import { InputComponent } from '@/components/input';
+import { Modal } from '@/components/modal';
+import Title from '@/components/title';
+import { cormorant, cormorantLight } from '@/constants';
+import { schema, schemaPay } from '@/constants/validation';
 
 function BookAppoinment() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -122,7 +122,7 @@ function BookAppoinment() {
     <Container>
       <BookTitleImageWrapper>
         <BookTitleWrapper>
-          <Title fontFamily={cormorant.className} size={64} color="#fff">
+          <Title fontFamily={cormorant.className} size={64} color='#fff'>
             Book An Appointment With Our Groom Specialist Today!
           </Title>
         </BookTitleWrapper>
@@ -138,14 +138,14 @@ function BookAppoinment() {
           />
           <CommentContainer>
             <InputComponent
-              type="textarea"
-              placeholder="Any special requests for your pet(s)..."
+              type='textarea'
+              placeholder='Any special requests for your pet(s)...'
               fontFamily={cormorantLight.className}
               value={additionalInfo}
               onChange={setAdditionalInfo}
             />
             <PaymentBlock state={state} dispatch={dispatch} />
-            <Button text="Book Appointment" type="submit" />
+            <Button text='Book Appointment' type='submit' />
           </CommentContainer>
           {modalOpen && (
             <Modal onClose={handleModalClose}>

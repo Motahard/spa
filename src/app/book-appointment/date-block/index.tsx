@@ -1,15 +1,16 @@
 import React from 'react';
 import { CalendarProps } from 'react-calendar';
+
+import { checkboxConfig } from '@/app/book-appointment/date-block/config';
 import {
   Container,
+  DateTitleContainer,
   DateWrapper,
   TimeContainer,
   TimeWrapper,
-  DateTitleContainer,
 } from '@/app/book-appointment/date-block/styles';
-import { checkboxConfig } from '@/app/book-appointment/date-block/config';
-import { InputComponent } from '@/components/input';
 import { Calendar } from '@/components/calendar';
+import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
 
@@ -51,7 +52,7 @@ export function DateBlock({ date, time, setDate, setTime }: Props) {
       </TimeWrapper>
       <DateWrapper>
         <DateTitleContainer>
-          <Calendar defaultView="month" value={date} setValue={setDate} />
+          <Calendar defaultView='month' value={date} setValue={setDate} />
         </DateTitleContainer>
       </DateWrapper>
     </Container>

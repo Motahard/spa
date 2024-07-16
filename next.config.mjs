@@ -9,6 +9,12 @@ const nextConfig = {
       },
     ];
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+    dirs: [
+      'src'
+    ],
+  },
   images: {
     remotePatterns: [
       {

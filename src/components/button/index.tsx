@@ -1,7 +1,8 @@
+import Image from 'next/image';
+
+import loadingImage from '@/assets/loading.svg';
 import { ButtonComponent } from '@/components/button/styles';
 import { cormorant } from '@/constants';
-import Image from 'next/image';
-import loadingImage from '@/assets/loading.svg';
 
 type Props = {
   type?: 'submit' | 'reset' | 'button' | undefined;
@@ -12,7 +13,7 @@ type Props = {
 function Button({ type, text, loading = false }: Props) {
   return (
     <ButtonComponent type={type} className={cormorant.className}>
-      {loading ? <Image src={loadingImage} alt="loading" /> : text}
+      {loading ? <Image src={loadingImage} alt='loading' /> : text}
     </ButtonComponent>
   );
 }

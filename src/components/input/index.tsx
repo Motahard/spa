@@ -1,19 +1,20 @@
+import React, { ChangeEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
+import { Schema } from 'yup';
+
 import {
-  Input,
-  Label,
-  InputContainer,
   CheckboxContainer,
   HiddenCheckbox,
-  StyledCheckbox,
   Icon,
-  TextArea,
+  Input,
+  InputContainer,
+  Label,
   RightAddons,
-} from './styles';
-import { ChangeEventHandler } from 'react';
-import Paragraph from '../paragraph';
+  StyledCheckbox,
+  TextArea,
+} from '@/components/input/styles';
+import Paragraph from '@/components/paragraph';
 import { colors, cormorantLight } from '@/constants';
-import { Schema } from 'yup';
 
 export type InputProps = {
   type?: string;
@@ -64,8 +65,8 @@ export function InputComponent({
         <CheckboxContainer>
           <HiddenCheckbox checked={checked} />
           <StyledCheckbox checked={checked} onClick={() => onClick?.(name)}>
-            <Icon viewBox="0 0 24 24">
-              <polyline points="20 6 9 17 4 12" />
+            <Icon viewBox='0 0 24 24'>
+              <polyline points='20 6 9 17 4 12' />
             </Icon>
           </StyledCheckbox>
           {labelDescription && (

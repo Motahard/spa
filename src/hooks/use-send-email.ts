@@ -1,5 +1,6 @@
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { useCallback, useEffect, useState } from 'react';
+
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 type Props = Record<string, string> & { recipient: string };
 

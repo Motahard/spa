@@ -1,12 +1,14 @@
 import React, { forwardRef } from 'react';
+
+import { Action, InfoState } from '../reducers/info-reducer';
+
+import {
+  Container,
+  InfoContainer,
+} from '@/app/book-appointment/info-block/styles';
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import {
-  InfoContainer,
-  Container,
-} from '@/app/book-appointment/info-block/styles';
-import { InfoState, Action } from '../reducers/info-reducer';
 
 type Props = {
   state: InfoState;
@@ -35,36 +37,36 @@ const InfoBlock = (props: Props, ref: Ref) => {
       </Title>
       <InfoContainer>
         <InputComponent
-          type="text"
-          name="firstName"
-          placeholder="First Name"
+          type='text'
+          name='firstName'
+          placeholder='First Name'
           fontFamily={cormorantLight.className}
           value={state.firstName.value}
           onChange={handleChange}
           error={state.firstName.error}
         />
         <InputComponent
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
+          type='text'
+          name='lastName'
+          placeholder='Last Name'
           fontFamily={cormorantLight.className}
           value={state.lastName.value}
           onChange={handleChange}
           error={state.lastName.error}
         />
         <InputComponent
-          type="email"
-          name="email"
-          placeholder="Email"
+          type='email'
+          name='email'
+          placeholder='Email'
           fontFamily={cormorantLight.className}
           value={state.email.value}
           onChange={handleChange}
           error={state.email.error}
         />
         <InputComponent
-          type="tel"
-          name="phone"
-          placeholder="Phone number"
+          type='tel'
+          name='phone'
+          placeholder='Phone number'
           fontFamily={cormorantLight.className}
           value={state.phone.value}
           onChange={handleChange}

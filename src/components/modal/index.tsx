@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 import {
   ModalContainer,
-  ModalWrapper,
   ModalOverlay,
+  ModalWrapper,
 } from '@/components/modal/styles';
 
 type Props = {
   children: ReactElement;
-  onClose: VoidFunction;
+  onClose: () => void;
   style?: React.CSSProperties;
 };
 

@@ -1,18 +1,19 @@
-import Image, { StaticImageData } from 'next/image';
 import React from 'react';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
+
 import {
-  Container,
-  CardsContainer,
-  Card,
-  ImageContainer,
   ButtonContainer,
+  Card,
+  CardsContainer,
+  Container,
+  ImageContainer,
   TitleContainer,
 } from '@/app/home/shop-bar/styles';
+import Button from '@/components/button';
+import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import Paragraph from '@/components/paragraph';
-import Button from '@/components/button';
-import Link from 'next/link';
 
 type Props = {
   title: string;
@@ -49,7 +50,7 @@ export const ShopBar = ({ title, cards, buttonText }: Props) => {
         ))}
       </CardsContainer>
       <ButtonContainer>
-        <Link href="spa-services">
+        <Link href='spa-services'>
           <Button text={buttonText} />
         </Link>
       </ButtonContainer>

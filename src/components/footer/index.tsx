@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+
 import FooterBar from '@/components/footer/footer-bar';
 import { Container, FooterWrapper, ListItem } from '@/components/footer/styles';
 import { bottomFooterBarInfo, cormorantLight } from '@/constants';
-import Link from 'next/link';
 
 function Footer() {
   return (

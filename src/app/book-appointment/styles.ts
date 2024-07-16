@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import bookImage from '@/assets/content/book.jpg';
 
 export const Container = styled.div``;

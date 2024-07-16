@@ -1,7 +1,8 @@
-import { colors, cormorant } from '@/constants';
-import Image, { StaticImageData } from 'next/image';
 import InputMask from 'react-input-mask';
+import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
+
+import { colors, cormorant } from '@/constants';
 
 type InputProps = {
   size: number;

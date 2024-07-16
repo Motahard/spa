@@ -1,23 +1,23 @@
 import React, { FormEventHandler, useEffect, useState } from 'react';
 import Image from 'next/image';
 
+import emailjs from '@emailjs/browser';
+
 import {
+  ButtonWrapper,
   Container,
   DesciptionWrapper,
-  ImageWrapper,
   FormWrapper,
-  ButtonWrapper,
+  ImageWrapper,
 } from '@/app/home/modal-content/styles';
-
 import modalImage from '@/assets/content/modal-image.jpg';
-import Title from '@/components/title';
-import Paragraph from '@/components/paragraph';
-import { InputComponent } from '@/components/input';
 import Button from '@/components/button';
+import { InputComponent } from '@/components/input';
+import Paragraph from '@/components/paragraph';
+import Title from '@/components/title';
 import { cinzel_decorative, cormorantLight } from '@/constants';
-import emailjs from '@emailjs/browser';
-import { useSendEmail } from '@/hooks/use-send-email';
 import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
+import { useSendEmail } from '@/hooks/use-send-email';
 
 export const ModalContent = () => {
   const [emailInput, setEmail] = useState('');
@@ -56,8 +56,8 @@ export const ModalContent = () => {
         </Paragraph>
         <FormWrapper onSubmit={onSubmit}>
           <InputComponent
-            type="email"
-            placeholder="Email"
+            type='email'
+            placeholder='Email'
             fontFamily={cormorantLight.className}
             size={18}
             value={emailInput}
@@ -65,7 +65,7 @@ export const ModalContent = () => {
             error={error}
           />
           <ButtonWrapper>
-            <Button text="Sign Up" type="submit" loading={loading} />
+            <Button text='Sign Up' type='submit' loading={loading} />
           </ButtonWrapper>
         </FormWrapper>
         <Paragraph
@@ -78,7 +78,7 @@ export const ModalContent = () => {
         </Paragraph>
       </DesciptionWrapper>
       <ImageWrapper>
-        <Image src={modalImage} alt="modal" />
+        <Image src={modalImage} alt='modal' />
       </ImageWrapper>
     </Container>
   );

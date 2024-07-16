@@ -1,5 +1,6 @@
-import { colors, cormorant } from '@/constants';
 import styled from 'styled-components';
+
+import { colors, cormorant } from '@/constants';
 
 export const CalendarContainer = styled.div`
   .react-calendar__navigation {

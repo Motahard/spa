@@ -1,8 +1,9 @@
+import React, { CSSProperties } from 'react';
+
 import {
   ParagraphComponent,
   ParagraphComponentProps,
 } from '@/components/paragraph/styles';
-import { CSSProperties } from 'react';
 
 type Props = {
   fontFamily?: string;

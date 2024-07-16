@@ -1,8 +1,9 @@
+import { CSSProperties } from 'react';
+
+import { Breaker } from '@/components/breaker';
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { colors, cormorant, cormorantLight } from '@/constants';
-import { Breaker } from '@/components/breaker';
-import { CSSProperties } from 'react';
 
 export const spaServicesInfo = [
   {

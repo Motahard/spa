@@ -1,8 +1,9 @@
 'use client';
 
-import { Modal } from '@/components/modal';
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import Router from 'next/router';
+
+import { Modal } from '@/components/modal';
 import Title from '@/components/title';
 
 type Props = {

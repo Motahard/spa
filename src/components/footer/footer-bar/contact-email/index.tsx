@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import Button from '@/components/button';
 import {
   SubscribeButton,
+  SubscribeForm,
   SubscribeInput,
   SubscribeInputWrapper,
   SubscribeTitle,
-  SubscribeForm,
 } from '@/components/footer/footer-bar/contact-email/styles';
-import { cormorant, cormorantLight } from '@/constants';
 import { InputComponent } from '@/components/input';
-import { useSendEmail } from '@/hooks/use-send-email';
+import { cormorant, cormorantLight } from '@/constants';
 import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
+import { useSendEmail } from '@/hooks/use-send-email';
 
 function ContactEmail() {
   const [value, setValue] = useState('');
@@ -48,8 +49,8 @@ function ContactEmail() {
       <SubscribeInputWrapper>
         <SubscribeInput>
           <InputComponent
-            type="email"
-            placeholder="Email"
+            type='email'
+            placeholder='Email'
             fontFamily={cormorantLight.className}
             value={value}
             onChange={handleChange}
@@ -58,7 +59,7 @@ function ContactEmail() {
           />
         </SubscribeInput>
         <SubscribeButton>
-          <Button type="submit" text="Submit" loading={loading} />
+          <Button type='submit' text='Submit' loading={loading} />
         </SubscribeButton>
       </SubscribeInputWrapper>
     </SubscribeForm>

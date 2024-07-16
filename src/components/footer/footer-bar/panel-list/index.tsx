@@ -1,11 +1,13 @@
-import { FooterItem, cormorant, cormorantLight } from '@/constants';
+import Link from 'next/link';
+
 import {
   PanelListComponent,
   PanelListItem,
   PanelListTitle,
   PanelListWrapper,
 } from './styles';
-import Link from 'next/link';
+
+import { cormorant, cormorantLight, FooterItem } from '@/constants';
 
 type Props = {
   title: string;

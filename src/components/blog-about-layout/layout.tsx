@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+
 import {
   ContentWrapper,
   TitleWrapper,

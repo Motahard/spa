@@ -1,23 +1,24 @@
 'use client';
 
 import React from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+
 import logo from '@/assets/logos/spa-logo.png';
 import {
+  Bar,
+  BurgerNavList,
   Container,
   DiscountWrapper,
+  Hamburger,
   LogoContainer,
   LogoText,
   LogoWrapper,
+  NavigationWrapper,
   NavItem,
   NavList,
-  NavigationWrapper,
-  Hamburger,
-  BurgerNavList,
-  Bar,
 } from '@/components/navbar/styles';
 import { discountText } from '@/components/navbar/utils';
 import Paragraph from '@/components/paragraph';
@@ -53,7 +54,7 @@ function Navbar() {
       <NavigationWrapper>
         <LogoContainer>
           <LogoWrapper>
-            <Image src={logo} alt="Spa Logo" />
+            <Image src={logo} alt='Spa Logo' />
           </LogoWrapper>
           <LogoText className={tangerine.className}>Luxe Animal Spa</LogoText>
         </LogoContainer>
