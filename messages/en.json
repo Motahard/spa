@@ -1,5 +1,15 @@
 {
     "HOME": {
-        "title": "home page"
+        "title": "Book your doggy spa day!",
+        "title_button": "Book Appointment",
+        "info_card": "Dogs receive a facial with our vegan, cruelty free face products and cleansing of any dirt left hiding in their beautiful fur (comes with a take home face products and animal treats).",
+        "dog_shop_title": "Dog Collars",
+        "dog_shop_item_title": "Leather Dog Collars with Gold Name Tag",
+        "dog_shop_item_subtitle": "Luxe Animal Spa",
+        "dog_shop_item_button": "See More Dog Collars",
+        "animal_shop_title": "Animal Carry Ons",
+        "animal_shop_item_title": "Leather Dog Collars with Gold Name Tag",
+        "animal_shop_item_subtitle": "Luxe Animal Spa",
+        "animal_shop_item_button": "See More Carry Ons"
     }
 }

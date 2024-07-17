@@ -9,11 +9,13 @@ const nextConfig = {
       },
     ];
   },
+  i18n: {
+    locales: ['en', 'ru'],
+    defaultLocale: 'en',
+  },
   eslint: {
     ignoreDuringBuilds: true,
-    dirs: [
-      'src'
-    ],
+    dirs: ['src'],
   },
   images: {
     remotePatterns: [

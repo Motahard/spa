@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import homeCard from '@/assets/content/home-card.png';
 import homeImage from '@/assets/content/home1.png';
@@ -9,11 +11,7 @@ import InfoCard from '@/components/info-card';
 import { Modal } from '@/components/modal';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
-import {
-  animalCarryOns,
-  dogCollars,
-  homeCardConfig,
-} from '@/pages/home/config';
+import { animalCarryOns, dogCollars } from '@/pages/home/config';
 import { ModalContent } from '@/pages/home/modal-content';
 import { ShopBar } from '@/pages/home/shop-bar';
 import {
@@ -24,6 +22,7 @@ import {
 } from '@/pages/home/styles';
 
 function HomePage() {
+  const t = useTranslations('HOME');
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -53,21 +52,33 @@ function HomePage() {
           <Image src={homeImage} alt='homeImage' />
           <ContentContainer>
             <Title bottom={48} size={64} fontFamily={cormorant.className}>
-              Book your doggy spa day!
+              {t('title')}
             </Title>
             <Link href='book-appointment'>
-              <Button text='Book Appointment' />
+              <Button text={t('title_button')} />
             </Link>
           </ContentContainer>
         </ImageContainer>
       </HomeCard>
-      <InfoCard
-        image={homeCard}
-        alt='homeCard'
-        description={homeCardConfig.text}
+      <InfoCard image={homeCard} alt='homeCard' description={t('info_card')} />
+      <ShopBar
+        cards={dogCollars([
+          [t('dog_shop_item_title'), t('dog_shop_item_subtitle'), '350$'],
+          [t('dog_shop_item_title'), t('dog_shop_item_subtitle'), '1225$'],
+          [t('dog_shop_item_title'), t('dog_shop_item_subtitle'), '1500$'],
+        ])}
+        title={t('dog_shop_title')}
+        buttonText={t('dog_shop_item_button')}
       />
-      <ShopBar {...dogCollars} />
-      <ShopBar {...animalCarryOns} />
+      <ShopBar
+        cards={animalCarryOns([
+          [t('animal_shop_item_title'), t('animal_shop_item_subtitle'), '125$'],
+          [t('animal_shop_item_title'), t('animal_shop_item_subtitle'), '135$'],
+          [t('animal_shop_item_title'), t('animal_shop_item_subtitle'), '95$'],
+        ])}
+        title={t('animal_shop_title')}
+        buttonText={t('animal_shop_item_button')}
+      />
       {modalOpen && (
         <Modal onClose={handleModalClose}>
           <ModalContent />
@@ -76,5 +87,14 @@ function HomePage() {
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default HomePage;

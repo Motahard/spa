@@ -21,6 +21,7 @@ type Props = {
     id: number;
     image: StaticImageData;
     description: string;
+    subDescription: string;
     price: string;
   }[];
   buttonText: string;
@@ -42,6 +43,9 @@ export const ShopBar = ({ title, cards, buttonText }: Props) => {
             </ImageContainer>
             <Paragraph fontFamily={cormorantLight.className} size={24}>
               {item.description}
+            </Paragraph>
+            <Paragraph fontFamily={cormorantLight.className} size={24}>
+              {item.subDescription}
             </Paragraph>
             <Paragraph fontFamily={cormorant.className} size={24}>
               CA: {item.price}
