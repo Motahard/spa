@@ -31,7 +31,7 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
       type: 'CHANGE',
       field: name,
       payload: {
-        value: value,
+        value: name === 'name' ? value.toLocaleUpperCase() : value,
       },
     });
   };
@@ -64,7 +64,7 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
             mask='99/99'
           />
           <InputComponent
-            type='password'
+            type='text'
             placeholder='CVV'
             fontFamily={cormorantLight.className}
             size={24}

@@ -34,12 +34,16 @@ type ApiData = {
 function InfoPage() {
   const [value, setValue] = useState('');
   const [data, setData] = useState<ApiData[]>([]);
+  const [error, setError] = useState<string>();
 
   const [getSearchedDog] = useLazyQuery(getSearchDog, {
     fetchPolicy: 'network-only',
+    onError(error) {
+      setError(error.message);
+    },
     onCompleted(data) {
-      console.log(data);
       setData(data.searchDog);
+      setError('');
     },
   });
 
@@ -78,6 +82,11 @@ function InfoPage() {
           />
         </InputContainer>
       </SearchContainer>
+      {error && (
+        <Title top={30} fontFamily={cormorant.className} size={48} bottom={30}>
+          {data[0].name}
+        </Title>
+      )}
       {data.length > 0 && (
         <DogInfoContainer>
           <DogCard>
