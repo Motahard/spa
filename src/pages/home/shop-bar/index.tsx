@@ -2,6 +2,10 @@ import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
+import Button from '@/components/button';
+import Paragraph from '@/components/paragraph';
+import Title from '@/components/title';
+import { cormorant, cormorantLight } from '@/constants';
 import {
   ButtonContainer,
   Card,
@@ -9,11 +13,7 @@ import {
   Container,
   ImageContainer,
   TitleContainer,
-} from '@/app/home/shop-bar/styles';
-import Button from '@/components/button';
-import Paragraph from '@/components/paragraph';
-import Title from '@/components/title';
-import { cormorant, cormorantLight } from '@/constants';
+} from '@/pages/home/shop-bar/styles';
 
 type Props = {
   title: string;

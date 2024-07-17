@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useReducer, useRef, useState } from 'react';
 import { CalendarProps } from 'react-calendar';
 import { ValidationError } from 'yup';
@@ -12,14 +10,20 @@ import {
 
 import { InfoState } from './reducers/info-reducer';
 
-import { DateBlock } from '@/app/book-appointment/date-block';
-import InfoBlock from '@/app/book-appointment/info-block';
-import { MapBlock } from '@/app/book-appointment/map-block';
-import { PaymentBlock } from '@/app/book-appointment/payment-block';
+import Button from '@/components/button';
+import { InputComponent } from '@/components/input';
+import { Modal } from '@/components/modal';
+import Title from '@/components/title';
+import { cormorant, cormorantLight } from '@/constants';
+import { schema, schemaPay } from '@/constants/validation';
+import { DateBlock } from '@/pages/book-appointment/date-block';
+import InfoBlock from '@/pages/book-appointment/info-block';
+import { MapBlock } from '@/pages/book-appointment/map-block';
+import { PaymentBlock } from '@/pages/book-appointment/payment-block';
 import {
   infoReducer,
   initialInfoState,
-} from '@/app/book-appointment/reducers/info-reducer';
+} from '@/pages/book-appointment/reducers/info-reducer';
 import {
   BookContainer,
   BookTitleImageWrapper,
@@ -28,13 +32,7 @@ import {
   Container,
   FormContainer,
   PaypalContainer,
-} from '@/app/book-appointment/styles';
-import Button from '@/components/button';
-import { InputComponent } from '@/components/input';
-import { Modal } from '@/components/modal';
-import Title from '@/components/title';
-import { cormorant, cormorantLight } from '@/constants';
-import { schema, schemaPay } from '@/constants/validation';
+} from '@/pages/book-appointment/styles';
 
 function BookAppoinment() {
   const [modalOpen, setModalOpen] = useState(false);

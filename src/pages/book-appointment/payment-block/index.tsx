@@ -1,6 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { InputComponent } from '@/components/input';
+import Paragraph from '@/components/paragraph';
+import Title from '@/components/title';
+import { cormorant, cormorantLight } from '@/constants';
+import { paymentSystemsConfig } from '@/constants/payments-systems';
 import {
   Container,
   FormContainer,
@@ -9,16 +14,11 @@ import {
   PaymentSystemItem,
   PaymentSystems,
   SubmitContainer,
-} from '@/app/book-appointment/payment-block/styles';
+} from '@/pages/book-appointment/payment-block/styles';
 import {
   Action,
   InfoState,
-} from '@/app/book-appointment/reducers/info-reducer';
-import { InputComponent } from '@/components/input';
-import Paragraph from '@/components/paragraph';
-import Title from '@/components/title';
-import { cormorant, cormorantLight } from '@/constants';
-import { paymentSystemsConfig } from '@/constants/payments-systems';
+} from '@/pages/book-appointment/reducers/info-reducer';
 
 type Props = {
   state: InfoState;

@@ -1,8 +1,7 @@
-'use client';
+import React from 'react';
 
-import { spaServicesInfo } from './utils';
-
-import { SpaContainer } from '@/app/spa-services/styles';
+import { SpaContainer } from '@/pages/spa-services/styles';
+import { spaServicesInfo } from '@/pages/spa-services/utils';
 
 function SpaServices() {
   return (

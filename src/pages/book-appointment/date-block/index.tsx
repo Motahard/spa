@@ -1,18 +1,18 @@
 import React from 'react';
 import { CalendarProps } from 'react-calendar';
 
-import { checkboxConfig } from '@/app/book-appointment/date-block/config';
+import { Calendar } from '@/components/calendar';
+import { InputComponent } from '@/components/input';
+import Title from '@/components/title';
+import { cormorant } from '@/constants';
+import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
 import {
   Container,
   DateTitleContainer,
   DateWrapper,
   TimeContainer,
   TimeWrapper,
-} from '@/app/book-appointment/date-block/styles';
-import { Calendar } from '@/components/calendar';
-import { InputComponent } from '@/components/input';
-import Title from '@/components/title';
-import { cormorant } from '@/constants';
+} from '@/pages/book-appointment/date-block/styles';
 
 type Props = {
   date: CalendarProps['value'];

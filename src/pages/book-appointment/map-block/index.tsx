@@ -2,15 +2,15 @@ import React from 'react';
 
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 
+import Paragraph from '@/components/paragraph';
+import Title from '@/components/title';
+import { cormorantLight } from '@/constants';
 import {
   Container,
   MapContainer,
   MapDesciptionItem,
   MapDescription,
-} from '@/app/book-appointment/map-block/styles';
-import Paragraph from '@/components/paragraph';
-import Title from '@/components/title';
-import { cormorantLight } from '@/constants';
+} from '@/pages/book-appointment/map-block/styles';
 
 export const MapBlock = () => {
   return (

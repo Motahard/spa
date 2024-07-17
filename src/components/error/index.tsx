@@ -1,10 +1,5 @@
-'use client';
-
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import Router from 'next/router';
-
-import { Modal } from '@/components/modal';
-import Title from '@/components/title';
 
 type Props = {
   children?: ReactNode;
@@ -37,11 +32,7 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return (
-        <Modal onClose={this.handleClose}>
-          <Title size={64}>Something went wrong!</Title>
-        </Modal>
-      );
+      return <h1>Error</h1>;
     }
 
     return this.props.children;

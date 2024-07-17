@@ -1,19 +1,7 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ModalContent } from './modal-content';
-
-import { animalCarryOns, dogCollars, homeCardConfig } from '@/app/home/config';
-import { ShopBar } from '@/app/home/shop-bar';
-import {
-  Container,
-  ContentContainer,
-  HomeCard,
-  ImageContainer,
-} from '@/app/home/styles';
 import homeCard from '@/assets/content/home-card.png';
 import homeImage from '@/assets/content/home1.png';
 import Button from '@/components/button';
@@ -21,6 +9,19 @@ import InfoCard from '@/components/info-card';
 import { Modal } from '@/components/modal';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
+import {
+  animalCarryOns,
+  dogCollars,
+  homeCardConfig,
+} from '@/pages/home/config';
+import { ModalContent } from '@/pages/home/modal-content';
+import { ShopBar } from '@/pages/home/shop-bar';
+import {
+  Container,
+  ContentContainer,
+  HomeCard,
+  ImageContainer,
+} from '@/pages/home/styles';
 
 function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);

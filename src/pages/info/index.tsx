@@ -1,10 +1,14 @@
-'use client';
-
 import React, { useState } from 'react';
 import Image from 'next/image';
 
 import { useLazyQuery } from '@apollo/client';
 
+import search from '@/assets/Search.svg';
+import { InputComponent } from '@/components/input';
+import Paragraph from '@/components/paragraph';
+import Title from '@/components/title';
+import { cormorant, cormorantLight } from '@/constants';
+import { getSearchDog } from '@/gql/searchDog';
 import {
   Container,
   CustomText,
@@ -14,13 +18,7 @@ import {
   DogInfoContainer,
   InputContainer,
   SearchContainer,
-} from '@/app/info/styles';
-import search from '@/assets/Search.svg';
-import { InputComponent } from '@/components/input';
-import Paragraph from '@/components/paragraph';
-import Title from '@/components/title';
-import { cormorant, cormorantLight } from '@/constants';
-import { getSearchDog } from '@/gql/searchDog';
+} from '@/pages/info/styles';
 
 type ApiData = {
   energy: number;

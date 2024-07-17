@@ -3,13 +3,6 @@ import Image from 'next/image';
 
 import emailjs from '@emailjs/browser';
 
-import {
-  ButtonWrapper,
-  Container,
-  DesciptionWrapper,
-  FormWrapper,
-  ImageWrapper,
-} from '@/app/home/modal-content/styles';
 import modalImage from '@/assets/content/modal-image.jpg';
 import Button from '@/components/button';
 import { InputComponent } from '@/components/input';
@@ -18,6 +11,13 @@ import Title from '@/components/title';
 import { cinzel_decorative, cormorantLight } from '@/constants';
 import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
 import { useSendEmail } from '@/hooks/use-send-email';
+import {
+  ButtonWrapper,
+  Container,
+  DesciptionWrapper,
+  FormWrapper,
+  ImageWrapper,
+} from '@/pages/home/modal-content/styles';
 
 export const ModalContent = () => {
   const [emailInput, setEmail] = useState('');

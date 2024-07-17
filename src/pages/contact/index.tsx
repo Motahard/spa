@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useReducer } from 'react';
 import { ValidationError } from 'yup';
 
@@ -11,17 +9,6 @@ import {
   phoneNumberConfig,
 } from './utils';
 
-import {
-  contactReducer,
-  initialState,
-  State,
-} from '@/app/contact/reducers/form-reducer';
-import {
-  Container,
-  EmailText,
-  FormContainer,
-  InputContainer,
-} from '@/app/contact/styles';
 import { Breaker } from '@/components/breaker';
 import Button from '@/components/button';
 import { InputComponent } from '@/components/input';
@@ -31,6 +18,17 @@ import { cormorant } from '@/constants';
 import { CONTACT_MESSAGE, FROM_NAME } from '@/constants/email';
 import { schema } from '@/constants/validation';
 import { useSendEmail } from '@/hooks/use-send-email';
+import {
+  contactReducer,
+  initialState,
+  State,
+} from '@/pages/contact/reducers/form-reducer';
+import {
+  Container,
+  EmailText,
+  FormContainer,
+  InputContainer,
+} from '@/pages/contact/styles';
 
 function AboutPage() {
   const [state, dispatch] = useReducer(contactReducer, initialState);

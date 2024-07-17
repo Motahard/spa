@@ -56,6 +56,10 @@ export const Modal = ({ children, onClose, style }: Props) => {
     </ModalOverlay>
   );
 
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   return ReactDOM.createPortal(
     ModalComponent,
     document.getElementById('modal-root') as HTMLElement

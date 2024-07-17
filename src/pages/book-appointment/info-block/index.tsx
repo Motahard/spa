@@ -2,13 +2,13 @@ import React, { forwardRef } from 'react';
 
 import { Action, InfoState } from '../reducers/info-reducer';
 
-import {
-  Container,
-  InfoContainer,
-} from '@/app/book-appointment/info-block/styles';
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
+import {
+  Container,
+  InfoContainer,
+} from '@/pages/book-appointment/info-block/styles';
 
 type Props = {
   state: InfoState;
