@@ -21,7 +21,13 @@ export const CardsContainer = styled.div`
   }
 `;
 
-export const Card = styled.div``;
+export const Card = styled.div`
+  @media (max-width: 1439px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 export const ImageContainer = styled.div`
   display: flex;

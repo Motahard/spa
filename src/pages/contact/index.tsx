@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { GetStaticProps } from 'next';
 import { ValidationError } from 'yup';
 
 import {
@@ -164,5 +165,14 @@ function AboutPage() {
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default AboutPage;

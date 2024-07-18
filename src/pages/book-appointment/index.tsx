@@ -1,5 +1,6 @@
 import React, { useReducer, useRef, useState } from 'react';
 import { CalendarProps } from 'react-calendar';
+import { GetStaticProps } from 'next';
 import { ValidationError } from 'yup';
 
 import {
@@ -167,5 +168,14 @@ function BookAppoinment() {
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default BookAppoinment;

@@ -1,5 +1,7 @@
 import React, { FormEventHandler, useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import emailjs from '@emailjs/browser';
 
@@ -20,6 +22,7 @@ import {
 } from '@/pages/home/modal-content/styles';
 
 export const ModalContent = () => {
+  const t = useTranslations('HOME');
   const [emailInput, setEmail] = useState('');
   const { loading, sendEmail, error, clearError } = useSendEmail();
 
@@ -49,15 +52,15 @@ export const ModalContent = () => {
     <Container>
       <DesciptionWrapper>
         <Title fontFamily={cinzel_decorative.className} size={40} bottom={16}>
-          Sign Up to Bark Newsletter
+          {t('modal_title')}
         </Title>
         <Paragraph fontFamily={cormorantLight.className} size={24}>
-          Get 10% Off Your First Spa Treatment{' '}
+          {t('modal_subtitle')}
         </Paragraph>
         <FormWrapper onSubmit={onSubmit}>
           <InputComponent
             type='email'
-            placeholder='Email'
+            placeholder={t('modal_email_placeholder')}
             fontFamily={cormorantLight.className}
             size={18}
             value={emailInput}
@@ -65,7 +68,11 @@ export const ModalContent = () => {
             error={error}
           />
           <ButtonWrapper>
-            <Button text='Sign Up' type='submit' loading={loading} />
+            <Button
+              text={t('modal_email_button')}
+              type='submit'
+              loading={loading}
+            />
           </ButtonWrapper>
         </FormWrapper>
         <Paragraph
@@ -73,8 +80,7 @@ export const ModalContent = () => {
           size={14}
           style={{ textAlign: 'center' }}
         >
-          *By completing this form you are signing up to receive our emails and
-          can unsubscribe at any time.
+          {t('modal_hint')}
         </Paragraph>
       </DesciptionWrapper>
       <ImageWrapper>
@@ -82,4 +88,13 @@ export const ModalContent = () => {
       </ImageWrapper>
     </Container>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
 };

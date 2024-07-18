@@ -1,4 +1,5 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 
 import content1 from '@/assets/content/content1.jpg';
 import content2 from '@/assets/content/content2.jpg';
@@ -29,5 +30,14 @@ function BlogPage() {
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default BlogPage;

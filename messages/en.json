@@ -1,5 +1,55 @@
 {
+    "NAVBAR": {
+        "title": "Luxe Animal Spa",
+        "discount": "Get 20% OFF When You Book A Spa Day For Your Animal Today!",
+        "home": "Home",
+        "info": "Info",
+        "spa": "Spa Services",
+        "book": "Book Appointment",
+        "blog": "Blog",
+        "about": "About Us",
+        "contact": "Contact Us"
+    },
+    "FOOTER": {
+        "BOTTOM": {
+            "cookie": "Cookie Policy",
+            "cookie_settings": "Cookies Settings",
+            "copyright": "Copyright 2021 Luxe Animal Spa, LLC. All rights reserved.",
+            "terms": "Terms",
+            "privacy": "Privacy",
+            "security": "Security"
+        },
+        "LEFT": {
+            "title": "Customer Service",
+            "blog": "Blog",
+            "cancelattions": "Cancelattions",
+            "track": "Track Your Animal",
+            "luxe": "Luxe’s Annual Spa Day 2021'",
+            "payment": "Payment Options"
+        },
+        "RIGHT": {
+            "title": "Navigation",
+            "home": "Home",
+            "about": "About Us",
+            "contact": "Contact Us",
+            "faq": "FAQs",
+            "help": "Help with navigation"
+        },
+        "CONTACT": {
+            "title": "Subscribe to our Newsletter",
+            "placeholder": "Email",
+            "button": "Submit"
+        },
+        "SOCIAL": {
+            "title": "Connect With Us On Social Media"
+        }
+    },
     "HOME": {
+        "modal_title": "Sign Up to Bark Newsletter",
+        "modal_subtitle": "Get 10% Off Your First Spa Treatment",
+        "modal_email_placeholder": "Email",
+        "modal_email_button": "Sign Up",
+        "modal_hint": "*By completing this form you are signing up to receive our emails and can unsubscribe at any time.",
         "title": "Book your doggy spa day!",
         "title_button": "Book Appointment",
         "info_card": "Dogs receive a facial with our vegan, cruelty free face products and cleansing of any dirt left hiding in their beautiful fur (comes with a take home face products and animal treats).",
@@ -11,5 +61,15 @@
         "animal_shop_item_title": "Leather Dog Collars with Gold Name Tag",
         "animal_shop_item_subtitle": "Luxe Animal Spa",
         "animal_shop_item_button": "See More Carry Ons"
+    },
+    "INFO": {
+        "title": "INFO",
+        "category": "Current Selection: Beds & Cushions",
+        "selection": "Beds & Cushions",
+        "energy": "Energy",
+        "search": "Search",
+        "min_life_expectancy": "Min life expectancy",
+        "good_with_strangers": "Good with strangers",
+        "good_with_other_dogs": "Good with other dogs"
     }
 }

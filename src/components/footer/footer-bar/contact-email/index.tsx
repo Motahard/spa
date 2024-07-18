@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
 
 import Button from '@/components/button';
 import {
@@ -14,6 +16,7 @@ import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
 import { useSendEmail } from '@/hooks/use-send-email';
 
 function ContactEmail() {
+  const t = useTranslations('FOOTER.CONTACT');
   const [value, setValue] = useState('');
   const { sendEmail, loading, error, clearError } = useSendEmail();
 
@@ -44,13 +47,13 @@ function ContactEmail() {
   return (
     <SubscribeForm onSubmit={handleSubmit}>
       <SubscribeTitle className={cormorant.className}>
-        Subscribe to our Newsletter
+        {t('title')}
       </SubscribeTitle>
       <SubscribeInputWrapper>
         <SubscribeInput>
           <InputComponent
             type='email'
-            placeholder='Email'
+            placeholder={t('placeholder')}
             fontFamily={cormorantLight.className}
             value={value}
             onChange={handleChange}
@@ -59,11 +62,20 @@ function ContactEmail() {
           />
         </SubscribeInput>
         <SubscribeButton>
-          <Button type='submit' text='Submit' loading={loading} />
+          <Button type='submit' text={t('button')} loading={loading} />
         </SubscribeButton>
       </SubscribeInputWrapper>
     </SubscribeForm>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default ContactEmail;

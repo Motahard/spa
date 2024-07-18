@@ -1,8 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import logo from '@/assets/logos/spa-logo.png';
 import {
@@ -18,16 +20,12 @@ import {
   NavItem,
   NavList,
 } from '@/components/navbar/styles';
-import { discountText } from '@/components/navbar/utils';
+import { getNavbarItems } from '@/components/navbar/utils';
 import Paragraph from '@/components/paragraph';
-import {
-  colors,
-  cormorant,
-  linksWithDescription,
-  tangerine,
-} from '@/constants';
+import { colors, cormorant, tangerine } from '@/constants';
 
 function Navbar() {
+  const t = useTranslations('NAVBAR');
   const [active, setActive] = useState('Home');
   const [isBurger, setIsBurger] = useState(false);
   const pathname = usePathname();
@@ -47,6 +45,18 @@ function Navbar() {
     setIsBurger(!isBurger);
   };
 
+  const titleNavItems = [
+    t('home'),
+    t('info'),
+    t('spa'),
+    t('book'),
+    t('blog'),
+    t('about'),
+    t('contact'),
+  ];
+
+  const navbarItems = getNavbarItems(titleNavItems);
+
   return (
     <Container>
       <NavigationWrapper>
@@ -54,10 +64,10 @@ function Navbar() {
           <LogoWrapper>
             <Image src={logo} alt='Spa Logo' />
           </LogoWrapper>
-          <LogoText className={tangerine.className}>Luxe Animal Spa</LogoText>
+          <LogoText className={tangerine.className}>{t('title')}</LogoText>
         </LogoContainer>
         <NavList>
-          {linksWithDescription.map((link) => (
+          {navbarItems.map((link) => (
             <NavItem key={link.name} active={active === link.uri}>
               <Link
                 className={cormorant.className}
@@ -77,7 +87,7 @@ function Navbar() {
       </NavigationWrapper>
       {isBurger && (
         <BurgerNavList>
-          {linksWithDescription.map((link) => (
+          {navbarItems.map((link) => (
             <NavItem key={link.name} active={active === link.uri}>
               <Link
                 className={cormorant.className}
@@ -98,11 +108,20 @@ function Navbar() {
           style={{ textAlign: 'center' }}
           color={colors.charCoal}
         >
-          {discountText}
+          {t('discount')}
         </Paragraph>
       </DiscountWrapper>
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default Navbar;

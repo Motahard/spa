@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { useLazyQuery } from '@apollo/client';
 
@@ -30,6 +32,7 @@ type ApiData = {
 };
 
 function InfoPage() {
+  const t = useTranslations('INFO');
   const [value, setValue] = useState('');
   const [data, setData] = useState<ApiData[]>([]);
   const [error, setError] = useState<string>();
@@ -62,15 +65,15 @@ function InfoPage() {
   return (
     <Container>
       <Title top={48} fontFamily={cormorant.className} size={70} bottom={48}>
-        INFO
+        {t('title')}
       </Title>
       <SearchContainer>
         <Paragraph fontFamily={cormorantLight.className} size={24}>
-          Current Selection: <CustomText>Beds & Cushions</CustomText>
+          {t('category')}: <CustomText>{t('selection')}</CustomText>
         </Paragraph>
         <InputContainer onSubmit={handleSubmit}>
           <InputComponent
-            placeholder='Search'
+            placeholder={t('search')}
             type='text'
             fontFamily={cormorant.className}
             size={18}
@@ -82,7 +85,7 @@ function InfoPage() {
       </SearchContainer>
       {error && (
         <Title top={30} fontFamily={cormorant.className} size={48} bottom={30}>
-          {data[0].name}
+          {error}
         </Title>
       )}
       {data.length > 0 && (
@@ -102,16 +105,16 @@ function InfoPage() {
           </DogCard>
           <DogDescription>
             <Paragraph fontFamily={cormorantLight.className} size={24}>
-              Energy: {data[0].energy}
+              {t('energy')}: {data[0].energy}
             </Paragraph>
             <Paragraph fontFamily={cormorantLight.className} size={24}>
-              Min life expectancy: {data[0].min_life_expectancy}
+              {t('min_life_expectancy')} {data[0].min_life_expectancy}
             </Paragraph>
             <Paragraph fontFamily={cormorantLight.className} size={24}>
-              Good with strangers: {data[0].good_with_strangers}
+              {t('good_with_strangers')}: {data[0].good_with_strangers}
             </Paragraph>
             <Paragraph fontFamily={cormorantLight.className} size={24}>
-              Good with other dogs: {data[0].good_with_other_dogs}
+              {t('good_with_other_dogs')}: {data[0].good_with_other_dogs}
             </Paragraph>
           </DogDescription>
         </DogInfoContainer>
@@ -119,5 +122,14 @@ function InfoPage() {
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 
 export default InfoPage;
