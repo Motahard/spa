@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { colors } from '@/constants';
 
 export const ButtonComponent = styled.button`
@@ -8,4 +9,11 @@ export const ButtonComponent = styled.button`
   font-size: 20px;
   color: #fff;
   background-color: ${colors.pinkKisses};
+  cursor: pointer;
+
+  & > img {
+    width: 40px;
+    height: 25px;
+    color: ${colors.white};
+  }
 `;

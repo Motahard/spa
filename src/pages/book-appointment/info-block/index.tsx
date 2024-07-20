@@ -1,40 +1,91 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
+import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
+
+import { Action, InfoState } from '../reducers/info-reducer';
+
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
-import { cormorant } from '@/constants';
+import { cormorant, cormorantLight } from '@/constants';
 import {
-  InfoContainer,
   Container,
+  InfoContainer,
 } from '@/pages/book-appointment/info-block/styles';
 
-export function InfoBlock() {
+type Props = {
+  state: InfoState;
+  dispatch: React.Dispatch<Action>;
+};
+
+type Ref = React.LegacyRef<HTMLDivElement>;
+
+const InfoBlock = (props: Props, ref: Ref) => {
+  const t = useTranslations('BOOK.INFO');
+  const { dispatch, state } = props;
+
+  const handleChange = (value: string, name: string) => {
+    dispatch({
+      type: 'CHANGE',
+      field: name,
+      payload: {
+        value: value,
+      },
+    });
+  };
+
   return (
-    <Container>
+    <Container ref={ref}>
       <Title fontFamily={cormorant.className} size={40}>
-        Enter your information here
+        {t('title')}
       </Title>
       <InfoContainer>
         <InputComponent
-          type="text"
-          placeholder="First Name"
-          fontFamily={cormorant.className}
+          type='text'
+          name='firstName'
+          placeholder={t('placeholder_1')}
+          fontFamily={cormorantLight.className}
+          value={state.firstName.value}
+          onChange={handleChange}
+          error={state.firstName.error}
         />
         <InputComponent
-          type="text"
-          placeholder="Last Name"
-          fontFamily={cormorant.className}
+          type='text'
+          name='lastName'
+          placeholder={t('placeholder_2')}
+          fontFamily={cormorantLight.className}
+          value={state.lastName.value}
+          onChange={handleChange}
+          error={state.lastName.error}
         />
         <InputComponent
-          type="email"
-          placeholder="Email"
-          fontFamily={cormorant.className}
+          type='email'
+          name='email'
+          placeholder={t('placeholder_3')}
+          fontFamily={cormorantLight.className}
+          value={state.email.value}
+          onChange={handleChange}
+          error={state.email.error}
         />
         <InputComponent
-          type="tel"
-          placeholder="Phone number"
-          fontFamily={cormorant.className}
+          type='tel'
+          name='phone'
+          placeholder={t('placeholder_4')}
+          fontFamily={cormorantLight.className}
+          value={state.phone.value}
+          onChange={handleChange}
+          error={state.phone.error}
         />
       </InfoContainer>
     </Container>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
+export default forwardRef(InfoBlock);

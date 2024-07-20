@@ -5,6 +5,12 @@ export const InfoContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-top: 48px;
+
+  @media (max-width: 1439px) {
+    padding: 12px;
+    margin-top: 24px;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Container = styled.div`

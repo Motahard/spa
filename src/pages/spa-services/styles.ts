@@ -7,11 +7,8 @@ export const SpaContainer = styled.div`
   justify-content: center;
   max-width: 900px;
   margin: auto;
-`;
 
-export const Breaker = styled.hr`
-  width: 600px;
-  height: 2px;
-  margin-top: 64px;
-  margin-bottom: 96px;
+  @media (max-width: 1439px) {
+    padding: 8px;
+  }
 `;

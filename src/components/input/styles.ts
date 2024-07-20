@@ -1,10 +1,36 @@
-import { colors } from '@/constants';
+import InputMask from 'react-input-mask';
+import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
 
-export const Input = styled.input`
+import { colors, cormorant } from '@/constants';
+
+type InputProps = {
+  size: number;
+  rightAddons?: StaticImageData;
+  isError?: boolean;
+};
+
+export const Input = styled(InputMask)<InputProps>`
   width: 100%;
   padding: 24px;
-  font-size: 24px;
+  font-size: ${(props) => props.size}px;
+  color: ${colors.charCoal};
+  border: 1px solid ${(props) => (props.isError ? colors.error : colors.border)};
+  ${(props) => props.rightAddons && 'padding-right: 45px;'}
+  border-radius: 5px;
+  flex: 1 0 auto;
+  &:focus {
+    outline: none;
+    border: 1px solid
+      ${(props) => (props.isError ? colors.error : colors.charCoal)};
+  }
+`;
+
+export const TextArea = styled.textarea<InputProps>`
+  width: 100%;
+  ${cormorant.style};
+  padding: 24px;
+  font-size: ${(props) => props.size}px;
   color: ${colors.charCoal};
   border: 1px solid ${colors.border};
   border-radius: 5px;
@@ -20,7 +46,25 @@ export const Label = styled.label`
 `;
 
 export const InputContainer = styled.div`
+  position: relative;
   margin-bottom: 16px;
+  display: flex;
+  align-content: stretch;
+  flex-direction: column;
+  & > p {
+    position: absolute;
+    margin-left: 16px;
+    top: 10%;
+    right: 5%;
+  }
+`;
+
+export const RightAddons = styled(Image)`
+  position: absolute;
+  width: 30px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -63,6 +107,6 @@ export const StyledCheckbox = styled.div<{ checked?: boolean }>`
 `;
 
 export const CheckboxContainer = styled.div`
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 `;

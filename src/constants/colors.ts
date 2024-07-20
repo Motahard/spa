@@ -7,4 +7,6 @@ export const colors = {
   charCoal: '#4c4c4b',
   border: '#E0E0E0',
   white: '#ffffff',
+  prevMonthDate: '#B0B0B0',
+  error: '#F73333',
 };

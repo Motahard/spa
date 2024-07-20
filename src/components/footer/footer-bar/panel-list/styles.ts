@@ -1,11 +1,8 @@
 import styled from 'styled-components';
+
 import { colors } from '@/constants';
 
-type PanelListWrapperProps = {
-  alignItems: string;
-};
-
-export const PanelListWrapper = styled.div<PanelListWrapperProps>`
+export const PanelListWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -23,5 +20,14 @@ export const PanelListComponent = styled.ul`
 
 export const PanelListItem = styled.li`
   margin-bottom: 8px;
-  font-size: 26px;
+  font-size: 24px;
+
+  & > a {
+    text-decoration: none;
+    color: ${colors.charCoal};
+  }
+
+  & > a:hover {
+    color: ${colors.pinkKisses};
+  }
 `;

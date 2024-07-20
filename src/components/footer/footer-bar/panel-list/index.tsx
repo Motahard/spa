@@ -1,4 +1,5 @@
-import { FooterItem, cormorant, cormorantLight } from '@/constants';
+import Link from 'next/link';
+
 import {
   PanelListComponent,
   PanelListItem,
@@ -6,20 +7,21 @@ import {
   PanelListWrapper,
 } from './styles';
 
+import { cormorant, cormorantLight, FooterItem } from '@/constants';
+
 type Props = {
   title: string;
   items: FooterItem[];
-  alignItems?: string;
 };
 
-function PanelList({ title, items, alignItems = 'flex-start' }: Props) {
+function PanelList({ title, items }: Props) {
   return (
-    <PanelListWrapper alignItems={alignItems}>
+    <PanelListWrapper>
       <PanelListTitle className={cormorant.className}>{title}</PanelListTitle>
       <PanelListComponent>
         {items.map((item) => (
           <PanelListItem key={item.id} className={cormorantLight.className}>
-            {item.text}
+            <Link href={item.href}>{item.text}</Link>
           </PanelListItem>
         ))}
       </PanelListComponent>

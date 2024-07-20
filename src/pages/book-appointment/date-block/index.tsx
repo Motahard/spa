@@ -1,27 +1,41 @@
+import React from 'react';
+import { CalendarProps } from 'react-calendar';
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
+
+import { Calendar } from '@/components/calendar';
+import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
-import React, { useState } from 'react';
+import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
 import {
   Container,
-  DateContainer,
+  DateTitleContainer,
   DateWrapper,
   TimeContainer,
   TimeWrapper,
-  DateTitleContainer,
 } from '@/pages/book-appointment/date-block/styles';
-import { InputComponent } from '@/components/input';
-import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
 
-export function DateBlock() {
-  const [checked, setChecked] = useState<string>('');
+type Props = {
+  date: CalendarProps['value'];
+  time: string;
+  setDate: React.Dispatch<
+    React.SetStateAction<CalendarProps['value'] | undefined>
+  >;
+  setTime: React.Dispatch<React.SetStateAction<string>>;
+};
 
+export function DateBlock({ date, time, setDate, setTime }: Props) {
+  const t = useTranslations('BOOK.DATE');
+  const { locale } = useRouter();
   const handleClick = (id?: string) => {
-    setChecked(id ?? '');
+    setTime(id ?? '');
   };
 
   const getCurrentDate = () => {
     const today = new Date().toLocaleDateString();
-    return `Choose a timeslot on ${today}`;
+    return `${t('title')} ${today}`;
   };
 
   return (
@@ -34,21 +48,32 @@ export function DateBlock() {
           {checkboxConfig.map((item) => (
             <InputComponent
               {...item}
+              key={item.name}
               onClick={handleClick}
-              checked={item.name === checked}
+              checked={item.name === time}
             />
           ))}
         </TimeContainer>
       </TimeWrapper>
       <DateWrapper>
         <DateTitleContainer>
-          <Title fontFamily={cormorant.className} size={24}>
-            Select Dates
-          </Title>
-          <p className={cormorant.className}>!@312312opkadsop</p>
+          <Calendar
+            defaultView='month'
+            value={date}
+            setValue={setDate}
+            locale={locale}
+          />
         </DateTitleContainer>
-        <DateContainer></DateContainer>
       </DateWrapper>
     </Container>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};

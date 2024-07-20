@@ -1,3 +1,5 @@
+import React, { CSSProperties } from 'react';
+
 import {
   ParagraphComponent,
   ParagraphComponentProps,
@@ -5,7 +7,8 @@ import {
 
 type Props = {
   fontFamily?: string;
-  children?: string;
+  children?: React.ReactNode;
+  style?: CSSProperties;
 } & ParagraphComponentProps;
 
 function Paragraph({
@@ -13,15 +16,15 @@ function Paragraph({
   size,
   weight,
   children,
-  textAlign,
   color,
+  style,
 }: Props) {
   return (
     <ParagraphComponent
       size={size}
       weight={weight}
+      style={style}
       className={fontFamily}
-      textAlign={textAlign}
       color={color}
     >
       {children}
