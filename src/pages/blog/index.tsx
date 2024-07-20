@@ -5,25 +5,26 @@ import content1 from '@/assets/content/content1.jpg';
 import content2 from '@/assets/content/content2.jpg';
 import BlogLayout from '@/components/blog-about-layout/layout';
 import { Container } from '@/pages/blog/styles';
-import { contentInfo } from '@/pages/blog/utils';
+import { useTranslations } from 'next-intl';
 
 function BlogPage() {
+  const t = useTranslations('BLOG')
   return (
     <Container>
       <BlogLayout
-        title='The Bark Chronicles'
-        subtitle='Where To Read All About The Bark!'
-        description='Rex, The Dog Who Never Stops Playing ... Ever'
+        title={t('title')}
+        subtitle={t('subtitle')}
+        description={t('card_title_1')}
         firstInfoCard={{
           image: content1,
           alt: 'rex1',
-          description: contentInfo[0],
+          description: t('card_description_1'),
         }}
         secondaryInfoCard={{
           image: content2,
           alt: 'rex2',
-          description: contentInfo[1],
-          descriptionSecondary: contentInfo[2],
+          description: t('card_description_2'),
+          descriptionSecondary: t('card_hint_2'),
           flexDirection: 'row-reverse',
         }}
       />

@@ -30,8 +30,10 @@ import {
   FormContainer,
   InputContainer,
 } from '@/pages/contact/styles';
+import { useTranslations } from 'next-intl';
 
 function AboutPage() {
+  const t = useTranslations('CONTACT');
   const [state, dispatch] = useReducer(contactReducer, initialState);
   const { sendEmail, loading } = useSendEmail();
 
@@ -106,7 +108,7 @@ function AboutPage() {
   return (
     <Container>
       <Title top={48} fontFamily={cormorant.className} size={70}>
-        Contact
+        {t('title')}
       </Title>
       <Breaker />
       <Paragraph
@@ -114,11 +116,8 @@ function AboutPage() {
         size={24}
         style={{ textAlign: 'center' }}
       >
-        For customer service inquiries, please email us at
-        <EmailText> customerservice@luxeanimalspa.ca.</EmailText> For spa
-        inquiries, please include your animal’s name for faster service. For
-        your protection, please do not include your credit card or banking
-        information details in your email.
+        {t('desciprition_1')}
+        <EmailText> {t('email')}</EmailText>{t('desciprition_2')}
       </Paragraph>
       <FormContainer onSubmit={handleSubmit}>
         <InputContainer>
@@ -128,6 +127,7 @@ function AboutPage() {
             onFocus={handleFocus}
             value={state.firstName.value}
             error={state.firstName.error}
+            placeholder={t('placeholder_1')}
           />
           <InputComponent
             {...lastNameConfig}
@@ -135,6 +135,7 @@ function AboutPage() {
             onFocus={handleFocus}
             value={state.lastName.value}
             error={state.lastName.error}
+            placeholder={t('placeholder_2')}
           />
         </InputContainer>
         <InputContainer>
@@ -144,6 +145,7 @@ function AboutPage() {
             onFocus={handleFocus}
             value={state.email.value}
             error={state.email.error}
+            placeholder={t('placeholder_3')}
           />
           <InputComponent
             {...phoneNumberConfig}
@@ -151,6 +153,7 @@ function AboutPage() {
             onFocus={handleFocus}
             value={state.phone.value}
             error={state.phone.error}
+            placeholder={t('placeholder_4')}
           />
         </InputContainer>
         <InputContainer>
@@ -158,9 +161,10 @@ function AboutPage() {
             {...additionalInfoConfig}
             onChange={handleChange}
             value={state.additionalInfo.value}
+            placeholder={t('placeholder_5')}
           />
         </InputContainer>
-        <Button type='submit' text='Submit' loading={loading} />
+        <Button type='submit' text={t('button')} loading={loading} />
       </FormContainer>
     </Container>
   );

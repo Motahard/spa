@@ -9,6 +9,8 @@ import {
   Container,
   InfoContainer,
 } from '@/pages/book-appointment/info-block/styles';
+import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   state: InfoState;
@@ -18,6 +20,7 @@ type Props = {
 type Ref = React.LegacyRef<HTMLDivElement>;
 
 const InfoBlock = (props: Props, ref: Ref) => {
+  const t = useTranslations('BOOK.INFO');
   const { dispatch, state } = props;
 
   const handleChange = (value: string, name: string) => {
@@ -33,13 +36,13 @@ const InfoBlock = (props: Props, ref: Ref) => {
   return (
     <Container ref={ref}>
       <Title fontFamily={cormorant.className} size={40}>
-        Enter your information here
+        {t('title')}
       </Title>
       <InfoContainer>
         <InputComponent
           type='text'
           name='firstName'
-          placeholder='First Name'
+          placeholder={t('placeholder_1')}
           fontFamily={cormorantLight.className}
           value={state.firstName.value}
           onChange={handleChange}
@@ -48,7 +51,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
         <InputComponent
           type='text'
           name='lastName'
-          placeholder='Last Name'
+          placeholder={t('placeholder_2')}
           fontFamily={cormorantLight.className}
           value={state.lastName.value}
           onChange={handleChange}
@@ -57,7 +60,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
         <InputComponent
           type='email'
           name='email'
-          placeholder='Email'
+          placeholder={t('placeholder_3')}
           fontFamily={cormorantLight.className}
           value={state.email.value}
           onChange={handleChange}
@@ -66,7 +69,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
         <InputComponent
           type='tel'
           name='phone'
-          placeholder='Phone number'
+          placeholder={t('placeholder_4')}
           fontFamily={cormorantLight.className}
           value={state.phone.value}
           onChange={handleChange}
@@ -77,4 +80,12 @@ const InfoBlock = (props: Props, ref: Ref) => {
   );
 };
 
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};
 export default forwardRef(InfoBlock);

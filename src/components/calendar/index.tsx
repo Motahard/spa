@@ -7,9 +7,10 @@ type Props = {
   value: CalendarProps['value'];
   setValue: React.Dispatch<CalendarProps['value']>;
   defaultView?: CalendarProps['defaultView'];
+  locale?: string;
 };
 
-export const Calendar = ({ defaultView = 'month', value, setValue }: Props) => {
+export const Calendar = ({ defaultView = 'month', value, setValue, locale = 'en-US' }: Props) => {
   const onChange = (
     value: CalendarProps['value'],
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -21,6 +22,8 @@ export const Calendar = ({ defaultView = 'month', value, setValue }: Props) => {
     }
   };
 
+  const currentLocale = locale === 'en' ? 'en-US' : 'ru-RU';
+
   return (
     <CalendarContainer>
       <CalendarCore
@@ -28,10 +31,10 @@ export const Calendar = ({ defaultView = 'month', value, setValue }: Props) => {
         onChange={onChange}
         selectRange={false}
         defaultView={defaultView}
-        locale='en-US'
+        locale={currentLocale}
         formatShortWeekday={(locale, date) =>
           date
-            .toLocaleDateString('en-us', {
+            .toLocaleDateString(currentLocale, {
               weekday: 'long',
               year: 'numeric',
               month: 'short',

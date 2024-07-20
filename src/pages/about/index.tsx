@@ -7,24 +7,26 @@ import about1 from '@/assets/content/about1.jpg';
 import about2 from '@/assets/content/about2.jpg';
 import BlogLayout from '@/components/blog-about-layout/layout';
 import { Container } from '@/pages/about/styles';
+import { useTranslations } from 'next-intl';
 
 function AboutPage() {
+  const t = useTranslations('ABOUT');
   return (
     <Container>
       <BlogLayout
-        title='About Us'
-        subtitle='Our Owners Love Dogs and Cats Only'
+        title={t('title')}
+        subtitle={t('subtitle')}
         firstInfoCard={{
           image: about1,
           alt: 'felix1',
-          description: aboutInfo[0],
-          descriptionSecondary: aboutInfo[1],
+          description: t('description_1'),
+          descriptionSecondary: t('description_secondary_1'),
         }}
         secondaryInfoCard={{
           image: about2,
           alt: 'felix2',
-          description: aboutInfo[2],
-          descriptionSecondary: aboutInfo[3],
+          description: t('description_2'),
+          descriptionSecondary: t('description_secondary_2'),
           flexDirection: 'row-reverse',
         }}
       />

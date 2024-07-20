@@ -19,6 +19,8 @@ import {
   Action,
   InfoState,
 } from '@/pages/book-appointment/reducers/info-reducer';
+import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   state: InfoState;
@@ -26,6 +28,7 @@ type Props = {
 };
 
 export const PaymentBlock = ({ dispatch, state }: Props) => {
+  const t = useTranslations('BOOK.PAYMENT');
   const handleChange = (value: string, name: string) => {
     dispatch({
       type: 'CHANGE',
@@ -39,11 +42,11 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
   return (
     <Container>
       <Title size={28} fontFamily={cormorant.className}>
-        Enter your payment information
+      {t('title')}
       </Title>
       <FormContainer>
         <InputComponent
-          placeholder='Credit Card Number'
+          placeholder={t('placeholder_1')}
           fontFamily={cormorantLight.className}
           name='card'
           size={24}
@@ -54,7 +57,7 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
         />
         <InputContainer>
           <InputComponent
-            placeholder='Expiry Date'
+            placeholder={t('placeholder_2')}
             fontFamily={cormorantLight.className}
             name='expiry'
             size={24}
@@ -65,7 +68,7 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
           />
           <InputComponent
             type='text'
-            placeholder='CVV'
+            placeholder={t('placeholder_3')}
             fontFamily={cormorantLight.className}
             size={24}
             name='cvv'
@@ -76,7 +79,7 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
           />
         </InputContainer>
         <InputComponent
-          placeholder='Name on Card'
+          placeholder={t('placeholder_4')}
           fontFamily={cormorantLight.className}
           name='name'
           size={24}
@@ -93,12 +96,20 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
         <SubmitContainer>
           <PaymentInfo>
             <Paragraph fontFamily={cormorantLight.className} size={18}>
-              Please be advised cancelling within 24 hours of your scheduled
-              appointment will result in a cancellation fee of $300.00.
+              {t('hint')}
             </Paragraph>
           </PaymentInfo>
         </SubmitContainer>
       </FormContainer>
     </Container>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
 };

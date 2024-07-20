@@ -13,6 +13,9 @@ import {
   TimeContainer,
   TimeWrapper,
 } from '@/pages/book-appointment/date-block/styles';
+import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/router';
 
 type Props = {
   date: CalendarProps['value'];
@@ -24,13 +27,15 @@ type Props = {
 };
 
 export function DateBlock({ date, time, setDate, setTime }: Props) {
+  const t = useTranslations('BOOK.DATE');
+  const { locale } = useRouter();
   const handleClick = (id?: string) => {
     setTime(id ?? '');
   };
 
   const getCurrentDate = () => {
     const today = new Date().toLocaleDateString();
-    return `Choose a timeslot on ${today}`;
+    return `${t('title')} ${today}`;
   };
 
   return (
@@ -52,9 +57,19 @@ export function DateBlock({ date, time, setDate, setTime }: Props) {
       </TimeWrapper>
       <DateWrapper>
         <DateTitleContainer>
-          <Calendar defaultView='month' value={date} setValue={setDate} />
+          <Calendar defaultView='month' value={date} setValue={setDate} locale={locale} />
         </DateTitleContainer>
       </DateWrapper>
     </Container>
   );
 }
+
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {
+      messages: (await import(`../../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+};

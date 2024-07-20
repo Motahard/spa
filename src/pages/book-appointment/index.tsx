@@ -34,8 +34,10 @@ import {
   FormContainer,
   PaypalContainer,
 } from '@/pages/book-appointment/styles';
+import { useTranslations } from 'next-intl';
 
 function BookAppoinment() {
+  const t = useTranslations('BOOK');
   const [modalOpen, setModalOpen] = useState(false);
   const [time, setTime] = useState<string>('1');
   const [date, setDate] = useState<CalendarProps['value']>(new Date());
@@ -122,7 +124,7 @@ function BookAppoinment() {
       <BookTitleImageWrapper>
         <BookTitleWrapper>
           <Title fontFamily={cormorant.className} size={64} color='#fff'>
-            Book An Appointment With Our Groom Specialist Today!
+            {t('title')}
           </Title>
         </BookTitleWrapper>
       </BookTitleImageWrapper>
@@ -138,13 +140,13 @@ function BookAppoinment() {
           <CommentContainer>
             <InputComponent
               type='textarea'
-              placeholder='Any special requests for your pet(s)...'
+              placeholder={t('additional_placholder')}
               fontFamily={cormorantLight.className}
               value={additionalInfo}
               onChange={setAdditionalInfo}
             />
             <PaymentBlock state={state} dispatch={dispatch} />
-            <Button text='Book Appointment' type='submit' />
+            <Button text={t('submit_button')} type='submit' />
           </CommentContainer>
           {modalOpen && (
             <Modal onClose={handleModalClose}>

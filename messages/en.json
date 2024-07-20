@@ -71,5 +71,69 @@
         "min_life_expectancy": "Min life expectancy",
         "good_with_strangers": "Good with strangers",
         "good_with_other_dogs": "Good with other dogs"
+    },
+    "SPA": {
+        "title": "Spa Services",
+        "title_1": "Dog or Cat Full Spa Treatment",
+        "paragraph_1": "Bath, massage, full grooming of hair and nails (comes with a take home bath kit and animal treats).",
+        "title_2": "Dog or Cat Body Massage ",
+        "paragraph_2": "Massaging of the paws, thighs, head and of course, behind the ears (comes with animal treats).",
+        "title_3": "Doggy Facial and Fur Cleanse Treatment ",
+        "paragraph_3": "Dogs receive a facial with our vegan, cruelty free face products and cleansing of any dirt left hiding in their beautiful fur (comes with a take home face products and animal treats).",
+        "title_4": "Cat Facial and Fur Cleanse Treatment ",
+        "paragraph_4": "Cat receives a facial with our vegan, cruelty free face products and cleansing of any dirt left hidding in their fur (comes with a take home face products and animal treats).",
+        "title_5": "Cat and Dog Swim Spa Retreat ",
+        "paragraph_5": "Take your animal on an amazing journey retreat in the woods with a scratch proof tent, feline repellant protector and sticks galore (for dogs, of course). There is a sauna that is for the animal owners and a smaller bath for your pets (comes with a cute animal raincoat and boots)."
+    },
+    "BOOK": {
+        "title": "Book An Appointment With Our Groom Specialist Today!",
+        "additional_placholder": "Any special requests for your pet(s)...",
+        "submit_button": "Book Appointment",
+        "INFO": {
+            "title": "Enter your information here",
+            "placeholder_1": "First Name",
+            "placeholder_2": "Last Name",
+            "placeholder_3": "Email",
+            "placeholder_4": "Phone number"
+        },
+        "DATE": {
+            "title": "Choose a timeslot on "
+        },
+        "PAYMENT": {
+            "title": "Enter your payment information",
+            "placeholder_1": "Credit Card Number",
+            "placeholder_2": "Expiry Date",
+            "placeholder_3": "CVV",
+            "placeholder_4": "Name on Card",
+            "hint": "Please be advised cancelling within 24 hours of your scheduled appointment will result in a cancellation fee of $300.00."
+        }
+    },
+    "BLOG": {
+            "title": "The Bark Chronicles",
+            "subtitle": "Where To Read All About The Bark!",
+            "card_title_1": "Rex, The Dog Who Never Stops Playing ... Ever",
+            "card_description_1": "Sometimes it is difficult to get dogs interested in the toys you buy for them. .. Luckily for Rex, everything he sees is a potential toy for him! Never let him around your valuables or any socks. He will steal them and you will never see them again...",
+            "card_description_2": "One day, we started noticing Rex was ripping apart all of our sheets when he was bored except for this blanket over here. Rex decided to spare this ugly white blanket that my grandmother gave me from her war days. We never threw it away because we felt bad. Seeing Rex sleep on this blanket made us happy. At least someone was using this blanket, even if we had to rebuy brand new sheets because we have such an amazing dog.",
+            "card_hint_2": "We love you Rex."
+    },
+    "ABOUT": {
+        "title": "About Us",
+        "subtitle": "Our Owners Love Dogs and Cats Only",
+        "description_1": "Here at Luxe Animal Spa we aim to provide you with the best service possible for both you and your pet! We pride ourselves in offering a true first-class experience.",
+        "description_secondary_1": "Our grooming equipment is top quality.  We use only the most trusted brands in the industry which provides a beautiful, calming, and safe salon experience for your pets.",
+        "description_2": "All animals deserve a special spa pampering treatment, but mostly cats and dogs. Luxe Animal Spa offers the best spa treatments to leave your pets feeling amazing!",
+        "description_secondary_2": "We are the first in Canada to offer spa treatments for cats and dogs. This is unheard of in many places so come, bring your amazing cat or dog and let us make their spa experience something they will never forget!"
+    },
+    "CONTACT": {
+        "title": "Contact",
+        "desciprition_1": " For customer service inquiries, please email us at",
+        "desciprition_2": "  For spa inquiries, please include your animal’s name for faster service. For your protection, please do not include your credit card or banking information details in your email.",
+        "email": "customerservice@luxeanimalspa.ca.",
+        "placeholder_1": "First Name",
+        "placeholder_2": "Last Name",
+        "placeholder_3": "Email",
+        "placeholder_4": "Phone number",
+        "placeholder_5": "Your message goes here ...",
+        "button": "Submit"
     }
 }
