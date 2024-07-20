@@ -10,7 +10,12 @@ type Props = {
   locale?: string;
 };
 
-export const Calendar = ({ defaultView = 'month', value, setValue, locale = 'en-US' }: Props) => {
+export const Calendar = ({
+  defaultView = 'month',
+  value,
+  setValue,
+  locale = 'en-US',
+}: Props) => {
   const onChange = (
     value: CalendarProps['value'],
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>

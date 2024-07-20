@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
 import { ValidationError } from 'yup';
 
 import {
@@ -30,7 +31,6 @@ import {
   FormContainer,
   InputContainer,
 } from '@/pages/contact/styles';
-import { useTranslations } from 'next-intl';
 
 function AboutPage() {
   const t = useTranslations('CONTACT');
@@ -117,7 +117,8 @@ function AboutPage() {
         style={{ textAlign: 'center' }}
       >
         {t('desciprition_1')}
-        <EmailText> {t('email')}</EmailText>{t('desciprition_2')}
+        <EmailText> {t('email')}</EmailText>
+        {t('desciprition_2')}
       </Paragraph>
       <FormContainer onSubmit={handleSubmit}>
         <InputContainer>

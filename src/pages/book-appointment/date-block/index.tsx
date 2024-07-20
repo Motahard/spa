@@ -1,5 +1,8 @@
 import React from 'react';
 import { CalendarProps } from 'react-calendar';
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 
 import { Calendar } from '@/components/calendar';
 import { InputComponent } from '@/components/input';
@@ -13,9 +16,6 @@ import {
   TimeContainer,
   TimeWrapper,
 } from '@/pages/book-appointment/date-block/styles';
-import { GetStaticProps } from 'next';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/router';
 
 type Props = {
   date: CalendarProps['value'];
@@ -57,13 +57,17 @@ export function DateBlock({ date, time, setDate, setTime }: Props) {
       </TimeWrapper>
       <DateWrapper>
         <DateTitleContainer>
-          <Calendar defaultView='month' value={date} setValue={setDate} locale={locale} />
+          <Calendar
+            defaultView='month'
+            value={date}
+            setValue={setDate}
+            locale={locale}
+          />
         </DateTitleContainer>
       </DateWrapper>
     </Container>
   );
 }
-
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

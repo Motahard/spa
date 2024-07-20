@@ -1,4 +1,6 @@
 import React, { forwardRef } from 'react';
+import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
 
 import { Action, InfoState } from '../reducers/info-reducer';
 
@@ -9,8 +11,6 @@ import {
   Container,
   InfoContainer,
 } from '@/pages/book-appointment/info-block/styles';
-import { GetStaticProps } from 'next';
-import { useTranslations } from 'next-intl';
 
 type Props = {
   state: InfoState;

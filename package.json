@@ -19,6 +19,7 @@
     "@pbe/react-yandex-maps": "^1.2.5",
     "apollo-server-micro": "^3.13.0",
     "axios": "^1.6.7",
+    "dog-spa-components": "^1.0.1",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "next": "14.2.3",

@@ -1,6 +1,7 @@
 import React, { useReducer, useRef, useState } from 'react';
 import { CalendarProps } from 'react-calendar';
 import { GetStaticProps } from 'next';
+import { useTranslations } from 'next-intl';
 import { ValidationError } from 'yup';
 
 import {
@@ -34,7 +35,6 @@ import {
   FormContainer,
   PaypalContainer,
 } from '@/pages/book-appointment/styles';
-import { useTranslations } from 'next-intl';
 
 function BookAppoinment() {
   const t = useTranslations('BOOK');

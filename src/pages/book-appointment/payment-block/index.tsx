@@ -1,5 +1,7 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { InputComponent } from '@/components/input';
 import Paragraph from '@/components/paragraph';
@@ -19,8 +21,6 @@ import {
   Action,
   InfoState,
 } from '@/pages/book-appointment/reducers/info-reducer';
-import { GetStaticProps } from 'next';
-import { useTranslations } from 'next-intl';
 
 type Props = {
   state: InfoState;
@@ -42,7 +42,7 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
   return (
     <Container>
       <Title size={28} fontFamily={cormorant.className}>
-      {t('title')}
+        {t('title')}
       </Title>
       <FormContainer>
         <InputComponent
