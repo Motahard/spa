@@ -8,7 +8,7 @@ import typeDefs from '@/pages/api/schemas';
 
 const resolvers = {
   Query: {
-    searchDog: async (_, { name }: { name: string }) => {
+    searchDog: async (_: any, { name }: { name: string }) => {
       return await dogsResolver(name);
     },
   },
