@@ -8,6 +8,7 @@ import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import { paymentSystemsConfig } from '@/constants/payments-systems';
+import { Action, InfoState } from '@/reducers/info-reducer';
 import {
   Container,
   FormContainer,
@@ -16,18 +17,14 @@ import {
   PaymentSystemItem,
   PaymentSystems,
   SubmitContainer,
-} from '@/pages/book-appointment/payment-block/styles';
-import {
-  Action,
-  InfoState,
-} from '@/pages/book-appointment/reducers/info-reducer';
+} from '@/styles/payments.styles';
 
 type Props = {
   state: InfoState;
   dispatch: React.Dispatch<Action>;
 };
 
-export const PaymentBlock = ({ dispatch, state }: Props) => {
+const PaymentBlock = ({ dispatch, state }: Props) => {
   const t = useTranslations('BOOK.PAYMENT');
   const handleChange = (value: string, name: string) => {
     dispatch({
@@ -108,8 +105,10 @@ export const PaymentBlock = ({ dispatch, state }: Props) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
-      messages: (await import(`../../../../messages/${context.locale}.json`))
+      messages: (await import(`../../../messages/${context.locale}.json`))
         .default,
     },
   };
 };
+
+export default PaymentBlock;

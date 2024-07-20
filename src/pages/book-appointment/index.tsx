@@ -10,7 +10,7 @@ import {
   PayPalScriptProvider,
 } from '@paypal/react-paypal-js';
 
-import { InfoState } from './reducers/info-reducer';
+import { InfoState } from '../../reducers/info-reducer';
 
 import Button from '@/components/button';
 import { InputComponent } from '@/components/input';
@@ -18,14 +18,11 @@ import { Modal } from '@/components/modal';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import { schema, schemaPay } from '@/constants/validation';
-import { DateBlock } from '@/pages/book-appointment/date-block';
-import InfoBlock from '@/pages/book-appointment/info-block';
-import { MapBlock } from '@/pages/book-appointment/map-block';
-import { PaymentBlock } from '@/pages/book-appointment/payment-block';
-import {
-  infoReducer,
-  initialInfoState,
-} from '@/pages/book-appointment/reducers/info-reducer';
+import DateBlock from '@/components/date-block';
+import InfoBlock from '@/components/info-block';
+import MapBlock from '@/components/map-block';
+import PaymentBlock from '@/components/payment-block';
+import { infoReducer, initialInfoState } from '@/reducers/info-reducer';
 import {
   BookContainer,
   BookTitleImageWrapper,
@@ -34,7 +31,7 @@ import {
   Container,
   FormContainer,
   PaypalContainer,
-} from '@/pages/book-appointment/styles';
+} from '@/styles/book.styles';
 
 function BookAppoinment() {
   const t = useTranslations('BOOK');

@@ -8,14 +8,14 @@ import { Calendar } from '@/components/calendar';
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
-import { checkboxConfig } from '@/pages/book-appointment/date-block/config';
+import { checkboxConfig } from '@/helpers/date-block.config';
 import {
   Container,
   DateTitleContainer,
   DateWrapper,
   TimeContainer,
   TimeWrapper,
-} from '@/pages/book-appointment/date-block/styles';
+} from '@/styles/date.styles';
 
 type Props = {
   date: CalendarProps['value'];
@@ -26,7 +26,7 @@ type Props = {
   setTime: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export function DateBlock({ date, time, setDate, setTime }: Props) {
+function DateBlock({ date, time, setDate, setTime }: Props) {
   const t = useTranslations('BOOK.DATE');
   const { locale } = useRouter();
   const handleClick = (id?: string) => {
@@ -72,8 +72,10 @@ export function DateBlock({ date, time, setDate, setTime }: Props) {
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
-      messages: (await import(`../../../../messages/${context.locale}.json`))
+      messages: (await import(`../../../messages/${context.locale}.json`))
         .default,
     },
   };
 };
+
+export default DateBlock;

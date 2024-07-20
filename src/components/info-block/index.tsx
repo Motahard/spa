@@ -2,15 +2,12 @@ import React, { forwardRef } from 'react';
 import { GetStaticProps } from 'next';
 import { useTranslations } from 'next-intl';
 
-import { Action, InfoState } from '../reducers/info-reducer';
+import { Action, InfoState } from '@/reducers/info-reducer';
 
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import {
-  Container,
-  InfoContainer,
-} from '@/pages/book-appointment/info-block/styles';
+import { Container, InfoContainer } from '@/styles/info-block.styles';
 
 type Props = {
   state: InfoState;
@@ -83,7 +80,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
-      messages: (await import(`../../../../messages/${context.locale}.json`))
+      messages: (await import(`../../../messages/${context.locale}.json`))
         .default,
     },
   };

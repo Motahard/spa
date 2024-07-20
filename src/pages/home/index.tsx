@@ -11,15 +11,15 @@ import InfoCard from '@/components/info-card';
 import { Modal } from '@/components/modal';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
-import { animalCarryOns, dogCollars } from '@/pages/home/config';
-import { ModalContent } from '@/pages/home/modal-content';
-import { ShopBar } from '@/pages/home/shop-bar';
+import { animalCarryOns, dogCollars } from '@/helpers/shop-bar.config';
+import ModalContent from '@/components/modal-content';
+import ShopBar from '@/components/shop-bar';
 import {
   Container,
   ContentContainer,
   HomeCard,
   ImageContainer,
-} from '@/pages/home/styles';
+} from '@/styles/home.styles';
 
 function HomePage() {
   const t = useTranslations('HOME');

@@ -6,7 +6,7 @@ import { Breaker } from '@/components/breaker';
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { colors, cormorant, cormorantLight } from '@/constants';
-import { SpaContainer } from '@/pages/spa-services/styles';
+import { SpaContainer } from '@/styles/spa.styles';
 
 function SpaServices() {
   const t = useTranslations('SPA');

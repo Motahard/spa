@@ -20,7 +20,7 @@ import {
   DogInfoContainer,
   InputContainer,
   SearchContainer,
-} from '@/pages/info/styles';
+} from '@/styles/info.styles';
 
 type ApiData = {
   energy: number;

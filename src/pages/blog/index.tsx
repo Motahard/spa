@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import content1 from '@/assets/content/content1.jpg';
 import content2 from '@/assets/content/content2.jpg';
 import BlogLayout from '@/components/blog-about-layout/layout';
-import { Container } from '@/pages/blog/styles';
+import { Container } from '@/styles/blog.styles';
 
 function BlogPage() {
   const t = useTranslations('BLOG');
