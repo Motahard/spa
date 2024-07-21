@@ -35,7 +35,7 @@ const nextConfig = {
       'AXGQbaOTqmWkCxG5WNpoi6M6TpVYGJfl6fTyHuGyK_cgb8q-59Z7vSabuzoe7IsXK-fYv4zV2fc2lLpW',
     PAYPAL_CLIENT_SECRET:
       'EJb2CJdB7VvB-SoWASuf_Nq-6qxeSSKa3qWyREaHzhdK0fUx4dTsBsQsWX_DdPuudXiO4Sc1e9UsHweJ',
-    NEXT_PUBLIC_SERVER_GRAPHQL: 'https://spa-git-develop-mas280499s-projects.vercel.app/api/graphql',
+    NEXT_PUBLIC_SERVER_GRAPHQL: 'http://localhost:3000/api/graphql',
     DOGS_API: 'DdOiEDBgIr9QMrW82bjyWQ==mTkQcHRvr6KZirMC',
   },
 };
