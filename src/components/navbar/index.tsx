@@ -92,7 +92,6 @@ function Navbar() {
               <Link
                 className={cormorant.className}
                 href={link.uri}
-                locale='en'
                 onClick={() => handleNavigate(link)}
               >
                 {link.name}

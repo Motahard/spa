@@ -92,7 +92,7 @@ function InfoPage() {
         <DogInfoContainer>
           <DogCard>
             <DogImage>
-              <Image src={data[0].image_link} alt='alt' fill={true} />
+              <Image src={data[0].image_link} alt='alt' layout='fill' />
             </DogImage>
             <Title
               top={30}
