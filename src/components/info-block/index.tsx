@@ -2,11 +2,10 @@ import React, { forwardRef } from 'react';
 import { GetStaticProps } from 'next';
 import { useTranslations } from 'next-intl';
 
-import { Action, InfoState } from '@/reducers/info-reducer';
-
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
+import { Action, InfoState } from '@/reducers/info-reducer';
 import { Container, InfoContainer } from '@/styles/info-block.styles';
 
 type Props = {

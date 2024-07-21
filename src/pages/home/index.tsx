@@ -9,11 +9,11 @@ import homeImage from '@/assets/content/home1.png';
 import Button from '@/components/button';
 import InfoCard from '@/components/info-card';
 import { Modal } from '@/components/modal';
+import ModalContent from '@/components/modal-content';
+import ShopBar from '@/components/shop-bar';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
 import { animalCarryOns, dogCollars } from '@/helpers/shop-bar.config';
-import ModalContent from '@/components/modal-content';
-import ShopBar from '@/components/shop-bar';
 import {
   Container,
   ContentContainer,

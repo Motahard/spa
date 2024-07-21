@@ -13,15 +13,15 @@ import {
 import { InfoState } from '../../reducers/info-reducer';
 
 import Button from '@/components/button';
+import DateBlock from '@/components/date-block';
+import InfoBlock from '@/components/info-block';
 import { InputComponent } from '@/components/input';
+import MapBlock from '@/components/map-block';
 import { Modal } from '@/components/modal';
+import PaymentBlock from '@/components/payment-block';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import { schema, schemaPay } from '@/constants/validation';
-import DateBlock from '@/components/date-block';
-import InfoBlock from '@/components/info-block';
-import MapBlock from '@/components/map-block';
-import PaymentBlock from '@/components/payment-block';
 import { infoReducer, initialInfoState } from '@/reducers/info-reducer';
 import {
   BookContainer,
