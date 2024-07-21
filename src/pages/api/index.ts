@@ -5,7 +5,6 @@ import { startServerAndCreateNextHandler } from '@as-integrations/next';
 
 import { dogsResolver } from '@/pages/api/resolvers/dogs';
 import typeDefs from '@/pages/api/schemas';
-import allowCors from '@/utils/cors';
 
 const resolvers = {
   Query: {
@@ -20,8 +19,8 @@ const apolloServer = new ApolloServer({
   resolvers,
 });
 
-const handler = startServerAndCreateNextHandler<NextRequest>(apolloServer, {
+const POST = startServerAndCreateNextHandler<NextRequest>(apolloServer, {
   context: async (req) => ({ req }),
 });
 
-export default allowCors(handler);
+export default POST;
