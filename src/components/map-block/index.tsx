@@ -10,9 +10,9 @@ import {
   MapContainer,
   MapDesciptionItem,
   MapDescription,
-} from '@/pages/book-appointment/map-block/styles';
+} from '@/styles/map.styles';
 
-export const MapBlock = () => {
+const MapBlock = () => {
   return (
     <Container>
       <MapContainer>
@@ -61,3 +61,5 @@ export const MapBlock = () => {
     </Container>
   );
 };
+
+export default MapBlock;

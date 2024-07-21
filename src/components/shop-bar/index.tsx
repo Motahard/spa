@@ -13,7 +13,7 @@ import {
   Container,
   ImageContainer,
   TitleContainer,
-} from '@/pages/home/shop-bar/styles';
+} from '@/styles/home-shop.styles';
 
 type Props = {
   title: string;
@@ -27,7 +27,7 @@ type Props = {
   buttonText: string;
 };
 
-export const ShopBar = ({ title, cards, buttonText }: Props) => {
+const ShopBar = ({ title, cards, buttonText }: Props) => {
   return (
     <Container>
       <TitleContainer>
@@ -61,3 +61,5 @@ export const ShopBar = ({ title, cards, buttonText }: Props) => {
     </Container>
   );
 };
+
+export default ShopBar;

@@ -3,14 +3,6 @@ import { GetStaticProps } from 'next';
 import { useTranslations } from 'next-intl';
 import { ValidationError } from 'yup';
 
-import {
-  additionalInfoConfig,
-  emailConfig,
-  firstNameConfig,
-  lastNameConfig,
-  phoneNumberConfig,
-} from './utils';
-
 import { Breaker } from '@/components/breaker';
 import Button from '@/components/button';
 import { InputComponent } from '@/components/input';
@@ -19,18 +11,25 @@ import Title from '@/components/title';
 import { cormorant } from '@/constants';
 import { CONTACT_MESSAGE, FROM_NAME } from '@/constants/email';
 import { schema } from '@/constants/validation';
+import {
+  additionalInfoConfig,
+  emailConfig,
+  firstNameConfig,
+  lastNameConfig,
+  phoneNumberConfig,
+} from '@/helpers/contact.config';
 import { useSendEmail } from '@/hooks/use-send-email';
 import {
   contactReducer,
   initialState,
   State,
-} from '@/pages/contact/reducers/form-reducer';
+} from '@/reducers/contact-reducer';
 import {
   Container,
   EmailText,
   FormContainer,
   InputContainer,
-} from '@/pages/contact/styles';
+} from '@/styles/contact.styles';
 
 function AboutPage() {
   const t = useTranslations('CONTACT');

@@ -19,9 +19,9 @@ import {
   DesciptionWrapper,
   FormWrapper,
   ImageWrapper,
-} from '@/pages/home/modal-content/styles';
+} from '@/styles/home-modal.styles';
 
-export const ModalContent = () => {
+const ModalContent = () => {
   const t = useTranslations('HOME');
   const [emailInput, setEmail] = useState('');
   const { loading, sendEmail, error, clearError } = useSendEmail();
@@ -93,8 +93,10 @@ export const ModalContent = () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
-      messages: (await import(`../../../../messages/${context.locale}.json`))
+      messages: (await import(`../../../messages/${context.locale}.json`))
         .default,
     },
   };
 };
+
+export default ModalContent;
