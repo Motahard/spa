@@ -3,13 +3,13 @@ import { NextRequest } from 'next/server';
 import { ApolloServer } from '@apollo/server';
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
 
-import { dogsResolver } from '@/pages/api/resolvers/dogs';
+import GET from '@/pages/api/resolvers/dogs';
 import typeDefs from '@/pages/api/schemas';
 
 const resolvers = {
   Query: {
     searchDog: async (_: any, { name }: { name: string }) => {
-      return await dogsResolver(name);
+      return await GET(name);
     },
   },
 };

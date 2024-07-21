@@ -1,4 +1,4 @@
-export const dogsResolver = async (name: string) => {
+const GET = async (name: string) => {
   try {
     const data = await fetch(
       `https://api.api-ninjas.com/v1/dogs?name=${name}`,
@@ -15,3 +15,5 @@ export const dogsResolver = async (name: string) => {
     throw new Error('Error while trying to find dog');
   }
 };
+
+export default GET;
