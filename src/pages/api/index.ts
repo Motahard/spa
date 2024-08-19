@@ -19,11 +19,11 @@ const apolloServer = new ApolloServer({
   resolvers,
 });
 
-const graphqlServer = startServerAndCreateNextHandler<NextRequest>(
+const POST = startServerAndCreateNextHandler<NextRequest>(
   apolloServer,
   {
     context: async (req) => ({ req }),
   }
 );
 
-export default graphqlServer;
+export default POST;
