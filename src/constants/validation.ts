@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import * as yup from 'yup';
 
 const phoneRegEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;

@@ -12,7 +12,11 @@ type Props = {
 
 function Button({ type, text, loading = false }: Props) {
   return (
-    <ButtonComponent type={type} className={cormorant.className}>
+    <ButtonComponent
+      type={type}
+      className={cormorant.className}
+      disabled={loading}
+    >
       {loading ? <Image src={loadingImage} alt='loading' /> : text}
     </ButtonComponent>
   );

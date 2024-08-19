@@ -1,5 +1,9 @@
 import React from 'react';
-import { Calendar as CalendarCore, CalendarProps } from 'react-calendar';
+import {
+  Calendar as CalendarCore,
+  CalendarProps,
+  TileDisabledFunc,
+} from 'react-calendar';
 
 import { CalendarContainer } from '@/components/calendar/styles';
 
@@ -29,11 +33,16 @@ export const Calendar = ({
 
   const currentLocale = locale === 'en' ? 'en-US' : 'ru-RU';
 
+  const tileDisabled: TileDisabledFunc = (params) => {
+    return params.date < new Date();
+  };
+
   return (
     <CalendarContainer>
       <CalendarCore
         value={value}
         onChange={onChange}
+        tileDisabled={tileDisabled}
         selectRange={false}
         defaultView={defaultView}
         locale={currentLocale}

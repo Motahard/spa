@@ -43,7 +43,7 @@ function InfoPage() {
       setError(error.message);
     },
     onCompleted(data) {
-      setData(data.searchDog);
+      setData(data.dog);
       setError('');
     },
   });

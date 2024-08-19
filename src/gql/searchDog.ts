@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const getSearchDog = gql`
   query getSearchDog($name: String) {
-    searchDog(name: $name) {
+    dog(name: $name) {
       image_link
       name
       min_life_expectancy

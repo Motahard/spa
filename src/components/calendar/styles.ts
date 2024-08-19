@@ -51,6 +51,11 @@ export const CalendarContainer = styled.div`
     background: ${colors.white};
     color: ${colors.charCoal};
     cursor: pointer;
+
+    &:disabled {
+      color: ${colors.prevMonthDate};
+      cursor: not-allowed;
+    }
   }
 
   .react-calendar__tile--range {

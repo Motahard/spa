@@ -1,4 +1,4 @@
-const GET = async (name: string) => {
+const searchDog = async (name: string) => {
   try {
     const data = await fetch(
       `https://api.api-ninjas.com/v1/dogs?name=${name}`,
@@ -16,4 +16,4 @@ const GET = async (name: string) => {
   }
 };
 
-export default GET;
+export default searchDog;
