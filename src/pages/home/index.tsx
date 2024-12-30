@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import homeCard from '@/assets/content/home-card.png';
-import homeImage from '@/assets/content/home1.png';
+import homeCard from '@/assets/content/home-card.webp';
+import homeImage from '@/assets/content/home1.webp';
 import Button from '@/components/button';
 import InfoCard from '@/components/info-card';
 import { Modal } from '@/components/modal';

@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import emailjs from '@emailjs/browser';
 
-import modalImage from '@/assets/content/modal-image.jpg';
+import modalImage from '@/assets/content/modal-image.webp';
 import Button from '@/components/button';
 import { InputComponent } from '@/components/input';
 import Paragraph from '@/components/paragraph';

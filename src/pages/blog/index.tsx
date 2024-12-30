@@ -2,8 +2,8 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import { useTranslations } from 'next-intl';
 
-import content1 from '@/assets/content/content1.jpg';
-import content2 from '@/assets/content/content2.jpg';
+import content1 from '@/assets/content/content1.webp';
+import content2 from '@/assets/content/content2.webp';
 import BlogLayout from '@/components/blog-about-layout/layout';
 import { Container } from '@/styles/blog.styles';
 

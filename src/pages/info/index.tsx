@@ -10,7 +10,7 @@ import { InputComponent } from '@/components/input';
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import { getSearchDog } from '@/gql/searchDog';
+import { getSearchDog } from '@/graphQl/searchDog';
 import {
   Container,
   CustomText,

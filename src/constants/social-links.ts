@@ -1,10 +1,10 @@
 import { StaticImageData } from 'next/image';
 
-import facebook from '@/assets/social/facebook.png';
-import instagram from '@/assets/social/instagram.png';
-import pinterest from '@/assets/social/pinterest.png';
-import snapchat from '@/assets/social/snapchat.png';
-import twitter from '@/assets/social/twitter.png';
+import facebook from '@/assets/social/facebook.webp';
+import instagram from '@/assets/social/instagram.webp';
+import pinterest from '@/assets/social/pinterest.webp';
+import snapchat from '@/assets/social/snapchat.webp';
+import twitter from '@/assets/social/twitter.webp';
 
 export type SocialLink = {
   icon: StaticImageData;

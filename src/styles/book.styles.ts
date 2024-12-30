@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import bookImage from '@/assets/content/book.jpg';
+import bookImage from '@/assets/content/book.webp';
 
 export const Container = styled.div``;
 

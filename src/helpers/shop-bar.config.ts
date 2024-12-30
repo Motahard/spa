@@ -1,11 +1,11 @@
 import { StaticImageData } from 'next/image';
 
-import shop1 from '@/assets/shop/shop1.png';
-import shop2 from '@/assets/shop/shop2.png';
-import shop3 from '@/assets/shop/shop3.png';
-import shop4 from '@/assets/shop/shop4.png';
-import shop5 from '@/assets/shop/shop5.png';
-import shop6 from '@/assets/shop/shop6.png';
+import shop1 from '@/assets/shop/shop1.webp';
+import shop2 from '@/assets/shop/shop2.webp';
+import shop3 from '@/assets/shop/shop3.webp';
+import shop4 from '@/assets/shop/shop4.webp';
+import shop5 from '@/assets/shop/shop5.webp';
+import shop6 from '@/assets/shop/shop6.webp';
 
 type Card = {
   id: number;

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
-import logo from '@/assets/logos/spa-logo.png';
+import logo from '@/assets/logos/spa-logo.webp';
 import {
   Bar,
   BurgerNavList,

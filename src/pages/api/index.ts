@@ -19,11 +19,8 @@ const apolloServer = new ApolloServer({
   resolvers,
 });
 
-const POST = startServerAndCreateNextHandler<NextRequest>(
-  apolloServer,
-  {
-    context: async (req) => ({ req }),
-  }
-);
+const POST = startServerAndCreateNextHandler<NextRequest>(apolloServer, {
+  context: async (req) => ({ req }),
+});
 
 export default POST;
