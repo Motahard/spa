@@ -14,19 +14,19 @@ type Props = {
   items: FooterItem[];
 };
 
-function PanelList({ title, items }: Props) {
+const PanelList = ({ title, items }: Props) => {
   return (
     <PanelListWrapper>
       <PanelListTitle className={cormorant.className}>{title}</PanelListTitle>
       <PanelListComponent>
-        {items.map((item) => (
-          <PanelListItem key={item.id} className={cormorantLight.className}>
-            <Link href={item.href}>{item.text}</Link>
+        {items.map(({ id, href, text }) => (
+          <PanelListItem key={id} className={cormorantLight.className}>
+            <Link href={href}>{text}</Link>
           </PanelListItem>
         ))}
       </PanelListComponent>
     </PanelListWrapper>
   );
-}
+};
 
 export default PanelList;

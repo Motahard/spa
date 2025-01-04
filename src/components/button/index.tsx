@@ -10,7 +10,7 @@ type Props = {
   loading?: boolean;
 };
 
-function Button({ type, text, loading = false }: Props) {
+const Button = ({ type, text, loading = false }: Props) => {
   return (
     <ButtonComponent
       type={type}
@@ -20,6 +20,6 @@ function Button({ type, text, loading = false }: Props) {
       {loading ? <Image src={loadingImage} alt='loading' /> : text}
     </ButtonComponent>
   );
-}
+};
 
 export default Button;

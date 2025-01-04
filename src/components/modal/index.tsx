@@ -26,9 +26,7 @@ export const Modal = ({ children, onClose, style }: Props) => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
-      window.addEventListener('click', backDropHandler);
-    });
+    window.addEventListener('click', backDropHandler);
 
     return () => window.removeEventListener('click', backDropHandler);
   }, [backDropHandler]);

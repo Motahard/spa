@@ -16,7 +16,7 @@ import {
   socialLinks,
 } from '@/constants';
 
-function FooterBar() {
+const FooterBar = () => {
   const tL = useTranslations('FOOTER.LEFT');
   const tR = useTranslations('FOOTER.RIGHT');
 
@@ -40,7 +40,7 @@ function FooterBar() {
       <PanelList title={tR('title')} items={rightFooterBar} />
     </FooterBarWrapper>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

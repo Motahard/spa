@@ -35,7 +35,7 @@ export const PaymentSystemItem = styled.div`
   }
 `;
 
-export const PaymentSystems = styled.div`
+export const PaymentSystems = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;

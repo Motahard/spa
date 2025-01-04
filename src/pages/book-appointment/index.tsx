@@ -10,8 +10,7 @@ import {
   PayPalScriptProvider,
 } from '@paypal/react-paypal-js';
 
-import { InfoState } from '../../reducers/info-reducer';
-
+import { createOrder } from '@/api/create-order';
 import Button from '@/components/button';
 import DateBlock from '@/components/date-block';
 import InfoBlock from '@/components/info-block';
@@ -21,8 +20,11 @@ import { Modal } from '@/components/modal';
 import PaymentBlock from '@/components/payment-block';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
+import { envVariables } from '@/constants/environment';
 import { schema, schemaPay } from '@/constants/validation';
-import { infoReducer, initialInfoState } from '@/reducers/info-reducer';
+import { resetInfoForm, setInfoError } from '@/reducers/info/info-actions';
+import { infoReducer } from '@/reducers/info/info-reducer';
+import { initialInfoState } from '@/reducers/info/initialState';
 import {
   BookContainer,
   BookTitleImageWrapper,
@@ -33,7 +35,7 @@ import {
   PaypalContainer,
 } from '@/styles/book.styles';
 
-function BookAppoinment() {
+const BookAppoinment = () => {
   const t = useTranslations('BOOK');
   const [modalOpen, setModalOpen] = useState(false);
   const [time, setTime] = useState<string>('1');
@@ -73,14 +75,7 @@ function BookAppoinment() {
 
       for (const { path, message } of errValidate.inner) {
         if (path && message) {
-          dispatch({
-            type: 'SET_ERROR',
-            field: path,
-            payload: {
-              value: state[path as keyof InfoState].value,
-              error: message,
-            },
-          });
+          dispatch(setInfoError(path, state, message));
         }
       }
     }
@@ -90,24 +85,8 @@ function BookAppoinment() {
     setModalOpen(false);
   };
 
-  const handlePayment: PayPalButtonsComponentProps['createOrder'] =
-    async () => {
-      const res = await fetch('/api/paypal/', {
-        method: 'POST',
-      });
-
-      const order = await res.json();
-      return order.id;
-    };
-
   const handleSuccess: PayPalButtonsComponentProps['onApprove'] = async () => {
-    dispatch({
-      type: 'RESET_FORM',
-      field: '',
-      payload: {
-        value: '',
-      },
-    });
+    dispatch(resetInfoForm());
 
     handleModalClose();
   };
@@ -137,6 +116,7 @@ function BookAppoinment() {
           <CommentContainer>
             <InputComponent
               type='textarea'
+              size={18}
               placeholder={t('additional_placholder')}
               fontFamily={cormorantLight.className}
               value={additionalInfo}
@@ -149,11 +129,13 @@ function BookAppoinment() {
             <Modal onClose={handleModalClose}>
               <PaypalContainer>
                 <PayPalScriptProvider
-                  options={{ clientId: process.env.PAYPAL_CLIENT_ID as string }}
+                  options={{
+                    clientId: envVariables.PAYPAL_CLIENT_ID as string,
+                  }}
                 >
                   <PayPalButtons
                     style={{ height: 55, layout: 'vertical', color: 'silver' }}
-                    createOrder={handlePayment}
+                    createOrder={createOrder}
                     onApprove={handleSuccess}
                     onCancel={handleCancel}
                   />
@@ -166,7 +148,7 @@ function BookAppoinment() {
       </BookContainer>
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

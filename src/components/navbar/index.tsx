@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
-import logo from '@/assets/logos/spa-logo.webp';
 import {
   Bar,
   BurgerNavList,
@@ -23,8 +22,9 @@ import {
 import { getNavbarItems } from '@/components/navbar/utils';
 import Paragraph from '@/components/paragraph';
 import { colors, cormorant, tangerine } from '@/constants';
+import { commonImages } from '@/constants/images';
 
-function Navbar() {
+const Navbar = () => {
   const t = useTranslations('NAVBAR');
   const [active, setActive] = useState('Home');
   const [isBurger, setIsBurger] = useState(false);
@@ -62,7 +62,7 @@ function Navbar() {
       <NavigationWrapper>
         <LogoContainer>
           <LogoWrapper>
-            <Image src={logo} alt='Spa Logo' />
+            <Image src={commonImages.logo} alt='Spa Logo' />
           </LogoWrapper>
           <LogoText className={tangerine.className}>{t('title')}</LogoText>
         </LogoContainer>
@@ -112,7 +112,7 @@ function Navbar() {
       </DiscountWrapper>
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

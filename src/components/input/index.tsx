@@ -36,23 +36,25 @@ export type InputProps = {
   mask?: string;
 };
 
-export function InputComponent({
-  placeholder,
-  fontFamily,
-  type = 'text',
-  name,
-  labelDescription,
-  checked,
-  size = 24,
-  onClick,
-  rightAddons,
-  value,
-  onChange,
-  onFocus,
-  error,
-  maxLength,
-  mask,
-}: InputProps) {
+export const InputComponent = (props: InputProps) => {
+  const {
+    type,
+    onChange,
+    checked,
+    onClick,
+    placeholder,
+    labelDescription,
+    fontFamily,
+    size,
+    name,
+    value,
+    mask,
+    rightAddons,
+    onFocus,
+    error,
+    maxLength,
+  } = props;
+
   const handleChange: ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (e) => {
@@ -110,7 +112,7 @@ export function InputComponent({
         isError={Boolean(error)}
         maxLength={maxLength}
       />
-      {rightAddons && <RightAddons src={rightAddons} alt={''} />}
+      {rightAddons && <RightAddons src={rightAddons} alt='' />}
       {error && (
         <Paragraph
           size={16}
@@ -122,4 +124,4 @@ export function InputComponent({
       )}
     </InputContainer>
   );
-}
+};

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { colors, cormorant } from '@/constants';
 
 type InputProps = {
-  size: number;
+  size?: number;
   rightAddons?: StaticImageData;
   isError?: boolean;
 };

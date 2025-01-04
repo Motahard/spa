@@ -5,13 +5,14 @@ import { useTranslations } from 'next-intl';
 
 import emailjs from '@emailjs/browser';
 
-import modalImage from '@/assets/content/modal-image.webp';
 import Button from '@/components/button';
 import { InputComponent } from '@/components/input';
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cinzel_decorative, cormorantLight } from '@/constants';
 import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
+import { envVariables } from '@/constants/environment';
+import { commonImages } from '@/constants/images';
 import { useSendEmail } from '@/hooks/use-send-email';
 import {
   ButtonWrapper,
@@ -27,7 +28,7 @@ const ModalContent = () => {
   const { loading, sendEmail, error, clearError } = useSendEmail();
 
   useEffect(() => {
-    emailjs.init({ publicKey: process.env.EMAIL_PUBLIC || '' });
+    emailjs.init({ publicKey: envVariables.EMAIL_PUBLIC || '' });
   }, []);
 
   const handleChange = (value: string) => {
@@ -84,7 +85,7 @@ const ModalContent = () => {
         </Paragraph>
       </DesciptionWrapper>
       <ImageWrapper>
-        <Image src={modalImage} alt='modal' />
+        <Image src={commonImages.modalImage} alt='modal' />
       </ImageWrapper>
     </Container>
   );

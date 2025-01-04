@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { colors } from '@/constants';
 
-export const MapDescription = styled.div`
+export const MapDescription = styled.section`
   display: flex;
   justify-content: center;
 

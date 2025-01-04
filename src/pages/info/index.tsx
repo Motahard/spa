@@ -31,7 +31,7 @@ type ApiData = {
   name: string;
 };
 
-function InfoPage() {
+const InfoPage = () => {
   const t = useTranslations('INFO');
   const [value, setValue] = useState('');
   const [data, setData] = useState<ApiData[]>([]);
@@ -121,7 +121,7 @@ function InfoPage() {
       )}
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

@@ -37,6 +37,7 @@ const nextConfig = {
       'EJb2CJdB7VvB-SoWASuf_Nq-6qxeSSKa3qWyREaHzhdK0fUx4dTsBsQsWX_DdPuudXiO4Sc1e9UsHweJ',
     NEXT_PUBLIC_SERVER_GRAPHQL: 'http://localhost:3000/api',
     DOGS_API: 'DdOiEDBgIr9QMrW82bjyWQ==mTkQcHRvr6KZirMC',
+    DOGS_API_URI: 'https://api.api-ninjas.com/v1',
   },
 };
 

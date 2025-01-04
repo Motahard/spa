@@ -12,14 +12,9 @@ type Props = {
   children?: string;
 } & TitleComponentProps;
 
-function Title({
-  fontFamily,
-  size,
-  weight,
-  children,
-  color,
-  ...restProps
-}: Props) {
+const Title = (props: Props) => {
+  const { size, weight, fontFamily, color, children, ...restProps } = props;
+
   return (
     <TitleComponent
       size={size}
@@ -32,6 +27,6 @@ function Title({
       {children}
     </TitleComponent>
   );
-}
+};
 
 export default Title;

@@ -37,6 +37,16 @@ export const Calendar = ({
     return params.date < new Date();
   };
 
+  const formatShortWeekday = (_: string | undefined, date: Date) =>
+    date
+      .toLocaleDateString(currentLocale, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+      .slice(0, 1);
+
   return (
     <CalendarContainer>
       <CalendarCore
@@ -46,16 +56,7 @@ export const Calendar = ({
         selectRange={false}
         defaultView={defaultView}
         locale={currentLocale}
-        formatShortWeekday={(locale, date) =>
-          date
-            .toLocaleDateString(currentLocale, {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-            })
-            .slice(0, 1)
-        }
+        formatShortWeekday={formatShortWeekday}
         next2Label={null}
         prev2Label={null}
       />

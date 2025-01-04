@@ -11,14 +11,9 @@ type Props = {
   style?: CSSProperties;
 } & ParagraphComponentProps;
 
-function Paragraph({
-  fontFamily,
-  size,
-  weight,
-  children,
-  color,
-  style,
-}: Props) {
+const Paragraph = (props: Props) => {
+  const { size, weight, style, fontFamily, color, children } = props;
+
   return (
     <ParagraphComponent
       size={size}
@@ -30,6 +25,6 @@ function Paragraph({
       {children}
     </ParagraphComponent>
   );
-}
+};
 
 export default Paragraph;

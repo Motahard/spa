@@ -11,7 +11,7 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const EmailText = styled.span`
+export const EmailText = styled.aside`
   color: ${colors.pinkKisses};
 `;
 

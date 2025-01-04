@@ -2,13 +2,13 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import { useTranslations } from 'next-intl';
 
-import content1 from '@/assets/content/content1.webp';
-import content2 from '@/assets/content/content2.webp';
-import BlogLayout from '@/components/blog-about-layout/layout';
-import { Container } from '@/styles/blog.styles';
+import BlogLayout from '@/components/blog-about-layout';
+import { blogImages } from '@/constants/images';
+import { Container } from '@/styles/info-container.styles';
 
-function BlogPage() {
+const BlogPage = () => {
   const t = useTranslations('BLOG');
+
   return (
     <Container>
       <BlogLayout
@@ -16,12 +16,12 @@ function BlogPage() {
         subtitle={t('subtitle')}
         description={t('card_title_1')}
         firstInfoCard={{
-          image: content1,
+          image: blogImages.content1,
           alt: 'rex1',
           description: t('card_description_1'),
         }}
         secondaryInfoCard={{
-          image: content2,
+          image: blogImages.content2,
           alt: 'rex2',
           description: t('card_description_2'),
           descriptionSecondary: t('card_hint_2'),
@@ -30,7 +30,7 @@ function BlogPage() {
       />
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

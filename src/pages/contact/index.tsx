@@ -20,10 +20,13 @@ import {
 } from '@/helpers/contact.config';
 import { useSendEmail } from '@/hooks/use-send-email';
 import {
-  contactReducer,
-  initialState,
-  State,
-} from '@/reducers/contact-reducer';
+  clearContactError,
+  resetConctactForm,
+  setContactError,
+  setContactValue,
+} from '@/reducers/contact/contact-actions';
+import { contactReducer } from '@/reducers/contact/contact-reducer';
+import { initialContactState } from '@/reducers/contact/initState';
 import {
   Container,
   EmailText,
@@ -31,9 +34,9 @@ import {
   InputContainer,
 } from '@/styles/contact.styles';
 
-function AboutPage() {
+const AboutPage = () => {
   const t = useTranslations('CONTACT');
-  const [state, dispatch] = useReducer(contactReducer, initialState);
+  const [state, dispatch] = useReducer(contactReducer, initialContactState);
   const { sendEmail, loading } = useSendEmail();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
@@ -59,49 +62,24 @@ function AboutPage() {
 
       await sendEmail(params);
 
-      dispatch({
-        type: 'RESET_FORM',
-        field: '',
-        payload: {
-          value: '',
-        },
-      });
+      dispatch(resetConctactForm());
     } catch (err) {
       const errValidate = err as ValidationError;
 
       for (const { path, message } of errValidate.inner) {
         if (path && message) {
-          dispatch({
-            type: 'SET_ERROR',
-            field: path,
-            payload: {
-              value: state[path as keyof State].value,
-              error: message,
-            },
-          });
+          dispatch(setContactError(path, state, message));
         }
       }
     }
   };
 
   const handleChange = async (value: string, name: string) => {
-    dispatch({
-      type: 'CHANGE',
-      field: name,
-      payload: {
-        value: value,
-      },
-    });
+    dispatch(setContactValue(name, value));
   };
 
   const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
-    dispatch({
-      type: 'CLEAR_ERROR',
-      field: e.target.name,
-      payload: {
-        value: state[e.target.name as keyof State].value,
-      },
-    });
+    dispatch(clearContactError(e.target.name, state));
   };
 
   return (
@@ -168,7 +146,7 @@ function AboutPage() {
       </FormContainer>
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

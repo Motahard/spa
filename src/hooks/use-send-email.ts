@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
+import { envVariables } from '@/constants/environment';
+
 type Props = Record<string, string> & { recipient: string };
 
 export const useSendEmail = () => {
@@ -12,13 +14,13 @@ export const useSendEmail = () => {
   const clearError = () => setError('');
 
   useEffect(() => {
-    emailjs.init({ publicKey: process.env.EMAIL_PUBLIC || '' });
+    emailjs.init({ publicKey: envVariables.EMAIL_PUBLIC || '' });
   }, []);
 
   const apiMethod = useCallback(async (props: Props) => {
     setLoading(true);
 
-    if (!process.env.EMAIL_SERVICE_ID || !process.env.EMAIL_TEMPLATE_ID) {
+    if (!envVariables.EMAIL_SERVICE_ID || !envVariables.EMAIL_TEMPLATE_ID) {
       setError('Keys is not provided');
       setLoading(false);
       return;
@@ -32,8 +34,8 @@ export const useSendEmail = () => {
 
     try {
       const response = await emailjs.send(
-        process.env.EMAIL_SERVICE_ID,
-        process.env.EMAIL_TEMPLATE_ID,
+        envVariables.EMAIL_SERVICE_ID,
+        envVariables.EMAIL_TEMPLATE_ID,
         props
       );
 

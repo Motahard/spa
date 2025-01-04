@@ -7,3 +7,5 @@ export const linksWithDescription = [
   '/about',
   '/contact',
 ];
+
+export const homeLink = '/home';

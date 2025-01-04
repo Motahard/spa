@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 
+import { mapBlockTimeConfig } from './config';
+
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorantLight } from '@/constants';
@@ -35,27 +37,11 @@ const MapBlock = () => {
         </MapDesciptionItem>
         <MapDesciptionItem>
           <Title>Hours of Operation:</Title>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Sunday - Closed
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Monday 10 a.m.-5:30 p.m.
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Tuesday 10 a.m.-5:30 p.m.
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Wednesday 10 a.m.-5:30 p.m.
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Thursday 10a.m.-5:30 p.m.
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Friday 10 a.m.-5:30 p.m.
-          </Paragraph>
-          <Paragraph fontFamily={cormorantLight.className}>
-            Saturday 10 a.m.-5:30 p.m.
-          </Paragraph>
+          {mapBlockTimeConfig.map((item) => (
+            <Paragraph fontFamily={cormorantLight.className} key={item.id}>
+              {item.description}
+            </Paragraph>
+          ))}
         </MapDesciptionItem>
       </MapDescription>
     </Container>

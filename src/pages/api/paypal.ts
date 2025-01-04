@@ -2,9 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import checkoutNodeJssdk from '@paypal/checkout-server-sdk';
 
+import { envVariables } from '@/constants/environment';
+
 const configureEnvironment = () => {
-  const clientId = process.env.PAYPAL_CLIENT_ID || '';
-  const clientSecret = process.env.PAYPAL_CLIENT_SECRET || '';
+  const clientId = envVariables.PAYPAL_CLIENT_ID || '';
+  const clientSecret = envVariables.PAYPAL_CLIENT_SECRET || '';
 
   return new checkoutNodeJssdk.core.SandboxEnvironment(clientId, clientSecret);
 };
@@ -19,10 +21,10 @@ type ResponseData = {
   id: string;
 };
 
-export default async function handler(
+const handler = async (
   _: NextApiRequest,
   res: NextApiResponse<ResponseData>
-) {
+) => {
   const request = new checkoutNodeJssdk.orders.OrdersCreateRequest();
 
   request.requestBody({
@@ -40,4 +42,6 @@ export default async function handler(
   const response = await clientPaypal().execute(request);
 
   res.status(200).json({ id: response.result.id });
-}
+};
+
+export default handler;

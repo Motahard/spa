@@ -12,16 +12,16 @@ export const Container = styled.div`
   }
 `;
 
-export const DateWrapper = styled.div`
+export const DateWrapper = styled.section`
   flex: 1;
 `;
 
-export const TimeWrapper = styled.div`
+export const TimeWrapper = styled.section`
   margin-top: 16px;
   flex: 1;
 `;
 
-export const TimeContainer = styled.div`
+export const TimeContainer = styled.section`
   margin-top: 24px;
 
   @media (max-width: 1439px) {
@@ -31,7 +31,7 @@ export const TimeContainer = styled.div`
     justify-content: center;
   }
 `;
-export const DateTitleContainer = styled.div`
+export const DateTitleContainer = styled.section`
   display: flex;
   justify-content: space-between;
   font-size: 24px;

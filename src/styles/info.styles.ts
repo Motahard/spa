@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin-bottom: 106px;
 `;
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.section`
   display: flex;
   width: 100%;
   align-items: center;
@@ -32,12 +32,12 @@ export const InputContainer = styled.form`
   width: 300px;
 `;
 
-export const DogInfoContainer = styled.div`
+export const DogInfoContainer = styled.section`
   margin-top: 96px;
   width: 100%;
 `;
 
-export const DogCard = styled.div`
+export const DogCard = styled.article`
   background-color: ${colors.inHouse};
   padding-top: 48px;
   display: flex;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;

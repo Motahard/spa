@@ -8,7 +8,7 @@ import Title from '@/components/title';
 import { colors, cormorant, cormorantLight } from '@/constants';
 import { SpaContainer } from '@/styles/spa.styles';
 
-function SpaServices() {
+const SpaServices = () => {
   const t = useTranslations('SPA');
 
   return (
@@ -160,7 +160,7 @@ function SpaServices() {
       <Breaker />
     </SpaContainer>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

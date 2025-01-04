@@ -1,6 +1,8 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import Router from 'next/router';
 
+import { homeLink } from '@/constants';
+
 type Props = {
   children?: ReactNode;
 };
@@ -27,7 +29,7 @@ class ErrorBoundary extends Component<Props, State> {
   public handleClose() {
     this.setState({ hasError: false });
 
-    Router.push('/home');
+    Router.push(homeLink);
   }
 
   public render() {

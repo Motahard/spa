@@ -25,13 +25,10 @@ type Props = {
   secondaryInfoCard: InfoCardProps;
 };
 
-function BlogLayout({
-  title,
-  subtitle,
-  description,
-  firstInfoCard,
-  secondaryInfoCard,
-}: Props) {
+const BlogLayout = (props: Props) => {
+  const { title, subtitle, description, firstInfoCard, secondaryInfoCard } =
+    props;
+
   return (
     <>
       <TitleWrapper>
@@ -60,6 +57,6 @@ function BlogLayout({
       </ContentWrapper>
     </>
   );
-}
+};
 
 export default BlogLayout;
