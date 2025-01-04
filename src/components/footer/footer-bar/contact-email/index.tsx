@@ -15,7 +15,7 @@ import { cormorant, cormorantLight } from '@/constants';
 import { DEFAULT_MESSAGE, FROM_NAME } from '@/constants/email';
 import { useSendEmail } from '@/hooks/use-send-email';
 
-function ContactEmail() {
+const ContactEmail = () => {
   const t = useTranslations('FOOTER.CONTACT');
   const [value, setValue] = useState('');
   const { sendEmail, loading, error, clearError } = useSendEmail();
@@ -67,7 +67,7 @@ function ContactEmail() {
       </SubscribeInputWrapper>
     </SubscribeForm>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const typeDefs = gql`
   type Query {
-    searchDog(name: String): [Dog]
+    dog(name: String): [Dog]
   }
 
   type Dog {

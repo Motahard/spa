@@ -4,8 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import homeCard from '@/assets/content/home-card.png';
-import homeImage from '@/assets/content/home1.png';
 import Button from '@/components/button';
 import InfoCard from '@/components/info-card';
 import { Modal } from '@/components/modal';
@@ -13,6 +11,7 @@ import ModalContent from '@/components/modal-content';
 import ShopBar from '@/components/shop-bar';
 import Title from '@/components/title';
 import { cormorant } from '@/constants';
+import { homeImages } from '@/constants/images';
 import { animalCarryOns, dogCollars } from '@/helpers/shop-bar.config';
 import {
   Container,
@@ -21,7 +20,7 @@ import {
   ImageContainer,
 } from '@/styles/home.styles';
 
-function HomePage() {
+const HomePage = () => {
   const t = useTranslations('HOME');
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -49,7 +48,7 @@ function HomePage() {
     <Container>
       <HomeCard>
         <ImageContainer>
-          <Image src={homeImage} alt='homeImage' />
+          <Image src={homeImages.homeImage} alt='homeImage' />
           <ContentContainer>
             <Title bottom={48} size={64} fontFamily={cormorant.className}>
               {t('title')}
@@ -60,7 +59,11 @@ function HomePage() {
           </ContentContainer>
         </ImageContainer>
       </HomeCard>
-      <InfoCard image={homeCard} alt='homeCard' description={t('info_card')} />
+      <InfoCard
+        image={homeImages.homeCard}
+        alt='homeCard'
+        description={t('info_card')}
+      />
       <ShopBar
         cards={dogCollars([
           [t('dog_shop_item_title'), t('dog_shop_item_subtitle'), '350$'],
@@ -86,7 +89,7 @@ function HomePage() {
       )}
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

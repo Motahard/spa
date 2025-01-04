@@ -1,5 +1,9 @@
 import React from 'react';
-import { Calendar as CalendarCore, CalendarProps } from 'react-calendar';
+import {
+  Calendar as CalendarCore,
+  CalendarProps,
+  TileDisabledFunc,
+} from 'react-calendar';
 
 import { CalendarContainer } from '@/components/calendar/styles';
 
@@ -29,24 +33,30 @@ export const Calendar = ({
 
   const currentLocale = locale === 'en' ? 'en-US' : 'ru-RU';
 
+  const tileDisabled: TileDisabledFunc = (params) => {
+    return params.date < new Date();
+  };
+
+  const formatShortWeekday = (_: string | undefined, date: Date) =>
+    date
+      .toLocaleDateString(currentLocale, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+      .slice(0, 1);
+
   return (
     <CalendarContainer>
       <CalendarCore
         value={value}
         onChange={onChange}
+        tileDisabled={tileDisabled}
         selectRange={false}
         defaultView={defaultView}
         locale={currentLocale}
-        formatShortWeekday={(locale, date) =>
-          date
-            .toLocaleDateString(currentLocale, {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-            })
-            .slice(0, 1)
-        }
+        formatShortWeekday={formatShortWeekday}
         next2Label={null}
         prev2Label={null}
       />

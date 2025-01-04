@@ -10,7 +10,7 @@ import { InputComponent } from '@/components/input';
 import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import { getSearchDog } from '@/gql/searchDog';
+import { getSearchDog } from '@/graphQl/searchDog';
 import {
   Container,
   CustomText,
@@ -31,7 +31,7 @@ type ApiData = {
   name: string;
 };
 
-function InfoPage() {
+const InfoPage = () => {
   const t = useTranslations('INFO');
   const [value, setValue] = useState('');
   const [data, setData] = useState<ApiData[]>([]);
@@ -43,7 +43,7 @@ function InfoPage() {
       setError(error.message);
     },
     onCompleted(data) {
-      setData(data.searchDog);
+      setData(data.dog);
       setError('');
     },
   });
@@ -121,7 +121,7 @@ function InfoPage() {
       )}
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

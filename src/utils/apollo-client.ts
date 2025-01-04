@@ -1,8 +1,12 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
+import { envVariables } from '@/constants/environment';
+
 export const createApolloClient = () => {
   return new ApolloClient({
-    uri: process.env.NEXT_PUBLIC_SERVER_GRAPHQL || 'localhost:3000/api/graphql',
+    uri: envVariables.NEXT_PUBLIC_VERCEL_URL
+      ? envVariables.NEXT_PUBLIC_VERCEL_URL + '/api'
+      : envVariables.NEXT_PUBLIC_SERVER_GRAPHQL || 'localhost:3000/api',
     cache: new InMemoryCache(),
   });
 };

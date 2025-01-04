@@ -26,7 +26,7 @@ type Props = {
   setTime: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function DateBlock({ date, time, setDate, setTime }: Props) {
+const DateBlock = ({ date, time, setDate, setTime }: Props) => {
   const t = useTranslations('BOOK.DATE');
   const { locale } = useRouter();
   const handleClick = (id?: string) => {
@@ -67,7 +67,7 @@ function DateBlock({ date, time, setDate, setTime }: Props) {
       </DateWrapper>
     </Container>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

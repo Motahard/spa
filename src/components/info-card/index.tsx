@@ -16,13 +16,10 @@ type Props = {
   flexDirection?: string;
 };
 
-function InfoCard({
-  image,
-  alt,
-  description,
-  descriptionSecondary,
-  flexDirection,
-}: Props) {
+const InfoCard = (props: Props) => {
+  const { image, alt, description, descriptionSecondary, flexDirection } =
+    props;
+
   return (
     <ContentItem flexDirection={flexDirection}>
       <ImageWrapper>
@@ -44,6 +41,6 @@ function InfoCard({
       </TextWrapper>
     </ContentItem>
   );
-}
+};
 
 export default InfoCard;

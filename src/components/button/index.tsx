@@ -10,12 +10,16 @@ type Props = {
   loading?: boolean;
 };
 
-function Button({ type, text, loading = false }: Props) {
+const Button = ({ type, text, loading = false }: Props) => {
   return (
-    <ButtonComponent type={type} className={cormorant.className}>
+    <ButtonComponent
+      type={type}
+      className={cormorant.className}
+      disabled={loading}
+    >
       {loading ? <Image src={loadingImage} alt='loading' /> : text}
     </ButtonComponent>
   );
-}
+};
 
 export default Button;

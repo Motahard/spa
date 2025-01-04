@@ -8,7 +8,8 @@ import Paragraph from '@/components/paragraph';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
 import { paymentSystemsConfig } from '@/constants/payments-systems';
-import { Action, InfoState } from '@/reducers/info-reducer';
+import { setInfoValue } from '@/reducers/info/info-actions';
+import { InfoAction, InfoState } from '@/reducers/info/types';
 import {
   Container,
   FormContainer,
@@ -21,19 +22,13 @@ import {
 
 type Props = {
   state: InfoState;
-  dispatch: React.Dispatch<Action>;
+  dispatch: React.Dispatch<InfoAction>;
 };
 
 const PaymentBlock = ({ dispatch, state }: Props) => {
   const t = useTranslations('BOOK.PAYMENT');
   const handleChange = (value: string, name: string) => {
-    dispatch({
-      type: 'CHANGE',
-      field: name,
-      payload: {
-        value: name === 'name' ? value.toLocaleUpperCase() : value,
-      },
-    });
+    dispatch(setInfoValue(name, value));
   };
 
   return (
@@ -84,9 +79,9 @@ const PaymentBlock = ({ dispatch, state }: Props) => {
           value={state.name.value}
         />
         <PaymentSystems>
-          {paymentSystemsConfig.map((item) => (
-            <PaymentSystemItem key={item.alt}>
-              <Image src={item.icon} alt={item.alt} />
+          {paymentSystemsConfig.map(({ alt, icon }) => (
+            <PaymentSystemItem key={alt}>
+              <Image src={icon} alt={alt} />
             </PaymentSystemItem>
           ))}
         </PaymentSystems>

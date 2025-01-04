@@ -9,7 +9,7 @@ import { Container, FooterWrapper, ListItem } from '@/components/footer/styles';
 import { getFooterBar } from '@/components/footer/utils';
 import { bottomFooterBarInfo, cormorantLight } from '@/constants';
 
-function Footer() {
+const Footer = () => {
   const t = useTranslations('FOOTER.BOTTOM');
   const { locale, locales, route } = useRouter();
   const otherLocale = locales?.find((cur) => cur !== locale);
@@ -30,9 +30,9 @@ function Footer() {
     <FooterWrapper>
       <FooterBar />
       <Container>
-        {bottomFooterBar.map((item) => (
-          <ListItem className={cormorantLight.className} key={item.id}>
-            <Link href={item.href}>{item.text}</Link>
+        {bottomFooterBar.map(({ id, href, text }) => (
+          <ListItem className={cormorantLight.className} key={id}>
+            <Link href={href}>{text}</Link>
           </ListItem>
         ))}
         <ListItem>
@@ -43,7 +43,7 @@ function Footer() {
       </Container>
     </FooterWrapper>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {

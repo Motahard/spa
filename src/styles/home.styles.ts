@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-bottom: 96px;
 `;
 
-export const HomeCard = styled.div`
+export const HomeCard = styled.article`
   width: 100%;
   margin-bottom: 96px;
 `;
@@ -19,7 +19,7 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.section`
   position: absolute;
   top: 50%;
   transform: translateY(-10%);

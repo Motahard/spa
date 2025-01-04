@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import bookImage from '@/assets/content/book.jpg';
+import { commonImages } from '@/constants/images';
 
 export const Container = styled.div``;
 
-export const BookTitleImageWrapper = styled.div`
+export const BookTitleImageWrapper = styled.section`
   min-height: 50vh;
-  background-image: ${`url(${bookImage.src})`};
+  background-image: ${`url(${commonImages.bookImage.src})`};
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.9;
@@ -26,7 +26,7 @@ export const BookTitleImageWrapper = styled.div`
   }
 `;
 
-export const BookTitleWrapper = styled.div`
+export const BookTitleWrapper = styled.section`
   max-width: 30vw;
   margin-bottom: 150px;
 
@@ -35,7 +35,7 @@ export const BookTitleWrapper = styled.div`
   }
 `;
 
-export const BookContainer = styled.div`
+export const BookContainer = styled.section`
   padding: 48px 16px;
   max-width: 1500px;
   margin: auto;
@@ -53,7 +53,7 @@ export const FormContainer = styled.form`
   gap: 108px;
 `;
 
-export const CommentContainer = styled.div`
+export const CommentContainer = styled.section`
   margin-top: 48px;
   display: flex;
   flex-direction: column;
@@ -75,6 +75,6 @@ export const CommentContainer = styled.div`
   }
 `;
 
-export const PaypalContainer = styled.div`
+export const PaypalContainer = styled.section`
   width: 100%;
 `;

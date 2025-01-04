@@ -1,11 +1,6 @@
 import { StaticImageData } from 'next/image';
 
-import shop1 from '@/assets/shop/shop1.png';
-import shop2 from '@/assets/shop/shop2.png';
-import shop3 from '@/assets/shop/shop3.png';
-import shop4 from '@/assets/shop/shop4.png';
-import shop5 from '@/assets/shop/shop5.png';
-import shop6 from '@/assets/shop/shop6.png';
+import { shopImages } from '@/constants/images';
 
 type Card = {
   id: number;
@@ -18,21 +13,21 @@ type Card = {
 export const dogCollars = (items: Array<[string, string, string]>): Card => [
   {
     id: 1,
-    image: shop1,
+    image: shopImages.shop1,
     description: items[0][0],
     subDescription: items[0][1],
     price: items[0][2],
   },
   {
     id: 2,
-    image: shop2,
+    image: shopImages.shop2,
     description: items[1][0],
     subDescription: items[1][1],
     price: items[1][2],
   },
   {
     id: 3,
-    image: shop3,
+    image: shopImages.shop3,
     description: items[2][0],
     subDescription: items[2][1],
     price: items[2][2],
@@ -44,21 +39,21 @@ export const animalCarryOns = (
 ): Card => [
   {
     id: 4,
-    image: shop4,
+    image: shopImages.shop4,
     description: items[0][0],
     subDescription: items[0][1],
     price: items[0][2],
   },
   {
     id: 5,
-    image: shop5,
+    image: shopImages.shop5,
     description: items[1][0],
     subDescription: items[1][1],
     price: items[1][2],
   },
   {
     id: 6,
-    image: shop6,
+    image: shopImages.shop6,
     description: items[2][0],
     subDescription: items[2][1],
     price: items[2][2],

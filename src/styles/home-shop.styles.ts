@@ -11,7 +11,7 @@ export const Container = styled.div`
   margin-bottom: 48px;
 `;
 
-export const CardsContainer = styled.div`
+export const CardsContainer = styled.section`
   display: flex;
   gap: 48px;
 
@@ -21,7 +21,7 @@ export const CardsContainer = styled.div`
   }
 `;
 
-export const Card = styled.div`
+export const Card = styled.article`
   @media (max-width: 1439px) {
     display: flex;
     flex-direction: column;

@@ -1,8 +1,10 @@
 import checkoutNodeJssdk from '@paypal/checkout-server-sdk';
 
+import { envVariables } from '@/constants/environment';
+
 const configureEnvironment = () => {
-  const clientId = process.env.PAYPAL_CLIENT_ID || '';
-  const clientSecret = process.env.PAYPAL_CLIENT_SECRET || '';
+  const clientId = envVariables.PAYPAL_CLIENT_ID || '';
+  const clientSecret = envVariables.PAYPAL_CLIENT_SECRET || '';
 
   return new checkoutNodeJssdk.core.SandboxEnvironment(clientId, clientSecret);
 };

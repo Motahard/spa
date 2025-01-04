@@ -5,12 +5,13 @@ import { useTranslations } from 'next-intl';
 import { InputComponent } from '@/components/input';
 import Title from '@/components/title';
 import { cormorant, cormorantLight } from '@/constants';
-import { Action, InfoState } from '@/reducers/info-reducer';
+import { setContactValue } from '@/reducers/contact/contact-actions';
+import { InfoAction, InfoState } from '@/reducers/info/types';
 import { Container, InfoContainer } from '@/styles/info-block.styles';
 
 type Props = {
   state: InfoState;
-  dispatch: React.Dispatch<Action>;
+  dispatch: React.Dispatch<InfoAction>;
 };
 
 type Ref = React.LegacyRef<HTMLDivElement>;
@@ -20,13 +21,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
   const { dispatch, state } = props;
 
   const handleChange = (value: string, name: string) => {
-    dispatch({
-      type: 'CHANGE',
-      field: name,
-      payload: {
-        value: value,
-      },
-    });
+    dispatch(setContactValue(name, value));
   };
 
   return (
@@ -37,6 +32,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
       <InfoContainer>
         <InputComponent
           type='text'
+          size={18}
           name='firstName'
           placeholder={t('placeholder_1')}
           fontFamily={cormorantLight.className}
@@ -46,6 +42,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
         />
         <InputComponent
           type='text'
+          size={18}
           name='lastName'
           placeholder={t('placeholder_2')}
           fontFamily={cormorantLight.className}
@@ -55,6 +52,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
         />
         <InputComponent
           type='email'
+          size={18}
           name='email'
           placeholder={t('placeholder_3')}
           fontFamily={cormorantLight.className}
@@ -64,6 +62,7 @@ const InfoBlock = (props: Props, ref: Ref) => {
         />
         <InputComponent
           type='tel'
+          size={18}
           name='phone'
           placeholder={t('placeholder_4')}
           fontFamily={cormorantLight.className}

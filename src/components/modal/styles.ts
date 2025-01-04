@@ -4,7 +4,7 @@ import { colors } from '@/constants';
 
 export const ModalContainer = styled.div`
   max-width: 1000px;
-  z-index: 1000;
+  z-index: 1;
 
   @media (max-width: 1439px) {
     max-width: 400px;
@@ -17,7 +17,7 @@ export const ModalWrapper = styled.div`
   background: white;
   border: 10px solid ${colors.roseyCheck};
   padding: 32px 48px;
-  z-index: 1000;
+  z-index: 1;
   min-height: 400px;
   min-width: 400px;
   display: flex;

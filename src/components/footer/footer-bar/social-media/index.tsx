@@ -14,7 +14,7 @@ type Props = {
   socialLinks: SocialLink[];
 };
 
-function SocialMedia({ socialLinks }: Props) {
+const SocialMedia = ({ socialLinks }: Props) => {
   const t = useTranslations('FOOTER.SOCIAL');
 
   return (
@@ -23,17 +23,17 @@ function SocialMedia({ socialLinks }: Props) {
         {t('title')}
       </SocialMediaTitle>
       <SocialList>
-        {socialLinks.map((social) => (
-          <SocialListItem key={social.alt}>
-            <a target='_blank' href={social.uri} rel='noreferrer'>
-              <Image src={social.icon} alt={social.alt} />
+        {socialLinks.map(({ alt, uri, icon }) => (
+          <SocialListItem key={alt}>
+            <a target='_blank' href={uri} rel='noreferrer'>
+              <Image src={icon} alt={alt} />
             </a>
           </SocialListItem>
         ))}
       </SocialList>
     </SocialMediaContainer>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
