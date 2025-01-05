@@ -1,0 +1,19 @@
+import styled from 'styled-components';
+
+import { colors } from '@/app/constants';
+
+export const ButtonComponent = styled.button`
+  border: none;
+  border-radius: 30px;
+  padding: 10px 48px;
+  font-size: 20px;
+  color: #fff;
+  background-color: ${colors.pinkKisses};
+  cursor: pointer;
+
+  & > img {
+    width: 40px;
+    height: 25px;
+    color: ${colors.white};
+  }
+`;
