@@ -11,7 +11,7 @@
     "contact": "Contact Us"
   },
   "FOOTER": {
-    "BOTTOM": {
+    "POLICY": {
       "cookie": "Cookie Policy",
       "cookie_settings": "Cookies Settings",
       "copyright": "Copyright 2021 Luxe Animal Spa, LLC. All rights reserved.",
@@ -19,7 +19,7 @@
       "privacy": "Privacy",
       "security": "Security"
     },
-    "LEFT": {
+    "LINKS": {
       "title": "Customer Service",
       "blog": "Blog",
       "cancelattions": "Cancelattions",
@@ -27,7 +27,7 @@
       "luxe": "Luxe’s Annual Spa Day 2021'",
       "payment": "Payment Options"
     },
-    "RIGHT": {
+    "INFO": {
       "title": "Navigation",
       "home": "Home",
       "about": "About Us",

@@ -17,8 +17,8 @@ import {
 } from '@/app/constants';
 
 const FooterBar = () => {
-  const tL = useTranslations('FOOTER.LEFT');
-  const tR = useTranslations('FOOTER.RIGHT');
+  const tL = useTranslations('FOOTER.LINKS');
+  const tI = useTranslations('FOOTER.INFO');
 
   const leftFooterBar = getFooterBar(
     [tL('blog'), tL('cancelattions'), tL('track'), tL('luxe'), tL('payment')],
@@ -26,7 +26,7 @@ const FooterBar = () => {
   );
 
   const rightFooterBar = getFooterBar(
-    [tR('home'), tR('about'), tR('contact'), tR('faq'), tR('help')],
+    [tI('home'), tI('about'), tI('contact'), tI('faq'), tI('help')],
     rightFooterBarInfo
   );
 
@@ -37,7 +37,7 @@ const FooterBar = () => {
         <ContactEmail />
         <SocialMedia socialLinks={socialLinks} />
       </ContactWrapper>
-      <PanelList title={tR('title')} items={rightFooterBar} />
+      <PanelList title={tI('title')} items={rightFooterBar} />
     </FooterBarWrapper>
   );
 };

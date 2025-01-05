@@ -14,7 +14,7 @@ import { getFooterBar } from '@/app/components/footer/utils';
 import { bottomFooterBarInfo, cormorantLight } from '@/app/constants';
 
 const Footer = () => {
-  const t = useTranslations('FOOTER.BOTTOM');
+  const t = useTranslations('FOOTER.POLICY');
   const { locale, locales, route } = useRouter();
   const otherLocale = locales?.find((cur) => cur !== locale);
 
